@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medisync - Login</title>
+
+    <link rel="stylesheet" href="login style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="hospital-info">
+
+            <div class="logo-box">
+                <img src="logo.jpeg" alt="Medisync Logo">
+            </div>
+
+            <h1>MEDISYNC</h1>
+
+            <h2>
+                A Smart Hospital Management & Patient Care System
+            </h2>
+
+            <p>
+                A smart and efficient platform designed to connect
+                patients, doctors and hospital services in one place.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <span>✓</span>
+
+                    <div>
+                        <strong>Patient Management</strong>
+                        <small>
+                            Manage patient information easily
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <span>✓</span>
+
+                    <div>
+                        <strong>Doctor Management</strong>
+                        <small>
+                            Organize doctors and appointments
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <span>✓</span>
+
+                    <div>
+                        <strong>Smart Healthcare</strong>
+                        <small>
+                            Better and faster hospital services
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="login-section">
+
+            <div class="login-card">
+
+                <div class="login-heading">
+
+                    <p>WELCOME BACK</p>
+
+                    <h2>Login to Medisync</h2>
+
+                    <span>
+                        Access your hospital dashboard
+                    </span>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="user_email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="login-options">
+
+                        <label class="remember">
+
+                            <input type="checkbox">
+
+                            Remember me
+
+                        </label>
+
+
+                        <a href="#">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        id="loginButton"
+                    >
+
+                        Login
+
+                        <span>→</span>
+
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+
+                    <span>MEDISYNC</span>
+
+                </div>
+
+
+                <p class="bottom-text">
+                    Smart care. Better management. Connected healthcare.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EMAILJS -->
+
+    <script>
+
+        /* Your existing EmailJS Public Key */
+
+        emailjs.init({
+
+            publicKey: "EZSSmEnDFJNEVuey8"
+
+        });
+
+
+        /* Login form */
+
+        document
+            .getElementById("loginForm")
+            .addEventListener("submit", function(event) {
+
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email").value;
+
+
+                const password =
+                    document.getElementById("password").value;
+
+
+                const loginButton =
+                    document.getElementById("loginButton");
+
+
+                /* Check fields */
+
+                if (email === "" || password === "") {
+
+                    alert(
+                        "Please enter your email and password."
+                    );
+
+                    return;
+
+                }
+
+
+                /* Change button */
+
+                loginButton.innerHTML =
+                    "Sending...";
+
+                loginButton.disabled = true;
+
+
+                /* Send email */
+
+                emailjs.send(
+
+                    "service_b4o1edb",
+
+                    "template_lwf1eh9",
+
+                    {
+
+                        user_email: email
+
+                    }
+
+                )
+
+                .then(function(response) {
+
+
+                    console.log(
+                        "Email sent successfully."
+                    );
+
+
+                    /* Keep the previous behaviour */
+
+                    alert(
+                        "Login successful! A confirmation email has been sent."
+                    );
+
+
+                    /* Only NOW open dashboard */
+
+                    window.location.href =
+                        "dashboard index.html";
+
+
+                })
+
+
+                .catch(function(error) {
+
+
+                    console.log(
+                        "EmailJS Error:",
+                        error
+                    );
+
+
+                    alert(
+                        "Something went wrong while sending the email."
+                    );
+
+
+                    loginButton.innerHTML =
+                        'Login <span>→</span>';
+
+                    loginButton.disabled = false;
+
+
+                });
+
+
+            });
+
+    </script>
+
+
+</body>
+
+</html>

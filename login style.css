@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f2f7f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+    width: 92%;
+    max-width: 1200px;
+    min-height: 680px;
+    background: white;
+    display: flex;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+/* LEFT SIDE */
+
+.hospital-info {
+    width: 52%;
+    background: linear-gradient(145deg, #0d5c55, #174f4a);
+    color: white;
+    padding: 55px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hospital-info::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+    right: -170px;
+    bottom: -120px;
+}
+
+.hospital-info::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    left: -130px;
+    top: -100px;
+}
+
+
+/* BIG LOGO */
+
+.logo-box {
+    width: 150px;
+    height: 150px;
+    background: white;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 18px;
+}
+
+
+/* BRAND */
+
+.hospital-info h1 {
+    font-size: 42px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.hospital-info h2 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 450px;
+    margin-bottom: 20px;
+}
+
+.hospital-info > p {
+    color: #d9ece9;
+    line-height: 1.7;
+    max-width: 470px;
+    font-size: 15px;
+}
+
+
+/* FEATURES */
+
+.features {
+    margin-top: 45px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.feature > span {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.feature strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.feature small {
+    color: #c7e2df;
+    font-size: 12px;
+}
+
+
+/* RIGHT SIDE */
+
+.login-section {
+    width: 48%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 410px;
+}
+
+
+/* HEADING */
+
+.login-heading {
+    margin-bottom: 35px;
+}
+
+.login-heading p {
+    color: #0d6b62;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 9px;
+}
+
+.login-heading h2 {
+    color: #193c39;
+    font-size: 32px;
+    margin-bottom: 9px;
+}
+
+.login-heading span {
+    color: #7a8987;
+    font-size: 14px;
+}
+
+
+/* INPUTS */
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #334b48;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #dce5e3;
+    border-radius: 10px;
+    padding: 0 16px;
+    font-size: 14px;
+    outline: none;
+    background: #fafcfc;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0d6b62;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(13,107,98,0.08);
+}
+
+.input-group input::placeholder {
+    color: #a5afad;
+}
+
+
+/* OPTIONS */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 28px;
+    font-size: 12px;
+}
+
+.remember {
+    color: #687875;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember input {
+    accent-color: #0d6b62;
+}
+
+.login-options a {
+    text-decoration: none;
+    color: #0d6b62;
+    font-weight: bold;
+}
+
+
+/* LOGIN BUTTON */
+
+button {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 10px;
+    background: #0d6b62;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button span {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+button:hover {
+    background: #084f49;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13,107,98,0.2);
+}
+
+
+/* BOTTOM */
+
+.divider {
+    margin: 35px 0 20px;
+    height: 1px;
+    background: #e5ecea;
+    position: relative;
+    text-align: center;
+}
+
+.divider span {
+    position: relative;
+    top: -8px;
+    background: white;
+    padding: 0 12px;
+    color: #9aa6a4;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.bottom-text {
+    text-align: center;
+    color: #9aa6a4;
+    font-size: 11px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+
+    .main-container {
+        width: 95%;
+        flex-direction: column;
+    }
+
+    .hospital-info {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .login-section {
+        width: 100%;
+        padding: 40px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .hospital-info {
+        padding: 30px;
+    }
+
+    .hospital-info h1 {
+        font-size: 32px;
+    }
+
+    .logo-box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .login-section {
+        padding: 30px 20px;
+    }
+
+    .login-heading h2 {
+        font-size: 27px;
+    }
+
+}
