@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medisync - OTP Verification</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eef4f1;
+        }
+
+        .otp-card {
+            width: 420px;
+            padding: 40px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            text-align: center;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            color: #173f3a;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 28px;
+            line-height: 1.5;
+        }
+
+        .otp-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            letter-spacing: 8px;
+            border: 2px solid #d5dfdb;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .otp-input:focus {
+            border-color: #173f3a;
+        }
+
+        .timer {
+            margin: 18px 0;
+            color: #b44b4b;
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #173f3a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+
+        button:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+
+        .resend {
+            background: transparent;
+            color: #173f3a;
+        }
+
+        .message {
+            margin-top: 18px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="otp-card">
+
+
+        <!-- LOGO -->
+
+        <img
+            src="logo.jpeg"
+            class="logo"
+            alt="Medisync Logo"
+        >
+
+
+        <!-- HEADING -->
+
+        <h1>
+            OTP Verification
+        </h1>
+
+
+        <p class="subtitle">
+
+            Enter the 6-digit verification code sent
+            to your registered email address.
+
+        </p>
+
+
+        <!-- OTP INPUT -->
+
+        <input
+            type="text"
+            id="otp"
+            class="otp-input"
+            maxlength="6"
+            inputmode="numeric"
+            placeholder="••••••"
+            autocomplete="one-time-code"
+        >
+
+
+        <!-- TIMER -->
+
+        <div class="timer">
+
+            OTP expires in:
+
+            <span id="timer">
+                02:00
+            </span>
+
+        </div>
+
+
+        <!-- VERIFY -->
+
+        <button id="verifyButton">
+
+            Verify OTP
+
+        </button>
+
+
+        <!-- RESEND -->
+
+        <button
+            id="resendButton"
+            class="resend"
+            disabled
+        >
+
+            Resend OTP
+
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* =========================================
+           OTP SETTINGS
+        ========================================== */
+
+        const OTP_DURATION = 120;
+
+        const MAX_ATTEMPTS = 5;
+
+        let attempts = 0;
+
+
+
+        /* =========================================
+           GET ELEMENTS
+        ========================================== */
+
+        const otpInput =
+            document.getElementById("otp");
+
+
+        const timerDisplay =
+            document.getElementById("timer");
+
+
+        const verifyButton =
+            document.getElementById("verifyButton");
+
+
+        const resendButton =
+            document.getElementById("resendButton");
+
+
+        const message =
+            document.getElementById("message");
+
+
+
+        /* =========================================
+           GET OTP FROM SESSION
+        ========================================== */
+
+        const storedOTP =
+            sessionStorage.getItem(
+                "medisyncOTP"
+            );
+
+
+        const expiryTime =
+            Number(
+                sessionStorage.getItem(
+                    "medisyncOTPExpiry"
+                )
+            );
+
+
+
+        /* =========================================
+           CHECK OTP EXISTS
+        ========================================== */
+
+        if (!storedOTP || !expiryTime) {
+
+            message.textContent =
+                "No OTP found. Please return to the login page.";
+
+            verifyButton.disabled =
+                true;
+
+        }
+
+
+
+        /* =========================================
+           TIMER FUNCTION
+        ========================================== */
+
+        function updateTimer() {
+
+
+            const remaining =
+                Math.max(
+                    0,
+                    Math.floor(
+                        (expiryTime - Date.now()) / 1000
+                    )
+                );
+
+
+            const minutes =
+                Math.floor(
+                    remaining / 60
+                );
+
+
+            const seconds =
+                remaining % 60;
+
+
+            timerDisplay.textContent =
+                String(minutes).padStart(2, "0") +
+                ":" +
+                String(seconds).padStart(2, "0");
+
+
+
+            /* OTP EXPIRED */
+
+            if (remaining <= 0) {
+
+
+                clearInterval(timerInterval);
+
+
+                verifyButton.disabled =
+                    true;
+
+
+                resendButton.disabled =
+                    false;
+
+
+                message.textContent =
+                    "OTP expired. Please request a new OTP.";
+
+            }
+
+        }
+
+
+        updateTimer();
+
+
+        const timerInterval =
+            setInterval(
+                updateTimer,
+                1000
+            );
+
+
+
+        /* =========================================
+           NUMBERS ONLY
+        ========================================== */
+
+        otpInput.addEventListener(
+            "input",
+            function () {
+
+                this.value =
+                    this.value.replace(/\D/g, "");
+
+            }
+        );
+
+
+
+        /* =========================================
+           VERIFY OTP
+        ========================================== */
+
+        verifyButton.addEventListener(
+            "click",
+            function () {
+
+
+                /* Check expiry */
+
+                if (Date.now() >= expiryTime) {
+
+
+                    verifyButton.disabled =
+                        true;
+
+
+                    resendButton.disabled =
+                        false;
+
+
+                    message.textContent =
+                        "OTP expired. Please request a new OTP.";
+
+
+                    return;
+
+                }
+
+
+
+                /* Check attempts */
+
+                if (attempts >= MAX_ATTEMPTS) {
+
+
+                    verifyButton.disabled =
+                        true;
+
+
+                    resendButton.disabled =
+                        false;
+
+
+                    message.textContent =
+                        "Too many incorrect attempts. Please request a new OTP.";
+
+
+                    return;
+
+                }
+
+
+
+                /* Get entered OTP */
+
+                const enteredOTP =
+                    otpInput.value.trim();
+
+
+
+                /* Check six digits */
+
+                if (enteredOTP.length !== 6) {
+
+
+                    message.textContent =
+                        "Please enter the 6-digit OTP.";
+
+
+                    return;
+
+                }
+
+
+
+                /* Get stored OTP */
+
+                const currentOTP =
+                    sessionStorage.getItem(
+                        "medisyncOTP"
+                    );
+
+
+
+                /* =========================================
+                   CORRECT OTP
+                ========================================== */
+
+                if (enteredOTP === currentOTP) {
+
+
+                    /* Remove OTP */
+
+                    sessionStorage.removeItem(
+                        "medisyncOTP"
+                    );
+
+
+                    sessionStorage.removeItem(
+                        "medisyncOTPExpiry"
+                    );
+
+
+                    clearInterval(timerInterval);
+
+
+                    message.textContent =
+                        "OTP verified successfully!";
+
+
+                    verifyButton.disabled =
+                        true;
+
+
+
+                    /* =====================================
+                       GET USER ROLE
+                    ====================================== */
+
+                    const role =
+                        sessionStorage.getItem(
+                            "medisyncRole"
+                        );
+
+
+                    console.log(
+                        "Logged in role:",
+                        role
+                    );
+
+
+
+                    /* =====================================
+                       ROLE BASED REDIRECTION
+                    ====================================== */
+
+                    setTimeout(
+                        function () {
+
+
+                            if (role === "admin") {
+
+
+                                window.location.href =
+                                    "index.html";
+
+                            }
+
+
+                            else if (role === "doctor") {
+
+
+                                window.location.href =
+                                    "doctor-dashboard.html";
+
+                            }
+
+
+                            else if (role === "patient") {
+
+
+                                window.location.href =
+                                    "patient.html";
+
+                            }
+
+
+                            else {
+
+
+                                message.textContent =
+                                    "User role not recognized.";
+
+                                verifyButton.disabled =
+                                    false;
+
+                            }
+
+
+                        },
+                        700
+                    );
+
+                }
+
+
+
+                /* =========================================
+                   INCORRECT OTP
+                ========================================== */
+
+                else {
+
+
+                    attempts++;
+
+
+                    const remainingAttempts =
+                        MAX_ATTEMPTS - attempts;
+
+
+                    if (remainingAttempts > 0) {
+
+
+                        message.textContent =
+                            "Incorrect OTP. " +
+                            remainingAttempts +
+                            " attempt(s) remaining.";
+
+                    }
+
+
+                    else {
+
+
+                        verifyButton.disabled =
+                            true;
+
+
+                        resendButton.disabled =
+                            false;
+
+
+                        message.textContent =
+                            "Too many incorrect attempts. Please request a new OTP.";
+
+                    }
+
+                }
+
+            }
+        );
+
+
+
+        /* =========================================
+           RESEND OTP
+        ========================================== */
+
+        resendButton.addEventListener(
+            "click",
+            function () {
+
+
+                /* Go back to login page */
+
+                window.location.href =
+                    "login%20index.html";
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

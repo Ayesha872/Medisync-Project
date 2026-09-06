@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -10,44 +11,60 @@
 
     <link rel="stylesheet" href="login style.css">
 
+    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 </head>
 
+
 <body>
+
 
     <div class="main-container">
 
-        <!-- LEFT SIDE -->
+
+        <!-- ================= LEFT SIDE ================= -->
 
         <div class="hospital-info">
 
             <div class="logo-box">
+
                 <img src="logo.jpeg" alt="Medisync Logo">
+
             </div>
 
+
             <h1>MEDISYNC</h1>
+
 
             <h2>
                 A Smart Hospital Management & Patient Care System
             </h2>
+
 
             <p>
                 A smart and efficient platform designed to connect
                 patients, doctors and hospital services in one place.
             </p>
 
+
             <div class="features">
+
 
                 <div class="feature">
 
                     <span>✓</span>
 
                     <div>
-                        <strong>Patient Management</strong>
+
+                        <strong>
+                            Patient Management
+                        </strong>
+
                         <small>
                             Manage patient information easily
                         </small>
+
                     </div>
 
                 </div>
@@ -58,10 +75,15 @@
                     <span>✓</span>
 
                     <div>
-                        <strong>Doctor Management</strong>
+
+                        <strong>
+                            Doctor Management
+                        </strong>
+
                         <small>
                             Organize doctors and appointments
                         </small>
+
                     </div>
 
                 </div>
@@ -72,30 +94,39 @@
                     <span>✓</span>
 
                     <div>
-                        <strong>Smart Healthcare</strong>
+
+                        <strong>
+                            Smart Healthcare
+                        </strong>
+
                         <small>
                             Better and faster hospital services
                         </small>
+
                     </div>
 
                 </div>
+
 
             </div>
 
         </div>
 
 
-        <!-- RIGHT SIDE -->
+        <!-- ================= RIGHT SIDE ================= -->
 
         <div class="login-section">
 
             <div class="login-card">
 
+
                 <div class="login-heading">
 
                     <p>WELCOME BACK</p>
 
-                    <h2>Login to Medisync</h2>
+                    <h2>
+                        Login to Medisync
+                    </h2>
 
                     <span>
                         Access your hospital dashboard
@@ -104,7 +135,10 @@
                 </div>
 
 
+                <!-- LOGIN FORM -->
+
                 <form id="loginForm">
+
 
                     <div class="input-group">
 
@@ -115,7 +149,7 @@
                         <input
                             type="email"
                             id="email"
-                            name="user_email"
+                            name="email"
                             placeholder="Enter your email"
                             required
                         >
@@ -169,6 +203,7 @@
 
                     </button>
 
+
                 </form>
 
 
@@ -180,21 +215,27 @@
 
 
                 <p class="bottom-text">
+
                     Smart care. Better management. Connected healthcare.
+
                 </p>
+
 
             </div>
 
         </div>
 
+
     </div>
 
 
-    <!-- EMAILJS -->
 
     <script>
 
-        /* Your existing EmailJS Public Key */
+
+        /* =========================================
+           INITIALIZE EMAILJS
+        ========================================== */
 
         emailjs.init({
 
@@ -203,26 +244,35 @@
         });
 
 
-        /* Login form */
+
+        /* =========================================
+           LOGIN FORM
+        ========================================== */
 
         document
             .getElementById("loginForm")
-            .addEventListener("submit", function(event) {
+            .addEventListener("submit", async function(event) {
 
 
                 event.preventDefault();
 
 
                 const email =
-                    document.getElementById("email").value;
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim();
 
 
                 const password =
-                    document.getElementById("password").value;
+                    document
+                    .getElementById("password")
+                    .value;
 
 
                 const loginButton =
-                    document.getElementById("loginButton");
+                    document
+                    .getElementById("loginButton");
 
 
                 /* Check fields */
@@ -238,78 +288,261 @@
                 }
 
 
-                /* Change button */
-
                 loginButton.innerHTML =
-                    "Sending...";
+                    "Checking...";
 
                 loginButton.disabled = true;
 
 
-                /* Send email */
+                try {
 
-                emailjs.send(
 
-                    "service_b4o1edb",
+                    /* =========================================
+                       CHECK LOGIN USING PHP + MYSQL
+                    ========================================== */
 
-                    "template_lwf1eh9",
+                    const response =
+                        await fetch(
+                            "login.php",
+                            {
 
-                    {
+                                method: "POST",
 
-                        user_email: email
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/x-www-form-urlencoded"
+
+                                },
+
+                                body:
+                                    "email=" +
+                                    encodeURIComponent(email) +
+                                    "&password=" +
+                                    encodeURIComponent(password)
+
+                            }
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Server returned " +
+                            response.status
+                        );
 
                     }
 
-                )
 
-                .then(function(response) {
+                    const result =
+                        await response.json();
 
 
-                    console.log(
-                        "Email sent successfully."
+                    /* =========================================
+                       LOGIN FAILED
+                    ========================================== */
+
+                    if (!result.success) {
+
+                        alert(
+                            result.message
+                        );
+
+
+                        loginButton.innerHTML =
+                            'Login <span>→</span>';
+
+
+                        loginButton.disabled =
+                            false;
+
+
+                        return;
+
+                    }
+
+
+                    /* =========================================
+                       LOGIN SUCCESSFUL
+                       STORE USER INFORMATION
+                    ========================================== */
+
+                    sessionStorage.setItem(
+                        "medisyncUserId",
+                        result.user_id
                     );
 
 
-                    /* Keep the previous behaviour */
-
-                    alert(
-                        "Login successful! A confirmation email has been sent."
+                    sessionStorage.setItem(
+                        "medisyncUserName",
+                        result.name
                     );
 
 
-                    /* Only NOW open dashboard */
-
-                    window.location.href =
-                        "dashboard index.html";
-
-
-                })
+                    sessionStorage.setItem(
+                        "medisyncEmail",
+                        result.email
+                    );
 
 
-                .catch(function(error) {
+                    sessionStorage.setItem(
+                        "medisyncRole",
+                        result.role
+                    );
 
 
-                    console.log(
-                        "EmailJS Error:",
+                    /* =========================================
+                       GENERATE OTP
+                    ========================================== */
+
+                    const otp =
+                        Math.floor(
+                            100000 +
+                            Math.random() * 900000
+                        ).toString();
+
+
+                    /* OTP valid for 2 minutes */
+
+                    const expiryTime =
+                        Date.now() + 120000;
+
+
+                    /* Save OTP */
+
+                    sessionStorage.setItem(
+                        "medisyncOTP",
+                        otp
+                    );
+
+
+                    sessionStorage.setItem(
+                        "medisyncOTPExpiry",
+                        expiryTime
+                    );
+
+
+                    /* Save email */
+
+                    sessionStorage.setItem(
+                        "medisyncEmail",
+                        email
+                    );
+
+
+                    loginButton.innerHTML =
+                        "Sending OTP...";
+
+
+                    /* =========================================
+                       SEND OTP THROUGH EMAILJS
+                    ========================================== */
+
+                    emailjs.send(
+
+                        "service_b4o1edb",
+
+                        "template_lwf1eh9",
+
+                        {
+
+                            user_email: email,
+
+                            otp: otp
+
+                        }
+
+                    )
+
+                    .then(function(response) {
+
+
+                        console.log(
+                            "OTP sent successfully:",
+                            response
+                        );
+
+
+                        alert(
+                            "OTP has been sent to your email."
+                        );
+
+
+                        /* Go to OTP verification */
+
+                        window.location.href =
+                            "otp.html";
+
+
+                    })
+
+
+                    .catch(function(error) {
+
+
+                        console.error(
+                            "EmailJS Error:",
+                            error
+                        );
+
+
+                        /* Remove OTP */
+
+                        sessionStorage.removeItem(
+                            "medisyncOTP"
+                        );
+
+
+                        sessionStorage.removeItem(
+                            "medisyncOTPExpiry"
+                        );
+
+
+                        alert(
+                            "Unable to send OTP. Please try again."
+                        );
+
+
+                        loginButton.innerHTML =
+                            'Login <span>→</span>';
+
+
+                        loginButton.disabled =
+                            false;
+
+                    });
+
+
+                }
+
+
+                catch (error) {
+
+
+                    console.error(
+                        "Login Error:",
                         error
                     );
 
 
                     alert(
-                        "Something went wrong while sending the email."
+                        "Something went wrong while checking your login."
                     );
 
 
                     loginButton.innerHTML =
                         'Login <span>→</span>';
 
-                    loginButton.disabled = false;
 
+                    loginButton.disabled =
+                        false;
 
-                });
+                }
 
 
             });
+
 
     </script>
 

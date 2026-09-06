@@ -1,355 +1,626 @@
+/* =====================================================
+   MEDISYNC - LOGIN PAGE
+   MATCHED WITH SMART HOSPITAL DASHBOARD
+===================================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background: #f2f7f6;
+    background: #f4f7ff;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 25px;
+    color: #17233c;
 }
 
-/* MAIN CONTAINER */
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
 
 .main-container {
-    width: 92%;
-    max-width: 1200px;
-    min-height: 680px;
+    width: 94%;
+    max-width: 1180px;
+    min-height: 650px;
+
     background: white;
+
     display: flex;
+
     border-radius: 25px;
+
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+    border: 1px solid #e4e9f5;
+
+    box-shadow:
+        0 20px 55px rgba(40, 60, 110, 0.12);
 }
 
 
-/* LEFT SIDE */
+/* =====================================================
+   LEFT SIDE
+===================================================== */
 
 .hospital-info {
     width: 52%;
-    background: linear-gradient(145deg, #0d5c55, #174f4a);
+
+    background:
+        linear-gradient(
+            135deg,
+            #315bdc,
+            #7166df
+        );
+
     color: white;
+
     padding: 55px;
+
     position: relative;
+
     overflow: hidden;
 }
 
-.hospital-info::after {
-    content: "";
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 50%;
-    right: -170px;
-    bottom: -120px;
-}
+
+/* Decorative circles */
 
 .hospital-info::before {
     content: "";
+
     position: absolute;
-    width: 250px;
-    height: 250px;
-    border: 1px solid rgba(255,255,255,0.1);
+
+    width: 300px;
+    height: 300px;
+
+    border: 1px solid rgba(255,255,255,0.16);
+
     border-radius: 50%;
-    left: -130px;
-    top: -100px;
+
+    left: -150px;
+    top: -120px;
 }
 
 
-/* BIG LOGO */
+.hospital-info::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border: 1px solid rgba(255,255,255,0.14);
+
+    border-radius: 50%;
+
+    right: -210px;
+    bottom: -200px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
 
 .logo-box {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
+
     background: white;
-    border-radius: 25px;
+
+    border-radius: 24px;
+
     padding: 10px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    margin-bottom: 28px;
+
+    margin-bottom: 25px;
+
     position: relative;
+
     z-index: 2;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    box-shadow:
+        0 12px 30px rgba(25, 45, 110, 0.18);
 }
+
 
 .logo-box img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
-    border-radius: 18px;
+
+    border-radius: 17px;
 }
 
 
-/* BRAND */
+/* =====================================================
+   BRAND
+===================================================== */
 
 .hospital-info h1 {
-    font-size: 42px;
+    font-size: 40px;
+
     letter-spacing: 4px;
-    margin-bottom: 12px;
+
+    margin-bottom: 10px;
+
+    position: relative;
+
+    z-index: 2;
 }
+
 
 .hospital-info h2 {
-    font-size: 20px;
+    font-size: 19px;
+
     font-weight: 400;
+
     line-height: 1.5;
-    max-width: 450px;
-    margin-bottom: 20px;
+
+    max-width: 455px;
+
+    margin-bottom: 18px;
+
+    position: relative;
+
+    z-index: 2;
 }
+
 
 .hospital-info > p {
-    color: #d9ece9;
+    color: #e8edff;
+
     line-height: 1.7;
+
     max-width: 470px;
-    font-size: 15px;
+
+    font-size: 14px;
+
+    position: relative;
+
+    z-index: 2;
 }
 
 
-/* FEATURES */
+/* =====================================================
+   FEATURES
+===================================================== */
 
 .features {
-    margin-top: 45px;
+    margin-top: 38px;
+
+    position: relative;
+
+    z-index: 2;
 }
+
 
 .feature {
     display: flex;
+
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
 }
 
+
 .feature > span {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.13);
+    width: 36px;
+    height: 36px;
+
+    border-radius: 11px;
+
+    background: rgba(255,255,255,0.15);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    font-size: 19px;
+
+    font-size: 17px;
 }
+
 
 .feature strong {
     display: block;
-    font-size: 15px;
-    margin-bottom: 5px;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
 }
+
 
 .feature small {
-    color: #c7e2df;
-    font-size: 12px;
-}
+    color: #dfe5ff;
 
-
-/* RIGHT SIDE */
-
-.login-section {
-    width: 48%;
-    background: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 45px;
-}
-
-.login-card {
-    width: 100%;
-    max-width: 410px;
-}
-
-
-/* HEADING */
-
-.login-heading {
-    margin-bottom: 35px;
-}
-
-.login-heading p {
-    color: #0d6b62;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 9px;
-}
-
-.login-heading h2 {
-    color: #193c39;
-    font-size: 32px;
-    margin-bottom: 9px;
-}
-
-.login-heading span {
-    color: #7a8987;
-    font-size: 14px;
-}
-
-
-/* INPUTS */
-
-.input-group {
-    margin-bottom: 22px;
-}
-
-.input-group label {
-    display: block;
-    font-size: 13px;
-    color: #334b48;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.input-group input {
-    width: 100%;
-    height: 52px;
-    border: 1px solid #dce5e3;
-    border-radius: 10px;
-    padding: 0 16px;
-    font-size: 14px;
-    outline: none;
-    background: #fafcfc;
-    transition: 0.3s;
-}
-
-.input-group input:focus {
-    border-color: #0d6b62;
-    background: white;
-    box-shadow: 0 0 0 3px rgba(13,107,98,0.08);
-}
-
-.input-group input::placeholder {
-    color: #a5afad;
-}
-
-
-/* OPTIONS */
-
-.login-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px 0 28px;
-    font-size: 12px;
-}
-
-.remember {
-    color: #687875;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.remember input {
-    accent-color: #0d6b62;
-}
-
-.login-options a {
-    text-decoration: none;
-    color: #0d6b62;
-    font-weight: bold;
-}
-
-
-/* LOGIN BUTTON */
-
-button {
-    width: 100%;
-    height: 54px;
-    border: none;
-    border-radius: 10px;
-    background: #0d6b62;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button span {
-    margin-left: 10px;
-    font-size: 18px;
-}
-
-button:hover {
-    background: #084f49;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(13,107,98,0.2);
-}
-
-
-/* BOTTOM */
-
-.divider {
-    margin: 35px 0 20px;
-    height: 1px;
-    background: #e5ecea;
-    position: relative;
-    text-align: center;
-}
-
-.divider span {
-    position: relative;
-    top: -8px;
-    background: white;
-    padding: 0 12px;
-    color: #9aa6a4;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.bottom-text {
-    text-align: center;
-    color: #9aa6a4;
     font-size: 11px;
 }
 
 
-/* RESPONSIVE */
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
 
-@media (max-width: 850px) {
+.login-section {
+    width: 48%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fafbff
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px;
+}
+
+
+.login-card {
+    width: 100%;
+
+    max-width: 400px;
+}
+
+
+/* =====================================================
+   LOGIN HEADING
+===================================================== */
+
+.login-heading {
+    margin-bottom: 30px;
+}
+
+
+.login-heading p {
+    color: #315bdc;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.login-heading h2 {
+    color: #17233c;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+
+.login-heading span {
+    color: #7d899f;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+
+.input-group label {
+    display: block;
+
+    font-size: 12px;
+
+    color: #46536b;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+.input-group input {
+    width: 100%;
+
+    height: 51px;
+
+    border: 1px solid #dfe5f0;
+
+    border-radius: 11px;
+
+    padding: 0 15px;
+
+    font-size: 13px;
+
+    outline: none;
+
+    background: #f9faff;
+
+    color: #17233c;
+
+    transition: 0.25s ease;
+}
+
+
+.input-group input:focus {
+    border-color: #5e73df;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(78, 101, 210, 0.08);
+}
+
+
+.input-group input::placeholder {
+    color: #a2acbd;
+}
+
+
+/* =====================================================
+   LOGIN OPTIONS
+===================================================== */
+
+.login-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 5px 0 25px;
+
+    font-size: 11px;
+}
+
+
+.remember {
+    color: #718097;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.remember input {
+    accent-color: #5d6fe0;
+}
+
+
+.login-options a {
+    text-decoration: none;
+
+    color: #536bd0;
+
+    font-weight: 600;
+}
+
+
+.login-options a:hover {
+    color: #315bdc;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+button {
+    width: 100%;
+
+    height: 53px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #315bdc,
+            #7166df
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+        0 8px 20px rgba(65, 86, 200, 0.18);
+}
+
+
+button span {
+    margin-left: 10px;
+
+    font-size: 18px;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 11px 25px rgba(65, 86, 200, 0.25);
+}
+
+
+button:disabled {
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider {
+    margin: 30px 0 18px;
+
+    height: 1px;
+
+    background: #e6eaf3;
+
+    position: relative;
+
+    text-align: center;
+}
+
+
+.divider span {
+    position: relative;
+
+    top: -7px;
+
+    background: #ffffff;
+
+    padding: 0 12px;
+
+    color: #9aa4b6;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   BOTTOM TEXT
+===================================================== */
+
+.bottom-text {
+    text-align: center;
+
+    color: #98a2b3;
+
+    font-size: 10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    body {
+        padding: 18px;
+    }
+
 
     .main-container {
-        width: 95%;
+        width: 96%;
+
         flex-direction: column;
     }
 
+
     .hospital-info {
         width: 100%;
+
         padding: 40px;
     }
 
+
     .login-section {
         width: 100%;
+
         padding: 40px;
     }
 
 }
 
-@media (max-width: 500px) {
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 10px;
+    }
+
+
+    .main-container {
+        width: 100%;
+
+        border-radius: 18px;
+    }
+
 
     .hospital-info {
         padding: 30px;
     }
 
+
     .hospital-info h1 {
         font-size: 32px;
     }
 
-    .logo-box {
-        width: 120px;
-        height: 120px;
+
+    .hospital-info h2 {
+        font-size: 17px;
     }
+
+
+    .hospital-info > p {
+        font-size: 12px;
+    }
+
+
+    .logo-box {
+        width: 105px;
+        height: 105px;
+    }
+
+
+    .features {
+        margin-top: 30px;
+    }
+
 
     .login-section {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
+
     .login-heading h2 {
-        font-size: 27px;
+        font-size: 26px;
     }
 
 }

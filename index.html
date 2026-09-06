@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - Smart Hospital Management</title>
+
+    <!-- CSS FILE -->
+    <link rel="stylesheet" href="dashboard style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="logo-area">
+
+            <img
+                src="logo.jpeg"
+                alt="MediSync Logo"
+                class="main-logo"
+            >
+
+            <h2>MediSync</h2>
+
+            <p>Smart Healthcare</p>
+
+        </div>
+
+
+
+        <nav class="menu">
+
+
+            <a href="#" class="active">
+
+                <span>🏠</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="about.html">
+
+                <span>ℹ️</span>
+
+                About Us
+
+            </a>
+
+
+            <a href="patient.html">
+
+                <span>👥</span>
+
+                Patients
+
+            </a>
+
+
+            <a href="#">
+
+                <span>👨‍⚕️</span>
+
+                Doctors
+
+            </a>
+
+
+            <a href="#">
+
+                <span>📅</span>
+
+                Appointments
+
+            </a>
+
+
+            <a href="#">
+
+                <span>💊</span>
+
+                Pharmacy
+
+            </a>
+
+
+            <a href="#">
+
+                <span>🧪</span>
+
+                Lab
+
+            </a>
+
+
+            <a href="#">
+
+                <span>📋</span>
+
+                Records
+
+            </a>
+
+
+            <a href="#">
+
+                <span>🩺</span>
+
+                OPD / IPD Consultation
+
+            </a>
+
+
+            <a href="#">
+
+                <span>🛏️</span>
+
+                Bed Room Management
+
+            </a>
+
+
+            <a href="#">
+
+                <span>💳</span>
+
+                Billing
+
+            </a>
+
+
+            <a href="#">
+
+                <span>⚙️</span>
+
+                Settings
+
+            </a>
+
+
+            <a href="#">
+
+                <span>❓</span>
+
+                Help
+
+            </a>
+
+
+        </nav>
+
+
+    </aside>
+
+
+
+    <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+    <div class="page-area">
+
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header class="top-header">
+
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    placeholder="Search patients, doctors, appointments..."
+                >
+
+            </div>
+
+
+
+            <div class="header-right">
+
+
+                <button class="notification">
+
+                    🔔
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+
+                <!-- =========================
+                     USER PROFILE
+                ========================== -->
+
+                <div
+                    class="profile"
+                    onclick="window.location.href='login index.html'"
+                >
+
+                    <div class="profile-picture">
+
+                        👤
+
+                    </div>
+
+
+                    <div>
+
+                        <!-- NAME WILL COME FROM LOGIN EMAIL -->
+
+                        <strong id="loggedInName">
+                            Admin
+                        </strong>
+
+
+                        <small>
+                            Hospital Administrator
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =========================
+             DASHBOARD CONTENT
+        ========================== -->
+
+        <main class="main-content">
+
+
+
+            <!-- =========================
+                 WELCOME SECTION
+            ========================== -->
+
+            <section class="welcome-section">
+
+
+                <div>
+
+
+                    <p class="small-title">
+
+                        WELCOME BACK,
+
+                    </p>
+
+
+                    <!-- NAME WILL COME FROM LOGIN EMAIL -->
+
+                    <h1>
+
+                        <span id="welcomeName">
+                            Admin
+                        </span>! 👋
+
+                    </h1>
+
+
+                    <p class="welcome-text">
+
+                        Here's what's happening in your hospital today.
+                        Manage your hospital operations from one place.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="date-box">
+
+
+                    <span>
+                        Today
+                    </span>
+
+
+                    <strong>
+                        30 Aug 2026
+                    </strong>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 DASHBOARD CARDS
+            ========================== -->
+
+            <section class="dashboard-grid">
+
+
+
+                <!-- TOTAL PATIENTS -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Total Patients
+                            </p>
+
+
+                            <h2>
+                                15,240
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            👥
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="line-chart">
+
+
+                        <svg
+                            viewBox="0 0 400 150"
+                            preserveAspectRatio="none"
+                        >
+
+
+                            <defs>
+
+
+                                <linearGradient
+                                    id="patientFill"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1"
+                                >
+
+
+                                    <stop
+                                        offset="0%"
+                                        stop-color="#6c63ff"
+                                        stop-opacity="0.35"
+                                    />
+
+
+                                    <stop
+                                        offset="100%"
+                                        stop-color="#6c63ff"
+                                        stop-opacity="0"
+                                    />
+
+
+                                </linearGradient>
+
+
+                            </defs>
+
+
+
+                            <path
+                                d="M0,120
+                                C35,100 45,110 70,90
+                                S110,75 135,95
+                                S175,55 200,70
+                                S235,90 255,50
+                                S300,60 325,35
+                                S370,45 400,15
+                                L400,150 L0,150 Z"
+                                fill="url(#patientFill)"
+                            />
+
+
+                            <path
+                                d="M0,120
+                                C35,100 45,110 70,90
+                                S110,75 135,95
+                                S175,55 200,70
+                                S235,90 255,50
+                                S300,60 325,35
+                                S370,45 400,15"
+                                fill="none"
+                                stroke="#6c63ff"
+                                stroke-width="4"
+                            />
+
+
+                        </svg>
+
+
+                    </div>
+
+
+                    <div class="growth positive">
+
+                        ↑ 12% from last month
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- APPOINTMENTS -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Today's Appointments
+                            </p>
+
+
+                            <h2>
+                                132
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            📅
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="bar-chart">
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:45%"
+                            ></div>
+
+                            <small>Mon</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:65%"
+                            ></div>
+
+                            <small>Tue</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:50%"
+                            ></div>
+
+                            <small>Wed</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar active"
+                                style="height:85%"
+                            ></div>
+
+                            <small>Thu</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:60%"
+                            ></div>
+
+                            <small>Fri</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:72%"
+                            ></div>
+
+                            <small>Sat</small>
+
+                        </div>
+
+
+                        <div class="bar-item">
+
+                            <div
+                                class="bar"
+                                style="height:40%"
+                            ></div>
+
+                            <small>Sun</small>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="growth positive">
+
+                        ↑ 8% from yesterday
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- OPD -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                OPD Consultations
+                            </p>
+
+
+                            <h2>
+                                85
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            🩺
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="donut-area">
+
+
+                        <div class="donut">
+
+
+                            <div class="donut-center">
+
+
+                                <strong>
+                                    85
+                                </strong>
+
+
+                                <span>
+                                    Today
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="legend">
+
+
+                            <div>
+
+                                <span class="dot blue"></span>
+
+                                General
+
+                                <b>40</b>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="dot purple"></span>
+
+                                Specialist
+
+                                <b>30</b>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="dot green"></span>
+
+                                Emergency
+
+                                <b>15</b>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- IPD -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                IPD Admissions
+                            </p>
+
+
+                            <h2>
+                                48
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            🏥
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="ipd-progress">
+
+
+                        <div class="progress-header">
+
+
+                            <span>
+                                Today's admissions
+                            </span>
+
+
+                            <strong>
+                                72%
+                            </strong>
+
+
+                        </div>
+
+
+                        <div class="progress-bar">
+
+                            <div></div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="mini-stats">
+
+
+                        <div>
+
+                            <strong>
+                                32
+                            </strong>
+
+                            <span>
+                                New
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                10
+                            </strong>
+
+                            <span>
+                                Discharged
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                6
+                            </strong>
+
+                            <span>
+                                Transferred
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PENDING LABS -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Pending Lab Reports
+                            </p>
+
+
+                            <h2>
+                                45
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            🧪
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="lab-chart">
+
+
+                        <div class="pie-chart"></div>
+
+
+
+                        <div class="lab-legend">
+
+
+                            <p>
+
+                                <span class="dot blue"></span>
+
+                                Blood Test
+
+                                <b>18</b>
+
+                            </p>
+
+
+                            <p>
+
+                                <span class="dot purple"></span>
+
+                                X-Ray
+
+                                <b>12</b>
+
+                            </p>
+
+
+                            <p>
+
+                                <span class="dot green"></span>
+
+                                Other
+
+                                <b>15</b>
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- REVENUE -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Today's Revenue
+                            </p>
+
+
+                            <h2>
+                                ₹1.24L
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            💰
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="gauge">
+
+
+                        <div class="gauge-outer">
+
+
+                            <div class="gauge-inner">
+
+
+                                <strong>
+                                    78%
+                                </strong>
+
+
+                                <span>
+                                    Target
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <p class="target-text">
+
+                        ₹1,24,500 collected today
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- BED OCCUPANCY -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Bed Occupancy
+                            </p>
+
+
+                            <h2>
+                                82%
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            🛏️
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="bed-bars">
+
+
+                        <div class="bed-row">
+
+
+                            <span>
+                                General Ward
+                            </span>
+
+
+                            <div>
+
+                                <i style="width:82%"></i>
+
+                            </div>
+
+
+                            <b>
+                                82%
+                            </b>
+
+
+                        </div>
+
+
+
+                        <div class="bed-row">
+
+
+                            <span>
+                                ICU
+                            </span>
+
+
+                            <div>
+
+                                <i style="width:68%"></i>
+
+                            </div>
+
+
+                            <b>
+                                68%
+                            </b>
+
+
+                        </div>
+
+
+
+                        <div class="bed-row">
+
+
+                            <span>
+                                Private
+                            </span>
+
+
+                            <div>
+
+                                <i style="width:91%"></i>
+
+                            </div>
+
+
+                            <b>
+                                91%
+                            </b>
+
+
+                        </div>
+
+
+
+                        <div class="bed-row">
+
+
+                            <span>
+                                Emergency
+                            </span>
+
+
+                            <div>
+
+                                <i style="width:55%"></i>
+
+                            </div>
+
+
+                            <b>
+                                55%
+                            </b>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DOCTORS STATUS -->
+
+                <div class="dashboard-card">
+
+
+                    <div class="card-heading">
+
+
+                        <div>
+
+                            <p>
+                                Doctors Status
+                            </p>
+
+
+                            <h2>
+                                36
+                            </h2>
+
+                        </div>
+
+
+                        <span class="card-icon">
+                            👨‍⚕️
+                        </span>
+
+
+                    </div>
+
+
+
+                    <div class="doctor-status">
+
+
+                        <div class="doctor-box">
+
+
+                            <span class="status-dot online"></span>
+
+
+                            <strong>
+                                24
+                            </strong>
+
+
+                            <small>
+                                Available
+                            </small>
+
+
+                        </div>
+
+
+
+                        <div class="doctor-box">
+
+
+                            <span class="status-dot busy"></span>
+
+
+                            <strong>
+                                8
+                            </strong>
+
+
+                            <small>
+                                In Consultation
+                            </small>
+
+
+                        </div>
+
+
+
+                        <div class="doctor-box">
+
+
+                            <span class="status-dot offline"></span>
+
+
+                            <strong>
+                                4
+                            </strong>
+
+
+                            <small>
+                                Off Duty
+                            </small>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================
+                 RECENT PATIENTS
+            ========================== -->
+
+            <section class="recent-section">
+
+
+                <div class="section-title">
+
+
+                    <div>
+
+                        <h2>
+                            Recent Patients
+                        </h2>
+
+
+                        <p>
+                            Latest patient activity
+                        </p>
+
+                    </div>
+
+
+                    <button>
+                        View All
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="patient-table">
+
+
+                    <div class="table-row table-head">
+
+
+                        <span>
+                            Patient
+                        </span>
+
+
+                        <span>
+                            ID
+                        </span>
+
+
+                        <span>
+                            Department
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         LOGIN USER NAME SCRIPT
+    ====================================================== -->
+
+    <script>
+
+
+        /*
+         * Get the email stored during login.
+         *
+         * Your login page already stores:
+         *
+         * sessionStorage.setItem("medisyncEmail", email);
+         */
+
+
+        const userEmail =
+            sessionStorage.getItem("medisyncEmail");
+
+
+
+        if (userEmail) {
+
+
+            /*
+             * Take only the part before @
+             *
+             * Example:
+             *
+             * ayesha@gmail.com
+             *
+             * becomes:
+             *
+             * ayesha
+             */
+
+
+            let userName =
+                userEmail.split("@")[0];
+
+
+
+            /*
+             * Replace dots, underscores
+             * and hyphens with spaces.
+             *
+             * Example:
+             *
+             * ramsha.shamim@gmail.com
+             *
+             * becomes:
+             *
+             * ramsha shamim
+             */
+
+
+            userName =
+                userName.replace(/[._-]/g, " ");
+
+
+
+            /*
+             * Capitalize the first letter
+             * of every word.
+             */
+
+
+            userName =
+                userName
+                .split(" ")
+                .filter(word => word.length > 0)
+                .map(
+                    word =>
+                        word.charAt(0).toUpperCase()
+                        +
+                        word.slice(1)
+                )
+                .join(" ");
+
+
+
+            /*
+             * Show the name in the
+             * top-right profile.
+             */
+
+
+            document
+                .getElementById("loggedInName")
+                .textContent =
+                userName;
+
+
+
+            /*
+             * Show the same name
+             * in the welcome message.
+             */
+
+
+            document
+                .getElementById("welcomeName")
+                .textContent =
+                userName;
+
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

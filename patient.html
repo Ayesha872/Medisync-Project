@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Patients</title>
+
+    <link rel="stylesheet" href="patient style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <img src="./logo.jpeg" alt="MediSync Logo" class="main-logo">
+
+            <h2>MediSync</h2>
+            <p>Smart Healthcare</p>
+        </div>
+
+        <nav class="menu">
+
+            <a href="index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="patient.html" class="active">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="#">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="#">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="#">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="#">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+
+    <div class="page-area">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="top-header">
+
+            <div class="search-box">
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    placeholder="Search patients, doctors, appointments..."
+                >
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="profile" onclick="window.location.href='login index.html'">
+
+                    <div class="profile-picture">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong id="loggedInName">Admin</strong>
+                        <small>Hospital Administrator</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- PAGE TITLE -->
+
+            <section class="page-heading">
+
+                <div>
+                    <p class="small-title">PATIENT MANAGEMENT</p>
+
+                    <h1>Patients</h1>
+
+                    <p class="heading-text">
+                        Manage and monitor all registered patients in MediSync.
+                    </p>
+                </div>
+
+                <button class="add-patient">
+                    + Add New Patient
+                </button>
+
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+
+            <section class="patient-overview">
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+                        <div>
+                            <p>Total Patients</p>
+                            <h2>1,248</h2>
+                        </div>
+
+                        <div class="card-icon">
+                            👥
+                        </div>
+                    </div>
+
+                    <span class="growth">↑ 8.5% from last month</span>
+
+                </div>
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+                        <div>
+                            <p>New Patients</p>
+                            <h2>86</h2>
+                        </div>
+
+                        <div class="card-icon">
+                            ➕
+                        </div>
+                    </div>
+
+                    <span class="growth">↑ 12.4% this month</span>
+
+                </div>
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+                        <div>
+                            <p>Inpatients</p>
+                            <h2>164</h2>
+                        </div>
+
+                        <div class="card-icon">
+                            🛏️
+                        </div>
+                    </div>
+
+                    <span class="growth">72% bed occupancy</span>
+
+                </div>
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+                        <div>
+                            <p>Outpatients</p>
+                            <h2>1,084</h2>
+                        </div>
+
+                        <div class="card-icon">
+                            🩺
+                        </div>
+                    </div>
+
+                    <span class="growth">↑ 6.2% this month</span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+
+            <section class="filter-section">
+
+                <div class="filter-search">
+
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        placeholder="Search by patient name or Patient ID"
+                    >
+
+                </div>
+
+
+                <select>
+                    <option>All Departments</option>
+                    <option>Cardiology</option>
+                    <option>Neurology</option>
+                    <option>Orthopedics</option>
+                    <option>General Medicine</option>
+                </select>
+
+
+                <select>
+                    <option>All Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+
+                <select>
+                    <option>All Status</option>
+                    <option>Active</option>
+                    <option>Admitted</option>
+                    <option>Discharged</option>
+                </select>
+
+
+                <button class="filter-button">
+                    Filter
+                </button>
+
+            </section>
+
+
+            <!-- ================= PATIENT TABLE ================= -->
+
+            <section class="patient-section">
+
+                <div class="section-title">
+
+                    <div>
+                        <h2>Patient List</h2>
+
+                        <p>
+                            Recently registered and active patients
+                        </p>
+                    </div>
+
+                    <button>
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="patient-table">
+
+                    <!-- TABLE HEADER -->
+
+                    <div class="table-row table-head">
+
+                        <div>Patient</div>
+                        <div>Patient ID</div>
+                        <div>Age / Gender</div>
+                        <div>Department</div>
+                        <div>Doctor</div>
+                        <div>Status</div>
+                        <div>Action</div>
+
+                    </div>
+
+
+                    <!-- PATIENT 1 -->
+
+                    <div class="table-row">
+
+                        <div class="patient-name">
+                            <div class="patient-avatar">👩</div>
+
+                            <div>
+                                <strong>Sarah Khan</strong>
+                                <small>+91 98XXXXXX21</small>
+                            </div>
+                        </div>
+
+                        <div>PT-1001</div>
+
+                        <div>28 / Female</div>
+
+                        <div>Cardiology</div>
+
+                        <div>Dr. Sharma</div>
+
+                        <div>
+                            <span class="status active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <div>
+                            <button class="action-button">
+                                View
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PATIENT 2 -->
+
+                    <div class="table-row">
+
+                        <div class="patient-name">
+                            <div class="patient-avatar">👨</div>
+
+                            <div>
+                                <strong>Arjun Mehta</strong>
+                                <small>+91 97XXXXXX42</small>
+                            </div>
+                        </div>
+
+                        <div>PT-1002</div>
+
+                        <div>42 / Male</div>
+
+                        <div>Neurology</div>
+
+                        <div>Dr. Verma</div>
+
+                        <div>
+                            <span class="status admitted-status">
+                                Admitted
+                            </span>
+                        </div>
+
+                        <div>
+                            <button class="action-button">
+                                View
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PATIENT 3 -->
+
+                    <div class="table-row">
+
+                        <div class="patient-name">
+                            <div class="patient-avatar">👩</div>
+
+                            <div>
+                                <strong>Priya Singh</strong>
+                                <small>+91 96XXXXXX63</small>
+                            </div>
+                        </div>
+
+                        <div>PT-1003</div>
+
+                        <div>35 / Female</div>
+
+                        <div>Orthopedics</div>
+
+                        <div>Dr. Kapoor</div>
+
+                        <div>
+                            <span class="status completed-status">
+                                Discharged
+                            </span>
+                        </div>
+
+                        <div>
+                            <button class="action-button">
+                                View
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PATIENT 4 -->
+
+                    <div class="table-row">
+
+                        <div class="patient-name">
+                            <div class="patient-avatar">👨</div>
+
+                            <div>
+                                <strong>Rahul Verma</strong>
+                                <small>+91 95XXXXXX84</small>
+                            </div>
+                        </div>
+
+                        <div>PT-1004</div>
+
+                        <div>51 / Male</div>
+
+                        <div>General Medicine</div>
+
+                        <div>Dr. Khan</div>
+
+                        <div>
+                            <span class="status active-status">
+                                Active
+                            </span>
+                        </div>
+
+                        <div>
+                            <button class="action-button">
+                                View
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PATIENT 5 -->
+
+                    <div class="table-row">
+
+                        <div class="patient-name">
+                            <div class="patient-avatar">👩</div>
+
+                            <div>
+                                <strong>Ayesha Ali</strong>
+                                <small>+91 94XXXXXX15</small>
+                            </div>
+                        </div>
+
+                        <div>PT-1005</div>
+
+                        <div>31 / Female</div>
+
+                        <div>Cardiology</div>
+
+                        <div>Dr. Sharma</div>
+
+                        <div>
+                            <span class="status admitted-status">
+                                Admitted
+                            </span>
+                        </div>
+
+                        <div>
+                            <button class="action-button">
+                                View
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+
+            <section class="bottom-grid">
+
+                <!-- PATIENT ACTIVITY -->
+
+                <div class="bottom-card">
+
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Recent Patient Activity</h2>
+                            <p>Latest updates</p>
+                        </div>
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon">
+                            🩺
+                        </div>
+
+                        <div>
+                            <strong>Sarah Khan</strong>
+
+                            <p>
+                                Consultation completed
+                            </p>
+
+                            <small>10 minutes ago</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon">
+                            🛏️
+                        </div>
+
+                        <div>
+                            <strong>Arjun Mehta</strong>
+
+                            <p>
+                                Admitted to Neurology
+                            </p>
+
+                            <small>35 minutes ago</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="activity">
+
+                        <div class="activity-icon">
+                            📋
+                        </div>
+
+                        <div>
+                            <strong>Priya Singh</strong>
+
+                            <p>
+                                Patient record updated
+                            </p>
+
+                            <small>1 hour ago</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PATIENT STATISTICS -->
+
+                <div class="bottom-card">
+
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Patient Statistics</h2>
+                            <p>Current patient distribution</p>
+                        </div>
+                    </div>
+
+
+                    <div class="statistics">
+
+                        <div class="stat-row">
+
+                            <span>OPD Patients</span>
+
+                            <div class="stat-bar">
+                                <div style="width: 82%;"></div>
+                            </div>
+
+                            <strong>82%</strong>
+
+                        </div>
+
+
+                        <div class="stat-row">
+
+                            <span>IPD Patients</span>
+
+                            <div class="stat-bar">
+                                <div style="width: 48%;"></div>
+                            </div>
+
+                            <strong>48%</strong>
+
+                        </div>
+
+
+                        <div class="stat-row">
+
+                            <span>Male Patients</span>
+
+                            <div class="stat-bar">
+                                <div style="width: 56%;"></div>
+                            </div>
+
+                            <strong>56%</strong>
+
+                        </div>
+
+
+                        <div class="stat-row">
+
+                            <span>Female Patients</span>
+
+                            <div class="stat-bar">
+                                <div style="width: 44%;"></div>
+                            </div>
+
+                            <strong>44%</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= LOGIN NAME SCRIPT ================= -->
+
+    <script>
+
+        const savedEmail = sessionStorage.getItem("medisyncEmail");
+
+        if (savedEmail) {
+
+            let name = savedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ");
+
+            name = name.replace(/\b\w/g, function(letter) {
+                return letter.toUpperCase();
+            });
+
+            document.getElementById("loggedInName").textContent = name;
+        }
+
+    </script>
+
+</body>
+
+</html>

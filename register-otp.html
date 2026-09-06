@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medisync - Verify Email</title>
+
+    <link rel="stylesheet" href="login style.css">
+
+    <style>
+
+        /* ONLY FOR OTP PAGE */
+
+        .otp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .otp-form .input-group {
+            margin-bottom: 15px;
+        }
+
+        #otp {
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        #timer {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        #message {
+            text-align: center;
+            min-height: 22px;
+            margin: 8px 0 12px;
+        }
+
+        #verifyButton {
+            display: block;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        #resendButton {
+            display: block;
+            width: 100%;
+            margin: 0;
+            position: static;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="main-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="hospital-info">
+
+            <div class="logo-box">
+                <img src="logo.jpeg" alt="Medisync Logo">
+            </div>
+
+            <h1>MEDISYNC</h1>
+
+            <h2>
+                A Smart Hospital Management & Patient Care System
+            </h2>
+
+            <p>
+                A smart and efficient platform designed to connect
+                patients, doctors and hospital services in one place.
+            </p>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="login-section">
+
+            <div class="login-card">
+
+
+                <!-- HEADING -->
+
+                <div class="login-heading">
+
+                    <p>ACCOUNT VERIFICATION</p>
+
+                    <h2>Verify Your Email</h2>
+
+                    <span>
+                        Enter the 6-digit OTP sent to your email
+                    </span>
+
+                </div>
+
+
+                <!-- OTP FORM -->
+
+                <form id="otpForm" class="otp-form">
+
+                    <div class="input-group">
+
+                        <label for="otp">
+                            Enter OTP
+                        </label>
+
+                        <input
+                            type="text"
+                            id="otp"
+                            maxlength="6"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            placeholder="Enter 6-digit OTP"
+                            required
+                        >
+
+                    </div>
+
+
+                    <p id="timer">
+                        OTP expires in 02:00
+                    </p>
+
+
+                    <p id="message"></p>
+
+
+                    <button
+                        type="submit"
+                        id="verifyButton"
+                    >
+                        Verify Account
+                    </button>
+
+                </form>
+
+
+                <!-- RESEND OTP -->
+
+                <button
+                    type="button"
+                    id="resendButton"
+                    disabled
+                >
+                    Resend OTP
+                </button>
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+
+                    <span>MEDISYNC</span>
+
+                </div>
+
+
+                <!-- BOTTOM TEXT -->
+
+                <p class="bottom-text">
+
+                    Already have an account?
+
+                    <a href="login%20index.html">
+                        Login here
+                    </a>
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EMAILJS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+    <script>
+
+        emailjs.init({
+            publicKey: "EZSSmEnDFJNEVuey8"
+        });
+
+
+        const otpForm =
+            document.getElementById("otpForm");
+
+        const otpInput =
+            document.getElementById("otp");
+
+        const timer =
+            document.getElementById("timer");
+
+        const message =
+            document.getElementById("message");
+
+        const verifyButton =
+            document.getElementById("verifyButton");
+
+        const resendButton =
+            document.getElementById("resendButton");
+
+
+        /* GET REGISTRATION DATA */
+
+        let storedOtp =
+            sessionStorage.getItem("registrationOtp");
+
+        let expiry =
+            Number(
+                sessionStorage.getItem("registrationOtpExpiry")
+            );
+
+        const email =
+            sessionStorage.getItem("registrationEmail");
+
+
+        /* CHECK SESSION */
+
+        if (
+            !storedOtp ||
+            !expiry ||
+            !email ||
+            isNaN(expiry)
+        ) {
+
+            message.textContent =
+                "Registration session expired.";
+
+            verifyButton.disabled = true;
+
+            resendButton.disabled = true;
+
+        }
+
+
+        /* TIMER FUNCTION */
+
+        function updateTimer() {
+
+            if (!expiry || isNaN(expiry)) {
+
+                timer.textContent =
+                    "OTP expires in 02:00";
+
+                return;
+
+            }
+
+
+            const remaining =
+                expiry - Date.now();
+
+
+            if (remaining <= 0) {
+
+                timer.textContent =
+                    "OTP expired.";
+
+                verifyButton.disabled = true;
+
+                resendButton.disabled = false;
+
+                return;
+
+            }
+
+
+            const totalSeconds =
+                Math.floor(remaining / 1000);
+
+
+            const minutes =
+                Math.floor(totalSeconds / 60);
+
+
+            const seconds =
+                totalSeconds % 60;
+
+
+            timer.textContent =
+                "OTP expires in " +
+                String(minutes).padStart(2, "0") +
+                ":" +
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        updateTimer();
+
+
+        const timerInterval =
+            setInterval(updateTimer, 1000);
+
+
+        /* VERIFY OTP */
+
+        otpForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const enteredOtp =
+                    otpInput.value.trim();
+
+
+                if (Date.now() > expiry) {
+
+                    message.textContent =
+                        "OTP has expired. Please resend OTP.";
+
+                    verifyButton.disabled = true;
+
+                    resendButton.disabled = false;
+
+                    return;
+
+                }
+
+
+                if (enteredOtp === storedOtp) {
+
+                    message.textContent =
+                        "Email verified successfully!";
+
+
+                    clearInterval(timerInterval);
+
+
+                    sessionStorage.removeItem(
+                        "registrationOtp"
+                    );
+
+                    sessionStorage.removeItem(
+                        "registrationOtpExpiry"
+                    );
+
+                    sessionStorage.removeItem(
+                        "registrationEmail"
+                    );
+
+                    sessionStorage.removeItem(
+                        "registrationName"
+                    );
+
+                    sessionStorage.removeItem(
+                        "registrationUserId"
+                    );
+
+
+                    setTimeout(function() {
+
+                        window.location.href =
+                            "login%20index.html";
+
+                    }, 1000);
+
+                }
+
+                else {
+
+                    message.textContent =
+                        "Incorrect OTP. Please try again.";
+
+                }
+
+            }
+        );
+
+
+        /* RESEND OTP */
+
+        resendButton.addEventListener(
+            "click",
+            function() {
+
+                const newOtp =
+                    Math.floor(
+                        100000 +
+                        Math.random() * 900000
+                    ).toString();
+
+
+                const newExpiry =
+                    Date.now() + 120000;
+
+
+                sessionStorage.setItem(
+                    "registrationOtp",
+                    newOtp
+                );
+
+
+                sessionStorage.setItem(
+                    "registrationOtpExpiry",
+                    newExpiry.toString()
+                );
+
+
+                storedOtp =
+                    newOtp;
+
+
+                expiry =
+                    newExpiry;
+
+
+                verifyButton.disabled = false;
+
+
+                timer.textContent =
+                    "OTP expires in 02:00";
+
+
+                message.textContent =
+                    "Sending new OTP...";
+
+
+                resendButton.disabled = true;
+
+
+                emailjs.send(
+                    "service_b4o1edb",
+                    "template_lwf1eh9",
+                    {
+                        user_email: email,
+                        otp: newOtp
+                    }
+                )
+                .then(function() {
+
+                    message.textContent =
+                        "New OTP sent to your email.";
+
+                })
+                .catch(function() {
+
+                    message.textContent =
+                        "Unable to send OTP. Please try again.";
+
+                    resendButton.disabled = false;
+
+                });
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
