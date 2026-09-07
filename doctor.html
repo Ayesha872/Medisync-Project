@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - Doctors</title>
+
+    <link rel="stylesheet" href="doctor style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="logo.jpeg"
+                 alt="MediSync Logo"
+                 class="main-logo">
+
+            <h2>MediSync</h2>
+
+            <p>Smart Healthcare</p>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a href="./index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="./about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="./patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html" class="active">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="#">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="#">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="#">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+
+    <div class="page-area">
+
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="top-header">
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    placeholder="Search patients, doctors, appointments..."
+                >
+
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification">
+
+                    🔔
+
+                    <span class="notification-dot"></span>
+
+                </button>
+
+
+                <div class="profile"
+                     onclick="window.location.href='./login%20index.html'">
+
+                    <div class="profile-picture">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <strong id="loggedInName">
+                            Admin
+                        </strong>
+
+                        <small>
+                            Hospital Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= PAGE HEADING ================= -->
+
+            <section class="page-heading">
+
+                <div>
+
+                    <p class="small-title">
+                        DOCTOR MANAGEMENT
+                    </p>
+
+                    <h1>
+                        Doctors
+                    </h1>
+
+                    <p class="heading-text">
+                        Manage doctors, specializations and their availability.
+                    </p>
+
+                </div>
+
+
+                <button class="add-doctor">
+                    + Add New Doctor
+                </button>
+
+            </section>
+
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+
+            <section class="doctor-overview">
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+
+                        <div>
+
+                            <p>
+                                Total Doctors
+                            </p>
+
+                            <h2>
+                                48
+                            </h2>
+
+                        </div>
+
+                        <div class="card-icon">
+                            👨‍⚕️
+                        </div>
+
+                    </div>
+
+                    <span class="growth">
+                        ↑ 6.4% from last month
+                    </span>
+
+                </div>
+
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+
+                        <div>
+
+                            <p>
+                                Available Today
+                            </p>
+
+                            <h2>
+                                32
+                            </h2>
+
+                        </div>
+
+                        <div class="card-icon">
+                            🟢
+                        </div>
+
+                    </div>
+
+                    <span class="growth">
+                        67% doctors available
+                    </span>
+
+                </div>
+
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+
+                        <div>
+
+                            <p>
+                                On Appointment
+                            </p>
+
+                            <h2>
+                                11
+                            </h2>
+
+                        </div>
+
+                        <div class="card-icon">
+                            📅
+                        </div>
+
+                    </div>
+
+                    <span class="growth">
+                        23% currently busy
+                    </span>
+
+                </div>
+
+
+
+                <div class="overview-card">
+
+                    <div class="overview-top">
+
+                        <div>
+
+                            <p>
+                                On Leave
+                            </p>
+
+                            <h2>
+                                5
+                            </h2>
+
+                        </div>
+
+                        <div class="card-icon">
+                            🏖️
+                        </div>
+
+                    </div>
+
+                    <span class="leave-text">
+                        10% of total doctors
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= FILTER SECTION ================= -->
+
+            <section class="filter-section">
+
+
+                <div class="filter-search">
+
+                    <span>🔍</span>
+
+                    <input
+                        type="text"
+                        placeholder="Search doctor by name or Doctor ID"
+                    >
+
+                </div>
+
+
+                <select>
+
+                    <option>
+                        All Departments
+                    </option>
+
+                    <option>
+                        Cardiology
+                    </option>
+
+                    <option>
+                        Neurology
+                    </option>
+
+                    <option>
+                        Orthopedics
+                    </option>
+
+                    <option>
+                        General Medicine
+                    </option>
+
+                    <option>
+                        Pediatrics
+                    </option>
+
+                </select>
+
+
+                <select>
+
+                    <option>
+                        All Specializations
+                    </option>
+
+                    <option>
+                        Cardiologist
+                    </option>
+
+                    <option>
+                        Neurologist
+                    </option>
+
+                    <option>
+                        Orthopedic
+                    </option>
+
+                    <option>
+                        Physician
+                    </option>
+
+                    <option>
+                        Pediatrician
+                    </option>
+
+                </select>
+
+
+                <select>
+
+                    <option>
+                        All Status
+                    </option>
+
+                    <option>
+                        Available
+                    </option>
+
+                    <option>
+                        Busy
+                    </option>
+
+                    <option>
+                        On Leave
+                    </option>
+
+                </select>
+
+
+                <button class="filter-button">
+                    Filter
+                </button>
+
+            </section>
+
+
+
+            <!-- ================= DOCTOR LIST ================= -->
+
+            <section class="doctor-section">
+
+
+                <div class="section-title">
+
+                    <div>
+
+                        <h2>
+                            Doctor List
+                        </h2>
+
+                        <p>
+                            Registered doctors and their current availability
+                        </p>
+
+                    </div>
+
+
+                    <button>
+                        View All
+                    </button>
+
+                </div>
+
+
+
+                <div class="doctor-table">
+
+
+                    <!-- TABLE HEADER -->
+
+                    <div class="table-row table-head">
+
+                        <div>
+                            Doctor
+                        </div>
+
+                        <div>
+                            Doctor ID
+                        </div>
+
+                        <div>
+                            Specialization
+                        </div>
+
+                        <div>
+                            Department
+                        </div>
+
+                        <div>
+                            Experience
+                        </div>
+
+                        <div>
+                            Status
+                        </div>
+
+                        <div>
+                            Action
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 1 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👨‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Rajesh Sharma
+                                </strong>
+
+                                <small>
+                                    MBBS, MD
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1001
+                        </div>
+
+                        <div>
+                            Cardiologist
+                        </div>
+
+                        <div>
+                            Cardiology
+                        </div>
+
+                        <div>
+                            12 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 2 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👩‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Neha Verma
+                                </strong>
+
+                                <small>
+                                    MBBS, DM
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1002
+                        </div>
+
+                        <div>
+                            Neurologist
+                        </div>
+
+                        <div>
+                            Neurology
+                        </div>
+
+                        <div>
+                            9 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status busy">
+                                Busy
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 3 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👨‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Amit Kapoor
+                                </strong>
+
+                                <small>
+                                    MBBS, MS
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1003
+                        </div>
+
+                        <div>
+                            Orthopedic
+                        </div>
+
+                        <div>
+                            Orthopedics
+                        </div>
+
+                        <div>
+                            15 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 4 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👩‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Sana Khan
+                                </strong>
+
+                                <small>
+                                    MBBS, MD
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1004
+                        </div>
+
+                        <div>
+                            Physician
+                        </div>
+
+                        <div>
+                            General Medicine
+                        </div>
+
+                        <div>
+                            7 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 5 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👨‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Arjun Mehta
+                                </strong>
+
+                                <small>
+                                    MBBS, MD
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1005
+                        </div>
+
+                        <div>
+                            Pediatrician
+                        </div>
+
+                        <div>
+                            Pediatrics
+                        </div>
+
+                        <div>
+                            10 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status leave">
+                                On Leave
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DOCTOR 6 -->
+
+                    <div class="table-row">
+
+                        <div class="doctor-name">
+
+                            <div class="doctor-avatar">
+                                👩‍⚕️
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Dr. Priya Singh
+                                </strong>
+
+                                <small>
+                                    MBBS, MS
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div>
+                            DR-1006
+                        </div>
+
+                        <div>
+                            General Surgeon
+                        </div>
+
+                        <div>
+                            Surgery
+                        </div>
+
+                        <div>
+                            11 Years
+                        </div>
+
+                        <div>
+
+                            <span class="status available">
+                                Available
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <button class="action-button">
+                                View
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+ <!-- ================= BOTTOM GRID ================= -->
+
+<section class="bottom-grid">
+
+    <!-- DOCTOR ACTIVITY -->
+
+    <div class="bottom-card">
+
+        <div class="bottom-title">
+            <h2>Recent Doctor Activity</h2>
+            <p>Latest updates</p>
+        </div>
+
+        <div class="activity">
+
+            <div class="activity-icon">🩺</div>
+
+            <div>
+                <strong>Dr. Rajesh Sharma</strong>
+                <p>Consultation completed</p>
+                <small>10 minutes ago</small>
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">📅</div>
+
+            <div>
+                <strong>Dr. Neha Verma</strong>
+                <p>New appointment scheduled</p>
+                <small>25 minutes ago</small>
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">🟢</div>
+
+            <div>
+                <strong>Dr. Amit Kapoor</strong>
+                <p>Doctor is now available</p>
+                <small>45 minutes ago</small>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DEPARTMENT STATISTICS -->
+
+    <div class="bottom-card">
+
+        <div class="bottom-title">
+            <h2>Department Statistics</h2>
+            <p>Doctors by department</p>
+        </div>
+
+
+        <div class="statistics">
+
+            <div class="stat-row">
+
+                <span>Cardiology</span>
+
+                <div class="stat-bar">
+                    <div style="width: 82%;"></div>
+                </div>
+
+                <strong>12</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>Neurology</span>
+
+                <div class="stat-bar">
+                    <div style="width: 65%;"></div>
+                </div>
+
+                <strong>8</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>Orthopedics</span>
+
+                <div class="stat-bar">
+                    <div style="width: 55%;"></div>
+                </div>
+
+                <strong>7</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>General Medicine</span>
+
+                <div class="stat-bar">
+                    <div style="width: 72%;"></div>
+                </div>
+
+                <strong>10</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 MediSync. Smart Healthcare Management System.
+    </p>
+
+</footer>
+
+
+</main>
+
+
+<!-- ================= LOGIN / PROFILE SCRIPT ================= -->
+
+<script>
+
+    const loggedInName =
+        sessionStorage.getItem("medisyncEmail");
+
+    if (loggedInName) {
+
+        const name =
+            loggedInName
+                .split("@")[0]
+                .replace(/[._-]/g, " ")
+                .replace(/\b\w/g, letter => letter.toUpperCase());
+
+        const profileName =
+            document.getElementById("loggedInName");
+
+        if (profileName) {
+            profileName.textContent = name;
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

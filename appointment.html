@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Appointments - MediSync</title>
+
+    <link rel="stylesheet" href="appointment style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="logo.jpeg"
+                 alt="MediSync Logo"
+                 class="main-logo">
+
+            <h2>MediSync</h2>
+
+            <p>Smart Healthcare</p>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a href="./index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="./about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="./patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="./appointment.html" class="active">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="#">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="#">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= PAGE AREA ================= -->
+
+    <div class="page-area">
+
+
+        <!-- ================= TOP HEADER ================= -->
+
+        <header class="top-header">
+
+            <div class="search-box">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    placeholder="Search appointments, doctors..."
+                >
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </div>
+
+
+                <div class="profile"
+                     onclick="window.location.href='./login%20index.html'">
+
+                    <div class="profile-avatar">
+                        👤
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="loggedInName">
+                            User
+                        </strong>
+
+                        <small>
+                            Patient
+                        </small>
+
+                    </div>
+
+                    <span class="profile-arrow">
+                        ▾
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= PAGE HEADING ================= -->
+
+            <section class="page-heading">
+
+                <div>
+
+                    <span class="heading-label">
+                        APPOINTMENT MANAGEMENT
+                    </span>
+
+                    <h1>
+                        My Appointments
+                    </h1>
+
+                    <p>
+                        Welcome back,
+                        <strong id="welcomeName">User</strong> 👋
+                        Here you can view and manage your hospital appointments.
+                    </p>
+
+                </div>
+
+
+                <button class="primary-btn">
+                    + Book New Appointment
+                </button>
+
+            </section>
+
+
+            <!-- ================= PATIENT WELCOME CARD ================= -->
+
+            <section class="welcome-card">
+
+                <div class="welcome-icon">
+                    📅
+                </div>
+
+                <div class="welcome-text">
+
+                    <h2>
+                        Hello, <span id="welcomeNameCard">User</span>!
+                    </h2>
+
+                    <p>
+                        Keep track of your consultations, follow-ups,
+                        OPD visits and upcoming appointments all in one place.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-date">
+
+                    <span>Today's Date</span>
+
+                    <strong>
+                        07 September 2026
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+
+            <section class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📅
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Total Appointments
+                        </span>
+
+                        <h2>
+                            8
+                        </h2>
+
+                        <small>
+                            All your appointments
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Completed
+                        </span>
+
+                        <h2>
+                            5
+                        </h2>
+
+                        <small>
+                            Successfully completed
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏳
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Upcoming
+                        </span>
+
+                        <h2>
+                            2
+                        </h2>
+
+                        <small>
+                            Appointments remaining
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+                        ✕
+                    </div>
+
+                    <div class="stat-content">
+
+                        <span>
+                            Cancelled
+                        </span>
+
+                        <h2>
+                            1
+                        </h2>
+
+                        <small>
+                            Cancelled appointments
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= APPOINTMENT TYPES ================= -->
+
+            <section class="section-card">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Appointment Overview
+                        </h2>
+
+                        <p>
+                            Types of appointments you have attended
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="appointment-types">
+
+
+                    <div class="type-card">
+
+                        <div class="type-icon">
+                            🩺
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Doctor Consultation
+                            </h3>
+
+                            <p>
+                                3 Appointments
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="type-card">
+
+                        <div class="type-icon">
+                            🔄
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Follow-up
+                            </h3>
+
+                            <p>
+                                2 Appointments
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="type-card">
+
+                        <div class="type-icon">
+                            🏥
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                OPD Consultation
+                            </h3>
+
+                            <p>
+                                1 Appointment
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="type-card">
+
+                        <div class="type-icon">
+                            🧪
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Lab / Test
+                            </h3>
+
+                            <p>
+                                1 Appointment
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="type-card">
+
+                        <div class="type-icon">
+                            ⭐
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Specialist
+                            </h3>
+
+                            <p>
+                                1 Appointment
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= APPOINTMENT HISTORY ================= -->
+
+            <section class="section-card appointment-history">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            My Appointment History
+                        </h2>
+
+                        <p>
+                            Complete history of your hospital appointments
+                        </p>
+
+                    </div>
+
+
+                    <button class="outline-btn">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Doctor
+                                </th>
+
+                                <th>
+                                    Appointment Type
+                                </th>
+
+                                <th>
+                                    Department
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="doctor-cell">
+
+                                        <div class="doctor-avatar">
+                                            RS
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Dr. Rajesh Sharma
+                                            </strong>
+
+                                            <small>
+                                                Cardiology
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Doctor Consultation
+                                </td>
+
+
+                                <td>
+                                    Cardiology
+                                </td>
+
+
+                                <td>
+                                    02 Sep 2026
+                                </td>
+
+
+                                <td>
+                                    10:00 AM
+                                </td>
+
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    <button class="action-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="doctor-cell">
+
+                                        <div class="doctor-avatar">
+                                            NV
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Dr. Neha Verma
+                                            </strong>
+
+                                            <small>
+                                                Neurology
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Follow-up
+                                </td>
+
+
+                                <td>
+                                    Neurology
+                                </td>
+
+
+                                <td>
+                                    04 Sep 2026
+                                </td>
+
+
+                                <td>
+                                    11:30 AM
+                                </td>
+
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    <button class="action-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="doctor-cell">
+
+                                        <div class="doctor-avatar">
+                                            SK
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Dr. Sana Khan
+                                            </strong>
+
+                                            <small>
+                                                General Medicine
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    OPD Consultation
+                                </td>
+
+
+                                <td>
+                                    General Medicine
+                                </td>
+
+
+                                <td>
+                                    06 Sep 2026
+                                </td>
+
+
+                                <td>
+                                    02:00 PM
+                                </td>
+
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    <button class="action-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="doctor-cell">
+
+                                        <div class="doctor-avatar">
+                                            AK
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Dr. Amit Kapoor
+                                            </strong>
+
+                                            <small>
+                                                Orthopedics
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    Specialist Consultation
+                                </td>
+
+
+                                <td>
+                                    Orthopedics
+                                </td>
+
+
+                                <td>
+                                    09 Sep 2026
+                                </td>
+
+
+                                <td>
+                                    12:00 PM
+                                </td>
+
+
+                                <td>
+                                    <span class="status upcoming">
+                                        Upcoming
+                                    </span>
+                                </td>
+
+
+                                <td>
+                                    <button class="action-btn">
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+
+                                    <div class="doctor-cell">
+
+                                        <div class="doctor-avatar">
+                                            PS
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Dr. Priya Singh
+                                            </strong>
+
+                                            <small>
+                                                Pediatrics
+                </small>
+
+            </div>
+
+        </div>
+
+    </td>
+
+
+    <td>
+        Follow-up
+    </td>
+
+
+    <td>
+        Pediatrics
+    </td>
+
+
+    <td>
+        12 Sep 2026
+    </td>
+
+
+    <td>
+        04:00 PM
+    </td>
+
+
+    <td>
+        <span class="status upcoming">
+            Upcoming
+        </span>
+    </td>
+
+
+    <td>
+
+        <button class="action-btn">
+            View
+        </button>
+
+    </td>
+
+</tr>
+
+
+<tr>
+
+    <td>
+
+        <div class="doctor-cell">
+
+            <div class="doctor-avatar">
+                RM
+            </div>
+
+            <div>
+
+                <strong>
+                    Dr. Rohan Mehta
+                </strong>
+
+                <small>
+                    Dermatology
+                </small>
+
+            </div>
+
+        </div>
+
+    </td>
+
+
+    <td>
+        Doctor Consultation
+    </td>
+
+
+    <td>
+        Dermatology
+    </td>
+
+
+    <td>
+        28 Aug 2026
+    </td>
+
+
+    <td>
+        03:30 PM
+    </td>
+
+
+    <td>
+        <span class="status completed">
+            Completed
+        </span>
+    </td>
+
+
+    <td>
+
+        <button class="action-btn">
+            View
+        </button>
+
+    </td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+<!-- ================= UPCOMING APPOINTMENT ================= -->
+
+<section class="upcoming-card">
+
+    <div class="upcoming-left">
+
+        <div class="calendar-icon">
+            📅
+        </div>
+
+        <div>
+
+            <span class="upcoming-label">
+                NEXT APPOINTMENT
+            </span>
+
+            <h2>
+                Dr. Amit Kapoor
+            </h2>
+
+            <p>
+                Orthopedics • Specialist Consultation
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="upcoming-details">
+
+        <div>
+
+            <span>
+                DATE
+            </span>
+
+            <strong>
+                09 Sep 2026
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                TIME
+            </span>
+
+            <strong>
+                12:00 PM
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                STATUS
+            </span>
+
+            <strong class="upcoming-text">
+                Upcoming
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <button class="manage-btn">
+        Manage
+    </button>
+
+</section>
+
+
+<!-- ================= RECENT HOSPITAL ACTIVITY ================= -->
+
+<section class="section-card">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>
+                Recent Hospital Activity
+            </h2>
+
+            <p>
+                Your latest healthcare updates
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="activity-list">
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon completed-icon">
+                ✓
+            </div>
+
+            <div class="activity-info">
+
+                <strong>
+                    Cardiology Consultation Completed
+                </strong>
+
+                <p>
+                    Consultation with Dr. Rajesh Sharma
+                </p>
+
+                <small>
+                    02 September 2026 • 10:00 AM
+                </small>
+
+            </div>
+
+            <span class="activity-status">
+                Completed
+            </span>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon follow-icon">
+                🔄
+            </div>
+
+            <div class="activity-info">
+
+                <strong>
+                    Follow-up Appointment Completed
+                </strong>
+
+                <p>
+                    Follow-up with Dr. Neha Verma
+                </p>
+
+                <small>
+                    04 September 2026 • 11:30 AM
+                </small>
+
+            </div>
+
+            <span class="activity-status">
+                Completed
+            </span>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon opd-icon">
+                🩺
+            </div>
+
+            <div class="activity-info">
+
+                <strong>
+                    OPD Consultation Completed
+                </strong>
+
+                <p>
+                    General Medicine consultation with Dr. Sana Khan
+                </p>
+
+                <small>
+                    06 September 2026 • 02:00 PM
+                </small>
+
+            </div>
+
+            <span class="activity-status">
+                Completed
+            </span>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon upcoming-icon">
+                📅
+            </div>
+
+            <div class="activity-info">
+
+                <strong>
+                    Specialist Appointment Scheduled
+                </strong>
+
+                <p>
+                    Upcoming consultation with Dr. Amit Kapoor
+                </p>
+
+                <small>
+                    09 September 2026 • 12:00 PM
+                </small>
+
+            </div>
+
+            <span class="activity-status upcoming-status">
+                Upcoming
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= MEDICAL VISIT SUMMARY ================= -->
+
+<section class="section-card">
+
+    <div class="section-header">
+
+        <div>
+            <h2>Medical Visit Summary</h2>
+            <p>A quick summary of your recent hospital visits</p>
+        </div>
+
+    </div>
+
+
+    <div class="summary-grid">
+
+        <div class="summary-box">
+            <span>🏥</span>
+            <strong>6</strong>
+            <p>Total Visits</p>
+        </div>
+
+        <div class="summary-box">
+            <span>🩺</span>
+            <strong>4</strong>
+            <p>Doctor Consultations</p>
+        </div>
+
+        <div class="summary-box">
+            <span>🧪</span>
+            <strong>1</strong>
+            <p>Lab Visits</p>
+        </div>
+
+        <div class="summary-box">
+            <span>💊</span>
+            <strong>3</strong>
+            <p>Prescriptions</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= BOTTOM GRID ================= -->
+
+<section class="bottom-grid">
+
+
+    <!-- RECENT APPOINTMENT ACTIVITY -->
+
+    <div class="bottom-card">
+
+        <div class="bottom-title">
+
+            <h2>Recent Appointment Activity</h2>
+
+            <p>Your latest appointment updates</p>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Cardiology Consultation
+                </strong>
+
+                <p>
+                    Appointment completed successfully
+                </p>
+
+                <small>
+                    02 September 2026
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                🔄
+            </div>
+
+            <div>
+
+                <strong>
+                    Follow-up Visit
+                </strong>
+
+                <p>
+                    Follow-up appointment completed
+                </p>
+
+                <small>
+                    04 September 2026
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity">
+
+            <div class="activity-icon">
+                📅
+            </div>
+
+            <div>
+
+                <strong>
+                    Upcoming Specialist Visit
+                </strong>
+
+                <p>
+                    Appointment scheduled with Dr. Amit Kapoor
+                </p>
+
+                <small>
+                    09 September 2026
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- APPOINTMENT STATISTICS -->
+
+    <div class="bottom-card">
+
+        <div class="bottom-title">
+
+            <h2>Appointment Statistics</h2>
+
+            <p>Your appointment overview</p>
+
+        </div>
+
+
+        <div class="statistics">
+
+
+            <div class="stat-row">
+
+                <span>Completed</span>
+
+                <div class="stat-bar">
+                    <div style="width: 80%;"></div>
+                </div>
+
+                <strong>5</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>Upcoming</span>
+
+                <div class="stat-bar">
+                    <div style="width: 45%;"></div>
+                </div>
+
+                <strong>2</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>Cancelled</span>
+
+                <div class="stat-bar">
+                    <div style="width: 20%;"></div>
+                </div>
+
+                <strong>1</strong>
+
+            </div>
+
+
+            <div class="stat-row">
+
+                <span>Follow-up</span>
+
+                <div class="stat-bar">
+                    <div style="width: 55%;"></div>
+                </div>
+
+                <strong>2</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 MediSync. Smart Healthcare Management System.
+    </p>
+
+</footer>
+
+
+</main>
+
+</div>
+
+
+<!-- ================= LOGIN NAME SCRIPT ================= -->
+
+<script>
+
+    const storedEmail =
+        sessionStorage.getItem("medisyncEmail");
+
+
+    if (storedEmail) {
+
+        const name =
+            storedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ")
+                .replace(/\b\w/g, letter => letter.toUpperCase());
+
+
+        const loggedInName =
+            document.getElementById("loggedInName");
+
+        const welcomeName =
+            document.getElementById("welcomeName");
+
+        const welcomeNameCard =
+            document.getElementById("welcomeNameCard");
+
+
+        if (loggedInName) {
+            loggedInName.textContent = name;
+        }
+
+
+        if (welcomeName) {
+            welcomeName.textContent = name;
+        }
+
+
+        if (welcomeNameCard) {
+            welcomeNameCard.textContent = name;
+        }
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
