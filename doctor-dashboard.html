@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - Doctor Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Doctor Dashboard CSS -->
+    <link rel="stylesheet"
+        href="doctor-dashboard.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="hospital-nav">
+
+        <div class="nav-brand">
+
+            <div class="brand-logo">
+                <img src="logo.jpeg"
+                    alt="MediSync Logo">
+            </div>
+
+            <div class="brand-text">
+                <strong>MEDISYNC</strong>
+
+                <span>
+                    A Smart Hospital Management & Patient Care System
+                </span>
+            </div>
+
+        </div>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav class="main-navigation">
+
+            <a href="doctor-dashboard.html"
+                class="nav-link active">
+
+                <i class="fa-solid fa-house"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="doctor-about.html"
+                class="nav-link">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                About Us
+
+            </a>
+
+
+            <!-- DOCTOR SERVICES -->
+
+            <div class="nav-dropdown">
+
+                <button class="dropdown-btn">
+
+                    <i class="fa-solid fa-grid-2"></i>
+
+                    <span>Doctor Services</span>
+
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+
+                </button>
+
+
+                <div class="dropdown-menu">
+
+                    <a href="#opd">
+                        <i class="fa-solid fa-hospital"></i>
+                        OPD
+                    </a>
+
+                    <a href="#appointments">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        Appointments
+                    </a>
+
+                    <a href="#patients">
+                        <i class="fa-solid fa-user-group"></i>
+                        My Patients
+                    </a>
+
+                    <a href="#records">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Patient Records
+                    </a>
+
+                    <a href="#prescriptions">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i>
+                        Prescriptions
+                    </a>
+
+                    <a href="#reports">
+                        <i class="fa-solid fa-flask"></i>
+                        Lab Reports
+                    </a>
+
+                    <a href="#consultations">
+                        <i class="fa-solid fa-stethoscope"></i>
+                        Consultations
+                    </a>
+
+                    <a href="#notifications">
+                        <i class="fa-solid fa-bell"></i>
+                        Notifications
+                    </a>
+
+                    <a href="#settings">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+
+                    <a href="#help">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Help
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- RIGHT NAV -->
+
+        <div class="nav-right">
+
+            <button class="notification-btn"
+                title="Notifications">
+
+                <i class="fa-regular fa-bell"></i>
+
+                <span class="notification-badge">
+                    4
+                </span>
+
+            </button>
+
+
+            <div class="profile">
+
+                <div class="profile-picture">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="doctorName">
+                        Doctor
+                    </strong>
+
+                    <small>
+                        Doctor Portal
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button class="logout-btn"
+                onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    DOCTOR PORTAL
+                </span>
+
+
+                <h1>
+                    Welcome back,
+                    <span id="welcomeName">
+                        Doctor
+                    </span>
+                </h1>
+
+
+                <p>
+
+                    Manage your OPD, appointments, patients,
+                    consultations and clinical activities
+                    through your MediSync doctor portal.
+
+                </p>
+
+            </div>
+
+
+            <div class="hero-date">
+
+                <span>
+                    TODAY
+                </span>
+
+                <strong>
+                    07 September 2026
+                </strong>
+
+                <small>
+                    <i class="fa-regular fa-clock"></i>
+                    Hospital OPD Active
+                </small>
+
+            </div>
+
+
+            <div class="hero-bottom">
+
+
+                <!-- OPD STATUS -->
+
+                <div class="health-status">
+
+                    <div class="status-ring">
+
+                        <div class="status-ring-inner">
+
+                            <strong>
+                                ON
+                            </strong>
+
+                            <span>
+                                OPD
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-text">
+
+                        <span>
+                            OPD STATUS
+                        </span>
+
+                        <strong>
+                            Open
+                        </strong>
+
+                        <small>
+                            Today's OPD is active.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NEXT PATIENT -->
+
+                <div class="next-appointment">
+
+                    <div class="appointment-icon">
+
+                        <i class="fa-solid fa-user-clock"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            NEXT PATIENT
+                        </span>
+
+                        <strong>
+                            Rahul Sharma
+                        </strong>
+
+                        <small>
+                            Token #06 · 10:30 AM
+                        </small>
+
+                    </div>
+
+
+                    <a href="#opd"
+                        class="appointment-btn">
+
+                        View Queue
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        TOTAL PATIENTS
+                    </span>
+
+                    <strong>
+                        128
+                    </strong>
+
+                    <small>
+                        Patients under care
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-hospital-user"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        TODAY'S OPD
+                    </span>
+
+                    <strong>
+                        18
+                    </strong>
+
+                    <small>
+                        Patients in queue
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        APPOINTMENTS
+                    </span>
+
+                    <strong>
+                        06
+                    </strong>
+
+                    <small>
+                        Scheduled today
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+
+                <div class="stat-info">
+
+                    <span>
+                        PENDING
+                    </span>
+
+                    <strong>
+                        04
+                    </strong>
+
+                    <small>
+                        Consultations pending
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD GRID
+        ================================================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =================================================
+                 OPD MANAGEMENT
+            ================================================== -->
+
+            <section class="dashboard-card opd-card"
+                id="opd">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            OPD MANAGEMENT
+                        </span>
+
+                        <h2>
+                            Today's Patient Queue
+                        </h2>
+
+                    </div>
+
+
+                    <span class="live-status">
+
+                        <span></span>
+
+                        OPD LIVE
+
+                    </span>
+
+                </div>
+
+
+                <div class="queue-list">
+
+
+                    <!-- PATIENT 1 -->
+
+                    <div class="queue-row">
+
+                        <div class="token-number">
+                            #04
+                        </div>
+
+
+                        <div class="patient-avatar">
+                            RS
+                        </div>
+
+
+                        <div class="queue-patient">
+
+                            <strong>
+                                Rahul Sharma
+                            </strong>
+
+                            <span>
+                                General Consultation
+                            </span>
+
+                        </div>
+
+
+                        <div class="queue-time">
+
+                            <strong>
+                                10:15 AM
+                            </strong>
+
+                            <span>
+                                Token Time
+                            </span>
+
+                        </div>
+
+
+                        <span class="queue-status waiting">
+                            Waiting
+                        </span>
+
+
+                        <button class="start-btn">
+                            Start
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- PATIENT 2 -->
+
+                    <div class="queue-row">
+
+                        <div class="token-number">
+                            #05
+                        </div>
+
+
+                        <div class="patient-avatar">
+                            AK
+                        </div>
+
+
+                        <div class="queue-patient">
+
+                            <strong>
+                                Ankit Kumar
+                            </strong>
+
+                            <span>
+                                Follow-up Consultation
+                            </span>
+
+                        </div>
+
+
+                        <div class="queue-time">
+
+                            <strong>
+                                10:20 AM
+                            </strong>
+
+                            <span>
+                                Token Time
+                            </span>
+
+                        </div>
+
+
+                        <span class="queue-status consultation">
+                            In Consultation
+                        </span>
+
+
+                        <button class="start-btn">
+                            Open
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- PATIENT 3 -->
+
+                    <div class="queue-row">
+
+                        <div class="token-number">
+                            #06
+                        </div>
+
+
+                        <div class="patient-avatar">
+                            PS
+                        </div>
+
+
+                        <div class="queue-patient">
+
+                            <strong>
+                                Priya Singh
+                            </strong>
+
+                            <span>
+                                Cardiology Review
+                            </span>
+
+                        </div>
+
+
+                        <div class="queue-time">
+
+                            <strong>
+                                10:30 AM
+                            </strong>
+
+                            <span>
+                                Token Time
+                            </span>
+
+                        </div>
+
+
+                        <span class="queue-status confirmed">
+                            Confirmed
+                        </span>
+
+
+                        <button class="start-btn">
+                            Start
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- PATIENT 4 -->
+
+                    <div class="queue-row">
+
+                        <div class="token-number">
+                            #07
+                        </div>
+
+
+                        <div class="patient-avatar">
+                            VM
+                        </div>
+
+
+                        <div class="queue-patient">
+
+                            <strong>
+                                Vikram Mehta
+                            </strong>
+
+                            <span>
+                                Routine Check-up
+                            </span>
+
+                        </div>
+
+
+                        <div class="queue-time">
+
+                            <strong>
+                                10:45 AM
+                            </strong>
+
+                            <span>
+                                Token Time
+                            </span>
+
+                        </div>
+
+
+                        <span class="queue-status waiting">
+                            Waiting
+                        </span>
+
+
+                        <button class="start-btn">
+                            Start
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="queue-footer">
+
+                    <span>
+                        Showing 4 of 18 OPD patients
+                    </span>
+
+                    <a href="#patients">
+                        View All Patients
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TODAY'S SCHEDULE
+            ================================================== -->
+
+            <section class="dashboard-card schedule-card"
+                id="appointments">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            APPOINTMENTS
+                        </span>
+
+                        <h2>
+                            Today's Schedule
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-calendar-days header-icon"></i>
+
+                </div>
+
+
+                <div class="schedule-list">
+
+
+                    <div class="schedule-item active">
+
+                        <div class="schedule-time">
+                            10:30
+                            <span>AM</span>
+                        </div>
+
+
+                        <div class="schedule-line"></div>
+
+
+                        <div class="schedule-info">
+
+                            <strong>
+                                Priya Singh
+                            </strong>
+
+                            <span>
+                                Cardiology Review
+                            </span>
+
+                            <small>
+                                Confirmed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="schedule-item">
+
+                        <div class="schedule-time">
+                            11:15
+                            <span>AM</span>
+                        </div>
+
+
+                        <div class="schedule-line"></div>
+
+
+                        <div class="schedule-info">
+
+                            <strong>
+                                Arjun Verma
+                            </strong>
+
+                            <span>
+                                Follow-up
+                            </span>
+
+                            <small>
+                                Confirmed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="schedule-item">
+
+                        <div class="schedule-time">
+                            12:00
+                            <span>PM</span>
+                        </div>
+
+
+                        <div class="schedule-line"></div>
+
+
+                        <div class="schedule-info">
+
+                            <strong>
+                                Neha Gupta
+                            </strong>
+
+                            <span>
+                                General Consultation
+                            </span>
+
+                            <small>
+                                Confirmed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="schedule-item">
+
+                        <div class="schedule-time">
+                            01:00
+                            <span>PM</span>
+                        </div>
+
+
+                        <div class="schedule-line"></div>
+
+
+                        <div class="schedule-info">
+
+                            <strong>
+                                Lunch Break
+                            </strong>
+
+                            <span>
+                                Doctor's Break
+                            </span>
+
+                            <small>
+                                1 Hour
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#appointments"
+                    class="view-link">
+
+                    View All Appointments
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 MY PATIENTS
+            ================================================== -->
+
+            <section class="dashboard-card patients-card"
+                id="patients">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            MY PATIENTS
+                        </span>
+
+                        <h2>
+                            Patient Overview
+                        </h2>
+
+                    </div>
+
+
+                    <i class="fa-solid fa-users header-icon"></i>
+
+                </div>
+
+
+                <div class="patient-summary">
+
+                    <div class="summary-number">
+                        128
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Registered Patients
+                        </strong>
+
+                        <span>
+                            Patients currently under your care
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="patient-list">
+
+
+                    <div class="patient-list-row">
+
+                        <div class="small-avatar">
+                            AS
+                        </div>
+
+                        <div class="patient-list-info">
+
+                            <strong>
+                                Aman Singh
+                            </strong>
+
+                            <span>
+                                Age 42 · Male
+                            </span>
+
+                        </div>
+
+                        <span class="record-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="patient-list-row">
+
+                        <div class="small-avatar">
+                            KG
+                        </div>
+
+                        <div class="patient-list-info">
+
+                            <strong>
+                                Kavita Gupta
+                            </strong>
+
+                            <span>
+                                Age 36 · Female
+                            </span>
+
+                        </div>
+
+                        <span class="record-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="patient-list-row">
+
+                        <div class="small-avatar">
+                            RM
+                        </div>
+
+                        <div class="patient-list-info">
+
+                            <strong>
+                                Rohan Mehta
+                            </strong>
+
+                            <span>
+                                Age 51 · Male
+                            </span>
+
+                        </div>
+
+                        <span class="record-status">
+                            Active
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#records"
+                    class="view-link">
+
+                    View Patient Records
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PATIENT RECORDS
+            ================================================== -->
+
+            <section class="dashboard-card records-card"
+                id="records">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            PATIENT RECORDS
+                        </span>
+
+                        <h2>
+                            Clinical Information
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-file-medical header-icon"></i>
+
+                </div>
+
+
+                <div class="record-grid">
+
+
+                    <div class="record-box">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                        <strong>
+                            Medical History
+                        </strong>
+
+                        <span>
+                            Previous conditions & visits
+                        </span>
+
+                    </div>
+
+
+                    <div class="record-box">
+
+                        <i class="fa-solid fa-stethoscope"></i>
+
+                        <strong>
+                            Consultations
+                        </strong>
+
+                        <span>
+                            Consultation history
+                        </span>
+
+                    </div>
+
+
+                    <div class="record-box">
+
+                        <i class="fa-solid fa-file-waveform"></i>
+
+                        <strong>
+                            Reports
+                        </strong>
+
+                        <span>
+                            Patient lab reports
+                        </span>
+
+                    </div>
+
+
+                    <div class="record-box">
+
+                        <i class="fa-solid fa-notes-medical"></i>
+
+                        <strong>
+                            Prescriptions
+                        </strong>
+
+                        <span>
+                            Medicine history
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="record-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Patient records are securely managed
+                        through MediSync.
+                    </span>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PRESCRIPTIONS
+            ================================================== -->
+
+            <section class="dashboard-card prescription-card"
+                id="prescriptions">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            PRESCRIPTIONS
+                        </span>
+
+                        <h2>
+                            Prescription Overview
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-prescription-bottle-medical header-icon"></i>
+
+                </div>
+
+
+                <div class="prescription-main">
+
+                    <div class="prescription-number">
+                        24
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Active Prescriptions
+                        </strong>
+
+                        <span>
+                            Prescriptions issued to patients
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="medicine-status">
+
+                    <div>
+
+                        <span>
+                            This Month
+                        </span>
+
+                        <strong>
+                            18 Prescriptions
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="prescription-actions">
+
+                    <button>
+                        <i class="fa-solid fa-plus"></i>
+                        Add Prescription
+                    </button>
+
+                    <button>
+                        View History
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 LAB REPORTS
+            ================================================== -->
+
+            <section class="dashboard-card reports-card"
+                id="reports">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            LAB REPORTS
+                        </span>
+
+                        <h2>
+                            Recent Reports
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-flask header-icon"></i>
+
+                </div>
+
+
+                <div class="report-list">
+
+
+                    <div class="report-row">
+
+                        <div class="report-icon">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+
+                        <div class="report-info">
+
+                            <strong>
+                                Complete Blood Count
+                            </strong>
+
+                            <span>
+                                Rahul Sharma · 06 Sep 2026
+                            </span>
+
+                        </div>
+
+                        <span class="report-status normal">
+                            Normal
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="report-row">
+
+                        <div class="report-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div class="report-info">
+
+                            <strong>
+                                ECG Report
+                            </strong>
+
+                            <span>
+                                Priya Singh · 05 Sep 2026
+                            </span>
+
+                        </div>
+
+                        <span class="report-status review">
+                            Review
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="report-row">
+
+                        <div class="report-icon">
+                            <i class="fa-solid fa-vial"></i>
+                        </div>
+
+                        <div class="report-info">
+
+                            <strong>
+                                Lipid Profile
+                            </strong>
+
+                            <span>
+                                Aman Singh · 04 Sep 2026
+                            </span>
+
+                        </div>
+
+                        <span class="report-status normal">
+                            Normal
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#reports"
+                    class="view-link">
+
+                    View All Reports
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CONSULTATIONS
+            ================================================== -->
+
+            <section class="dashboard-card consultation-card"
+                id="consultations">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            CONSULTATIONS
+                        </span>
+
+                        <h2>
+                            Consultation Status
+                        </h2>
+
+                    </div>
+
+                    <i class="fa-solid fa-stethoscope header-icon"></i>
+
+                </div>
+
+
+                <div class="consultation-stats">
+
+
+                    <div class="consult-stat">
+
+                        <strong>
+                            04
+                        </strong>
+
+                        <span>
+                            Pending
+                        </span>
+
+                    </div>
+
+
+                    <div class="consult-stat">
+
+                        <strong>
+                            14
+                        </strong>
+
+                        <span>
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="consult-stat">
+
+                        <strong>
+                            18
+                        </strong>
+
+                        <span>
+                            Total Today
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="consultation-message">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <div>
+
+                        <strong>
+                            Good progress today
+                        </strong>
+
+                        <span>
+                            Most scheduled consultations
+                            are on track.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <a href="#consultations"
+                    class="view-link">
+
+                    Consultation History
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <section class="dashboard-card notification-card"
+                id="notifications">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-label">
+                            NOTIFICATIONS
+                        </span>
+
+                        <h2>
+                            Recent Updates
+                        </h2>
+
+                    </div>
+
+                    <span class="notification-count">
+                        4 New
+                    </span>
+
+                </div>
+
+
+                <div class="activity-list">
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot appointment-dot">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                New Appointment
+                            </strong>
+
+                            <span>
+                                Appointment scheduled for
+                                11:15 AM.
+                            </span>
+
+                            <small>
+                                10 min ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot patient-dot">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                New Patient
+                            </strong>
+
+                            <span>
+                                A new patient has been
+                                registered.
+                            </span>
+
+                            <small>
+                                35 min ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot report-dot">
+                            <i class="fa-solid fa-file-medical"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Report Available
+                            </strong>
+
+                            <span>
+                                New ECG report is ready
+                                for review.
+                            </span>
+
+                            <small>
+                                1 hour ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="activity-item">
+
+                        <div class="activity-dot system-dot">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Hospital Update
+                            </strong>
+
+                            <span>
+                                OPD schedule updated for
+                                today.
+                            </span>
+
+                            <small>
+                                2 hours ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DOCTOR SERVICES
+        ================================================== -->
+
+        <section class="services-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        DOCTOR SERVICES
+                    </span>
+
+                    <h2>
+                        Everything You Need
+                    </h2>
+
+                </div>
+
+                <p>
+                    Access your clinical and hospital
+                    management tools from one place.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <a href="#opd"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-hospital"></i>
+                    </div>
+
+                    <strong>
+                        OPD Management
+                    </strong>
+
+                    <span>
+                        Manage today's patient queue
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+
+
+                <a href="#appointments"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <strong>
+                        Appointments
+                    </strong>
+
+                    <span>
+                        View and manage appointments
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+
+
+                <a href="#patients"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-user-group"></i>
+                    </div>
+
+                    <strong>
+                        My Patients
+                    </strong>
+
+                    <span>
+                        Manage your patient list
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+
+
+                <a href="#records"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+
+                    <strong>
+                        Patient Records
+                    </strong>
+
+                    <span>
+                        Access clinical information
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+
+
+                <a href="#prescriptions"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-prescription-bottle-medical"></i>
+                    </div>
+
+                    <strong>
+                        Prescriptions
+                    </strong>
+
+                    <span>
+                        Create and manage prescriptions
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+
+
+                <a href="#reports"
+                    class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+
+                    <strong>
+                        Lab Reports
+                    </strong>
+
+                    <span>
+                        Review patient reports
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right service-arrow"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DOCTOR PROFILE
+        ================================================== -->
+
+        <section class="profile-banner">
+
+
+            <div class="profile-banner-left">
+
+                <div class="doctor-large-avatar">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span class="profile-label">
+                        DOCTOR PROFILE
+                    </span>
+
+                    <h2 id="profileDoctorName">
+                         Doctor
+                    </h2>
+
+                    <p>
+                        Senior Cardiologist ·
+                        MediSync Hospital
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-data">
+
+
+                <div>
+
+                    <span>
+                        DEPARTMENT
+                    </span>
+
+                    <strong>
+                        Cardiology
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SPECIALIZATION
+                    </span>
+
+                    <strong>
+                        Cardiology
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        EXPERIENCE
+                    </span>
+
+                    <strong>
+                        12+ Years
+                    </strong>
+
+                </div>
+
+
+                <button class="profile-button">
+
+                    View Profile
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="hospital-footer">
+
+            <div class="footer-brand">
+
+                <strong>
+                    MEDISYNC
+                </strong>
+
+                <span>
+                    Smart Hospital Management &
+                    Patient Care System
+                </span>
+
+            </div>
+
+
+            <div class="footer-center">
+
+                <span>
+                    Doctor Portal
+                </span>
+
+                <span>
+                    |
+                </span>
+
+                <span>
+                    Secure Clinical Management
+                </span>
+
+            </div>
+
+
+            <div class="footer-right">
+
+                <span>
+                    © 2026 MediSync
+                </span>
+
+                <span>
+                    All Rights Reserved
+                </span>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const role =
+            sessionStorage.getItem("medisyncRole");
+
+        const email =
+            sessionStorage.getItem("medisyncEmail");
+
+
+        /* Doctor-only page protection */
+
+        if (!email || role !== "doctor") {
+
+            window.location.href =
+                "login index.html";
+
+        }
+
+
+        /* Get logged-in doctor's name */
+
+        const doctorName =
+            sessionStorage.getItem("medisyncUserName")
+            || "Doctor";
+
+
+        document.getElementById("doctorName")
+            .textContent = doctorName;
+
+
+        document.getElementById("welcomeName")
+            .textContent = doctorName;
+
+
+        document.getElementById("profileDoctorName")
+            .textContent =  doctorName;
+
+
+
+        /* Logout */
+
+        function logout() {
+
+            sessionStorage.removeItem(
+                "medisyncUserId"
+            );
+
+            sessionStorage.removeItem(
+                "medisyncUserName"
+            );
+
+            sessionStorage.removeItem(
+                "medisyncEmail"
+            );
+
+            sessionStorage.removeItem(
+                "medisyncRole"
+            );
+
+
+            window.location.href =
+                "login index.html";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
