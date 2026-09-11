@@ -4,9 +4,9 @@ header("Content-Type: application/json");
 
 $host = "localhost";
 $username = "root";
-$password = "123456789";
+$password = "12345";
 $database = "medisync";
-$port = 3307;
+$port = 3306;
 
 $conn = new mysqli(
     $host,
