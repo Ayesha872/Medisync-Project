@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - My Doctors</title>
+
+    <link rel="stylesheet" href="patient doctors style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="hospital-nav">
+
+    <div class="nav-brand">
+
+        <img src="logo.jpeg" class="brand-logo" alt="MediSync Logo">
+
+        <div class="brand-text">
+
+            <strong>MediSync</strong>
+
+            <span>Smart Healthcare</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-navigation">
+
+        <a href="patient dashboard index.html" class="nav-link">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="patient-about.html" class="nav-link">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            About
+
+        </a>
+
+
+        <div class="nav-dropdown">
+
+            <button class="dropdown-btn">
+
+                <i class="fa-solid fa-user"></i>
+
+                Patient Services
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+
+            <div class="dropdown-menu">
+
+                <a href="patient appointment.html">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    My Appointments
+
+                </a>
+
+
+                <a href="patient doctors.html" class="active-dropdown">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    My Doctors
+
+                </a>
+
+
+                <a href="patient dashboard index.html#prescriptions">
+
+                    <i class="fa-solid fa-pills"></i>
+
+                    Prescriptions
+
+                </a>
+
+
+                <a href="patient dashboard index.html#reports">
+
+                    <i class="fa-solid fa-file-medical"></i>
+
+                    Medical Reports
+
+                </a>
+
+
+                <a href="patient dashboard index.html#records">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    Medical Records
+
+                </a>
+
+
+                <a href="patient dashboard index.html#consultations">
+
+                    <i class="fa-solid fa-video"></i>
+
+                    Consultations
+
+                </a>
+
+
+                <a href="patient dashboard index.html#ipd">
+
+                    <i class="fa-solid fa-bed"></i>
+
+                    IPD Services
+
+                </a>
+
+
+                <a href="patient dashboard index.html#billing">
+
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                    Billing
+
+                </a>
+
+
+                <a href="patient dashboard index.html#notifications">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    Notifications
+
+                </a>
+
+
+                <a href="patient dashboard index.html#settings">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+
+                <a href="patient dashboard index.html#help">
+
+                    <i class="fa-solid fa-circle-question"></i>
+
+                    Help & Support
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <button class="notification-btn">
+
+            <i class="fa-regular fa-bell"></i>
+
+            <span>2</span>
+
+        </button>
+
+
+        <div class="nav-profile">
+
+            <div class="profile-avatar">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+            <div class="profile-details">
+
+                <strong id="patientName">Patient</strong>
+
+                <span>Patient</span>
+
+            </div>
+
+        </div>
+
+
+        <button class="logout-btn" onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="page-container">
+
+
+    <!-- HERO -->
+
+    <section class="page-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-icon">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+
+            <div>
+
+                <p class="hero-label">
+                    PATIENT SERVICES
+                </p>
+
+
+                <h1>
+                    My Doctors
+                </h1>
+
+
+                <p>
+                    View your doctors and manage your healthcare appointments.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-date">
+
+            <i class="fa-regular fa-calendar"></i>
+
+            <span id="currentDate"></span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         DOCTORS SECTION
+    ================================================= -->
+
+    <section class="doctors-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    My Doctors
+                </h2>
+
+                <p>
+                    Doctors associated with your healthcare appointments.
+                </p>
+
+            </div>
+
+
+            <a href="patient appointment.html" class="book-btn">
+
+                <i class="fa-solid fa-calendar-plus"></i>
+
+                Book Appointment
+
+            </a>
+
+        </div>
+
+
+        <div class="doctor-grid" id="doctorGrid">
+
+            <div class="loading-doctors">
+
+                <div class="loading-spinner"></div>
+
+                <p>Loading your doctors...</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         INFORMATION BOX
+    ================================================= -->
+
+    <section class="doctor-info-box">
+
+        <div class="info-icon">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                Need a different doctor?
+            </strong>
+
+
+            <p>
+                You can choose a doctor according to specialization
+                while booking a new appointment.
+            </p>
+
+        </div>
+
+
+        <a href="patient appointment.html">
+
+            Find a Doctor
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </section>
+
+</main>
+
+
+
+<!-- =====================================================
+     MESSAGE DOCTOR MODAL
+===================================================== -->
+
+<div class="message-modal" id="messageModal">
+
+    <div class="message-modal-box">
+
+        <button
+            class="message-close"
+            id="closeMessageButton"
+            type="button"
+            aria-label="Close">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div class="message-modal-header">
+
+            <div class="message-modal-icon">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    CONTACT DOCTOR
+                </p>
+
+                <h2 id="messageDoctorName">
+                    Doctor
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="message-form">
+
+            <label for="messageSubject">
+                Subject
+            </label>
+
+
+            <input
+                type="text"
+                id="messageSubject"
+                placeholder="Enter message subject">
+
+
+            <label for="doctorMessage">
+                Message
+            </label>
+
+
+            <textarea
+                id="doctorMessage"
+                rows="5"
+                placeholder="Write your message here..."></textarea>
+
+
+            <button
+                class="send-message-btn"
+                id="sendMessageButton"
+                type="button">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send Message
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="page-footer">
+
+    <div>
+
+        <strong>
+            MediSync
+        </strong>
+
+        <span>
+            Smart Hospital Management & Patient Care System
+        </span>
+
+    </div>
+
+
+    <p>
+        © 2026 MediSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+// =====================================================
+// CHECK PATIENT LOGIN
+// =====================================================
+
+const email =
+    sessionStorage.getItem("medisyncEmail");
+
+const role =
+    sessionStorage.getItem("medisyncRole");
+
+
+if (!email || role !== "patient") {
+
+    window.location.href =
+        "login index.html";
+
+}
+
+
+
+// =====================================================
+// PATIENT NAME
+// =====================================================
+
+const patientName =
+    sessionStorage.getItem("medisyncUserName") || "Patient";
+
+
+document.getElementById("patientName").textContent =
+    patientName;
+
+
+
+// =====================================================
+// CURRENT DATE
+// =====================================================
+
+const today = new Date();
+
+
+const dateText =
+    today.toLocaleDateString("en-IN", {
+
+        day: "numeric",
+
+        month: "long",
+
+        year: "numeric"
+
+    });
+
+
+document.getElementById("currentDate").textContent =
+    dateText;
+
+
+
+// =====================================================
+// PATIENT ID
+// =====================================================
+
+const patientId =
+    sessionStorage.getItem("medisyncUserId");
+
+
+const doctorGrid =
+    document.getElementById("doctorGrid");
+
+
+
+// =====================================================
+// DOCTOR INFORMATION
+// =====================================================
+
+const doctorDetails = {
+
+    "Dr. Arjun Sharma": {
+
+        rating: "4.9",
+
+        experience: "12+ Years",
+
+        qualification: "MBBS, MD Cardiology"
+
+    },
+
+    "Dr. Neha Kapoor": {
+
+        rating: "4.8",
+
+        experience: "9+ Years",
+
+        qualification: "MBBS, MD Dermatology"
+
+    },
+
+    "Dr. Rahul Mehta": {
+
+        rating: "4.9",
+
+        experience: "10+ Years",
+
+        qualification: "MBBS, MD Internal Medicine"
+
+    },
+
+    "Dr. Sana Khan": {
+
+        rating: "4.8",
+
+        experience: "8+ Years",
+
+        qualification: "MBBS, MS Gynecology"
+
+    },
+
+    "Dr. Vikram Rao": {
+
+        rating: "4.9",
+
+        experience: "11+ Years",
+
+        qualification: "MBBS, MS Orthopedics"
+
+    },
+
+    "Dr. Meera Sharma": {
+
+        rating: "4.9",
+
+        experience: "10+ Years",
+
+        qualification: "MBBS, MD Pediatrics"
+
+    }
+
+};
+
+
+
+// =====================================================
+// GET NEXT APPOINTMENT
+// =====================================================
+
+async function getNextAppointment(doctorName) {
+
+    try {
+
+        const response =
+            await fetch(
+                "get_appointments.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success || !data.appointments) {
+
+            return null;
+
+        }
+
+
+        const now = new Date();
+
+
+        const doctorAppointments =
+            data.appointments
+
+                .filter(appointment => {
+
+                    return (
+
+                        appointment.doctor_name === doctorName
+
+                        &&
+
+                        String(
+                            appointment.status || ""
+                        ).toLowerCase() !== "cancelled"
+
+                    );
+
+                })
+
+                .map(appointment => {
+
+                    const dateTime =
+                        new Date(
+                            appointment.appointment_date +
+                            " " +
+                            (
+                                appointment.appointment_time ||
+                                "00:00"
+                            )
+                        );
+
+
+                    return {
+
+                        ...appointment,
+
+                        dateTime: dateTime
+
+                    };
+
+                })
+
+                .filter(appointment => {
+
+                    return appointment.dateTime >= now;
+
+                })
+
+                .sort((a, b) => {
+
+                    return a.dateTime - b.dateTime;
+
+                });
+
+
+        return doctorAppointments.length > 0
+            ? doctorAppointments[0]
+            : null;
+
+
+    } catch (error) {
+
+        console.error(
+            "Unable to load next appointment:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+
+// =====================================================
+// FORMAT NEXT APPOINTMENT
+// =====================================================
+
+function formatAppointment(appointment) {
+
+    if (!appointment) {
+
+        return `
+
+            <span class="no-appointment">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                No upcoming appointment
+
+            </span>
+
+        `;
+
+    }
+
+
+    const date =
+        new Date(
+            appointment.appointment_date
+        );
+
+
+    const formattedDate =
+        date.toLocaleDateString(
+            "en-IN",
+            {
+
+                day: "numeric",
+
+                month: "short",
+
+                year: "numeric"
+
+            }
+        );
+
+
+    let timeText = "";
+
+
+    if (appointment.appointment_time) {
+
+        const time =
+            new Date(
+                "2000-01-01 " +
+                appointment.appointment_time
+            );
+
+
+        timeText =
+            time.toLocaleTimeString(
+                "en-IN",
+                {
+
+                    hour: "numeric",
+
+                    minute: "2-digit"
+
+                }
+            );
+
+    }
+
+
+    return `
+
+        <span class="next-appointment">
+
+            <i class="fa-regular fa-calendar-check"></i>
+
+            ${formattedDate}
+
+            ${
+                timeText
+                    ? " • " + timeText
+                    : ""
+            }
+
+        </span>
+
+    `;
+
+}
+
+
+
+// =====================================================
+// LOAD MY DOCTORS
+// =====================================================
+
+async function loadMyDoctors() {
+
+    if (!patientId) {
+
+        doctorGrid.innerHTML = `
+
+            <div class="empty-doctors">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                </div>
+
+                <h3>
+                    Patient Information Not Found
+                </h3>
+
+                <p>
+                    Please login again to view your doctors.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "get_my_doctors.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            doctorGrid.innerHTML = `
+
+                <div class="empty-doctors">
+
+                    <div class="empty-icon">
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    </div>
+
+                    <h3>
+                        Unable to Load Doctors
+                    </h3>
+
+                    <p>
+                        Please try again later.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const doctors =
+            data.doctors;
+
+
+        if (!doctors || doctors.length === 0) {
+
+            doctorGrid.innerHTML = `
+
+                <div class="empty-doctors">
+
+                    <div class="empty-icon">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <h3>
+                        No Doctors Yet
+                    </h3>
+
+                    <p>
+                        Your doctors will appear here after
+                        you book an appointment.
+                    </p>
+
+                    <a
+                        href="patient appointment.html"
+                        class="empty-book-btn">
+
+                        <i class="fa-solid fa-calendar-plus"></i>
+
+                        Book Appointment
+
+                    </a>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        doctorGrid.innerHTML = "";
+
+
+        for (const doctor of doctors) {
+
+            const name =
+                doctor.doctor_name;
+
+
+            const specialization =
+                doctor.specialization ||
+                "Medical Specialist";
+
+
+            const details =
+                doctorDetails[name] ||
+                {
+
+                    rating: "Available",
+
+                    experience: "MediSync Specialist",
+
+                    qualification: "Medical Specialist"
+
+                };
+
+
+            const nextAppointment =
+                await getNextAppointment(name);
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "doctor-card";
+
+
+            card.innerHTML = `
+
+                <div class="doctor-top">
+
+                    <div class="doctor-avatar">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+
+                    <span class="doctor-status">
+
+                        <i class="fa-solid fa-circle"></i>
+
+                        Available
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+                    ${name}
+                </h3>
+
+
+                <p class="specialization">
+                    ${specialization}
+                </p>
+
+
+                <p class="hospital">
+
+                    <i class="fa-solid fa-hospital"></i>
+
+                    MediSync Hospital
+
+                </p>
+
+
+                <div class="doctor-details">
+
+                    <span>
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                        ${details.qualification}
+
+                    </span>
+
+
+                    <span>
+
+                        <i class="fa-solid fa-briefcase-medical"></i>
+
+                        ${details.experience}
+
+                    </span>
+
+                </div>
+
+
+                <div class="doctor-rating-row">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    <strong>
+                        ${details.rating}
+                    </strong>
+
+                    <span>
+                        Patient Rating
+                    </span>
+
+                </div>
+
+
+                <div class="next-appointment-box">
+
+                    <div class="next-appointment-label">
+
+                        <i class="fa-regular fa-calendar-check"></i>
+
+                        NEXT APPOINTMENT
+
+                    </div>
+
+
+                    ${formatAppointment(nextAppointment)}
+
+                </div>
+
+
+                <div class="doctor-actions">
+
+                    <a
+                        href="patient appointment.html"
+                        class="primary-btn">
+
+                        <i class="fa-solid fa-calendar-plus"></i>
+
+                        Book Appointment
+
+                    </a>
+
+
+                    <a
+                        href="patient appointment.html"
+                        class="view-btn">
+
+                        <i class="fa-solid fa-calendar-check"></i>
+
+                        View Appointments
+
+                    </a>
+
+                </div>
+
+
+                <button
+                    class="message-btn full-message-btn"
+                    type="button">
+
+                    <i class="fa-solid fa-message"></i>
+
+                    Message Doctor
+
+                </button>
+
+            `;
+
+
+            // =================================================
+            // MESSAGE BUTTON
+            // =================================================
+
+            const messageButton =
+                card.querySelector(".full-message-btn");
+
+
+            messageButton.addEventListener(
+                "click",
+                function () {
+
+                    openMessageModal(name);
+
+                }
+            );
+
+
+            doctorGrid.appendChild(card);
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading doctors:",
+            error
+        );
+
+
+        doctorGrid.innerHTML = `
+
+            <div class="empty-doctors">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-server"></i>
+
+                </div>
+
+                <h3>
+                    Server Connection Error
+                </h3>
+
+                <p>
+                    Please make sure XAMPP is running.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+
+// =====================================================
+// MESSAGE DOCTOR
+// =====================================================
+
+let selectedDoctor = "";
+
+
+
+const messageModal =
+    document.getElementById("messageModal");
+
+
+const messageDoctorName =
+    document.getElementById("messageDoctorName");
+
+
+const messageSubject =
+    document.getElementById("messageSubject");
+
+
+const doctorMessage =
+    document.getElementById("doctorMessage");
+
+
+const sendMessageButton =
+    document.getElementById("sendMessageButton");
+
+
+const closeMessageButton =
+    document.getElementById("closeMessageButton");
+
+
+
+// =====================================================
+// OPEN MESSAGE MODAL
+// =====================================================
+
+function openMessageModal(doctorName) {
+
+    selectedDoctor =
+        doctorName;
+
+
+    messageDoctorName.textContent =
+        doctorName;
+
+
+    messageSubject.value = "";
+
+    doctorMessage.value = "";
+
+
+    /*
+     * We use BOTH the class and direct display
+     * so the modal opens even if the CSS
+     * .show rule is missing.
+     */
+
+    messageModal.classList.add("show");
+
+    messageModal.style.display = "flex";
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+// =====================================================
+// CLOSE MESSAGE MODAL
+// =====================================================
+
+function closeMessageModal() {
+
+    messageModal.classList.remove("show");
+
+    messageModal.style.display =
+        "none";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+// =====================================================
+// CLOSE BUTTON
+// =====================================================
+
+closeMessageButton.addEventListener(
+    "click",
+    closeMessageModal
+);
+
+
+
+// =====================================================
+// CLICK OUTSIDE MODAL
+// =====================================================
+
+messageModal.addEventListener(
+    "click",
+    function (event) {
+
+        if (event.target === messageModal) {
+
+            closeMessageModal();
+
+        }
+
+    }
+);
+
+
+
+// =====================================================
+// ESC KEY
+// =====================================================
+
+document.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (event.key === "Escape") {
+
+            closeMessageModal();
+
+        }
+
+    }
+);
+
+
+
+// =====================================================
+// SEND MESSAGE TO DATABASE
+// =====================================================
+
+sendMessageButton.addEventListener(
+    "click",
+    sendDoctorMessage
+);
+
+
+async function sendDoctorMessage() {
+
+    const subject =
+        messageSubject.value.trim();
+
+
+    const message =
+        doctorMessage.value.trim();
+
+
+    if (!subject) {
+
+        alert(
+            "Please enter a subject."
+        );
+
+        return;
+
+    }
+
+
+    if (!message) {
+
+        alert(
+            "Please write your message."
+        );
+
+        return;
+
+    }
+
+
+    if (!patientId) {
+
+        alert(
+            "Patient information not found. Please login again."
+        );
+
+        return;
+
+    }
+
+
+    if (!selectedDoctor) {
+
+        alert(
+            "Please select a doctor."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        sendMessageButton.disabled =
+            true;
+
+
+        sendMessageButton.innerHTML = `
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Sending...
+
+        `;
+
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "sender_id",
+            patientId
+        );
+
+
+        /*
+         * Only one real doctor account currently exists.
+         * We are keeping receiver_id = 0 for the
+         * doctor-name based demo system.
+         */
+
+        formData.append(
+            "receiver_id",
+            "0"
+        );
+
+
+        formData.append(
+            "doctor_name",
+            selectedDoctor
+        );
+
+
+        formData.append(
+            "sender_role",
+            "patient"
+        );
+
+
+        formData.append(
+            "subject",
+            subject
+        );
+
+
+        formData.append(
+            "message",
+            message
+        );
+
+
+        const response =
+            await fetch(
+                "send_message.php",
+                {
+
+                    method: "POST",
+
+                    body: formData
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (data.success) {
+
+            alert(
+                "Your message to " +
+                selectedDoctor +
+                " has been sent successfully."
+            );
+
+
+            messageSubject.value = "";
+
+            doctorMessage.value = "";
+
+
+            closeMessageModal();
+
+
+        } else {
+
+            alert(
+                "Unable to send message: " +
+                data.message
+            );
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Message error:",
+            error
+        );
+
+
+        alert(
+            "Unable to connect to the server. " +
+            "Please make sure XAMPP is running."
+        );
+
+
+    } finally {
+
+        sendMessageButton.disabled =
+            false;
+
+
+        sendMessageButton.innerHTML = `
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Send Message
+
+        `;
+
+    }
+
+}
+
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+function logout() {
+
+    sessionStorage.removeItem(
+        "medisyncUserId"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncUserName"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncEmail"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncRole"
+    );
+
+
+    window.location.href =
+        "login index.html";
+
+}
+
+
+
+// =====================================================
+// START
+// =====================================================
+
+loadMyDoctors();
+
+
+</script>
+
+
+</body>
+
+</html>

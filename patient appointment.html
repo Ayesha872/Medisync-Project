@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - My Appointments</title>
+
+    <link rel="stylesheet" href="patient appointment.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+<header class="hospital-nav">
+
+    <div class="nav-brand">
+
+        <img src="logo.jpeg" class="brand-logo" alt="MediSync Logo">
+
+        <div class="brand-text">
+
+            <strong>MediSync</strong>
+
+            <span>Smart Healthcare</span>
+
+        </div>
+
+    </div>
+
+
+    <nav class="main-navigation">
+
+        <a href="patient dashboard index.html" class="nav-link">
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </a>
+
+
+        <a href="patient-about.html" class="nav-link">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            About
+
+        </a>
+
+
+        <div class="nav-dropdown">
+
+            <button class="dropdown-btn">
+
+                <i class="fa-solid fa-user"></i>
+
+                Patient Services
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+
+            <div class="dropdown-menu">
+
+                <a href="patient appointment.html" class="active-dropdown">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    My Appointments
+
+                </a>
+
+
+                <a href="patient dashboard index.html#doctors">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                    Find Doctors
+
+                </a>
+
+
+                <a href="patient dashboard index.html#prescriptions">
+
+                    <i class="fa-solid fa-pills"></i>
+
+                    Prescriptions
+
+                </a>
+
+
+                <a href="patient dashboard index.html#reports">
+
+                    <i class="fa-solid fa-file-medical"></i>
+
+                    Medical Reports
+
+                </a>
+
+
+                <a href="patient dashboard index.html#records">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    Medical Records
+
+                </a>
+
+
+                <a href="patient dashboard index.html#consultations">
+
+                    <i class="fa-solid fa-video"></i>
+
+                    Consultations
+
+                </a>
+
+
+                <a href="patient dashboard index.html#ipd">
+
+                    <i class="fa-solid fa-bed"></i>
+
+                    IPD Services
+
+                </a>
+
+
+                <a href="patient dashboard index.html#billing">
+
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+
+                    Billing
+
+                </a>
+
+
+                <a href="patient dashboard index.html#notifications">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    Notifications
+
+                </a>
+
+
+                <a href="patient dashboard index.html#settings">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+
+                <a href="patient dashboard index.html#help">
+
+                    <i class="fa-solid fa-circle-question"></i>
+
+                    Help & Support
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <div class="nav-right">
+
+        <button class="notification-btn">
+
+            <i class="fa-regular fa-bell"></i>
+
+            <span>2</span>
+
+        </button>
+
+
+        <div class="nav-profile">
+
+            <div class="profile-avatar">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+
+            <div class="profile-details">
+
+                <strong id="patientName">Patient</strong>
+
+                <span>Patient</span>
+
+            </div>
+
+        </div>
+
+
+        <button class="logout-btn" onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="page-container">
+
+
+<section class="page-hero">
+
+    <div class="hero-content">
+
+        <div class="hero-icon">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+        </div>
+
+
+        <div>
+
+            <p class="hero-label">PATIENT SERVICES</p>
+
+            <h1>My Appointments</h1>
+
+            <p>
+                Book and manage your appointments with MediSync doctors.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-date">
+
+        <i class="fa-regular fa-calendar"></i>
+
+        <span id="currentDate"></span>
+
+    </div>
+
+</section>
+
+
+<section class="appointment-layout">
+
+
+    <!-- BOOK APPOINTMENT -->
+
+    <div class="booking-card">
+
+
+        <div class="card-heading">
+
+            <div class="heading-icon">
+
+                <i class="fa-solid fa-calendar-plus"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>Book an Appointment</h2>
+
+                <p>Choose a doctor and suitable time.</p>
+
+            </div>
+
+        </div>
+
+
+        <form id="appointmentForm">
+
+
+            <!-- SPECIALIZATION -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="specialization">
+
+                        <i class="fa-solid fa-stethoscope"></i>
+
+                        Specialization
+
+                    </label>
+
+
+                    <select id="specialization" required>
+
+                        <option value="">
+                            Choose specialization
+                        </option>
+
+                        <option value="Cardiology">
+                            Cardiology
+                        </option>
+
+                        <option value="General Physician">
+                            General Physician
+                        </option>
+
+                        <option value="Dermatology">
+                            Dermatology
+                        </option>
+
+                        <option value="Neurology">
+                            Neurology
+                        </option>
+
+                        <option value="Orthopedics">
+                            Orthopedics
+                        </option>
+
+                        <option value="Pediatrics">
+                            Pediatrics
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- DOCTOR -->
+
+                <div class="form-group">
+
+                    <label for="doctor">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                        Select Doctor
+
+                    </label>
+
+
+                    <select id="doctor" required>
+
+                        <option value="">
+                            Choose a doctor
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATE + TIME -->
+
+            <div class="form-row">
+
+
+                <div class="form-group">
+
+                    <label for="appointmentDate">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        Appointment Date
+
+                    </label>
+
+
+                    <input
+                        type="date"
+                        id="appointmentDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="appointmentTime">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                        Appointment Time
+
+                    </label>
+
+
+                    <select id="appointmentTime" required>
+
+                        <option value="">
+                            Choose time
+                        </option>
+
+                        <option value="10:00">
+                            10:00 AM
+                        </option>
+
+                        <option value="10:30">
+                            10:30 AM
+                        </option>
+
+                        <option value="11:00">
+                            11:00 AM
+                        </option>
+
+                        <option value="11:30">
+                            11:30 AM
+                        </option>
+
+                        <option value="12:00">
+                            12:00 PM
+                        </option>
+
+                        <option value="16:00">
+                            04:00 PM
+                        </option>
+
+                        <option value="16:30">
+                            04:30 PM
+                        </option>
+
+                        <option value="17:00">
+                            05:00 PM
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- REASON -->
+
+            <div class="form-group">
+
+                <label for="reason">
+
+                    <i class="fa-solid fa-notes-medical"></i>
+
+                    Reason for Visit
+
+                </label>
+
+
+                <textarea
+                    id="reason"
+                    rows="4"
+                    placeholder="Briefly describe the reason for your visit..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- BOOK BUTTON -->
+
+            <button type="submit" class="book-btn">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                Book Appointment
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- UPCOMING APPOINTMENTS -->
+
+    <div class="upcoming-card">
+
+
+        <div class="card-heading">
+
+            <div class="heading-icon">
+
+                <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+
+            <div>
+
+                <h2>Upcoming Appointments</h2>
+
+                <p>Your scheduled visits.</p>
+
+            </div>
+
+        </div>
+
+
+        <div id="appointmentsList">
+
+            <p style="text-align:center; padding:20px;">
+
+                Loading appointments...
+
+            </p>
+
+        </div>
+
+
+        <div class="appointment-info-box">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+
+            <div>
+
+                <strong>Appointment Information</strong>
+
+                <p>
+
+                    Please arrive at least 10 minutes before
+                    your scheduled appointment.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer class="page-footer">
+
+
+<div>
+
+    <strong>MediSync</strong>
+
+    <span>
+        Smart Hospital Management & Patient Care System
+    </span>
+
+</div>
+
+
+<p>
+    © 2026 MediSync. All rights reserved.
+</p>
+
+
+</footer>
+
+
+<script>
+
+
+// =====================================================
+// EMAILJS INITIALIZATION
+// =====================================================
+
+emailjs.init({
+
+    publicKey: "EZSSmEnDFJNEVuey8"
+
+});
+
+
+// =====================================================
+// CHECK PATIENT LOGIN
+// =====================================================
+
+const email =
+    sessionStorage.getItem("medisyncEmail");
+
+const role =
+    sessionStorage.getItem("medisyncRole");
+
+
+if (!email || role !== "patient") {
+
+    window.location.href =
+        "login index.html";
+
+}
+
+
+// =====================================================
+// PATIENT NAME
+// =====================================================
+
+const patientName =
+    sessionStorage.getItem("medisyncUserName")
+    || "Patient";
+
+
+document.getElementById("patientName").textContent =
+    patientName;
+
+
+// =====================================================
+// CURRENT DATE
+// =====================================================
+
+const today = new Date();
+
+
+const dateText =
+    today.toLocaleDateString("en-IN", {
+
+        day: "numeric",
+
+        month: "long",
+
+        year: "numeric"
+
+    });
+
+
+document.getElementById("currentDate").textContent =
+    dateText;
+
+
+// =====================================================
+// PREVENT SELECTING PREVIOUS DATES
+// =====================================================
+
+const dateInput =
+    document.getElementById("appointmentDate");
+
+
+const year =
+    today.getFullYear();
+
+
+const month =
+    String(today.getMonth() + 1).padStart(2, "0");
+
+
+const day =
+    String(today.getDate()).padStart(2, "0");
+
+
+dateInput.min =
+    `${year}-${month}-${day}`;
+
+
+// =====================================================
+// DOCTORS ACCORDING TO SPECIALIZATION
+// =====================================================
+
+const doctorsBySpecialization = {
+
+    "Cardiology": [
+
+        "Dr. Arjun Sharma",
+        "Dr. Neha Kapoor",
+        "Dr. Rahul Mehta"
+
+    ],
+
+    "General Physician": [
+
+        "Dr. Amit Verma",
+        "Dr. Priya Singh",
+        "Dr. Sameer Khan"
+
+    ],
+
+    "Dermatology": [
+
+        "Dr. Sana Khan",
+        "Dr. Riya Malhotra",
+        "Dr. Karan Gupta"
+
+    ],
+
+    "Neurology": [
+
+        "Dr. Vikram Rao",
+        "Dr. Anjali Sharma",
+        "Dr. Nitin Kapoor"
+
+    ],
+
+    "Orthopedics": [
+
+        "Dr. Rajiv Kumar",
+        "Dr. Pooja Mehta",
+        "Dr. Aditya Singh"
+
+    ],
+
+    "Pediatrics": [
+
+        "Dr. Meera Sharma",
+        "Dr. Ananya Gupta",
+        "Dr. Rohit Verma"
+
+    ]
+
+};
+
+
+// =====================================================
+// SPECIALIZATION → DOCTOR
+// =====================================================
+
+document.getElementById("specialization").addEventListener(
+
+    "change",
+
+    function () {
+
+        const specialization =
+            this.value;
+
+
+        const doctorSelect =
+            document.getElementById("doctor");
+
+
+        doctorSelect.innerHTML =
+            '<option value="">Choose a doctor</option>';
+
+
+        if (!specialization) {
+
+            return;
+
+        }
+
+
+        const doctors =
+            doctorsBySpecialization[specialization];
+
+
+        doctors.forEach(function (doctor) {
+
+            const option =
+                document.createElement("option");
+
+
+            option.value =
+                doctor;
+
+
+            option.textContent =
+                doctor;
+
+
+            doctorSelect.appendChild(option);
+
+        });
+
+    }
+
+);
+
+
+// =====================================================
+// LOAD PATIENT'S APPOINTMENTS FROM SQL
+// =====================================================
+
+async function loadAppointments() {
+
+    const patientId =
+        sessionStorage.getItem("medisyncUserId");
+
+
+    if (!patientId) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "get_appointments.php?patient_id="
+                + patientId
+            );
+
+
+        const result =
+            await response.json();
+
+
+        const appointmentsList =
+            document.getElementById(
+                "appointmentsList"
+            );
+
+
+        if (!result.success) {
+
+            appointmentsList.innerHTML =
+                "<p style='text-align:center; padding:20px;'>"
+                + result.message
+                + "</p>";
+
+
+            return;
+
+        }
+
+
+        if (result.appointments.length === 0) {
+
+            appointmentsList.innerHTML =
+                "<p style='text-align:center; padding:20px;'>"
+                + "No appointments booked yet."
+                + "</p>";
+
+
+            return;
+
+        }
+
+
+        appointmentsList.innerHTML = "";
+
+
+        result.appointments.forEach(function(appointment) {
+
+
+            const appointmentDate =
+                new Date(
+                    appointment.appointment_date
+                    + "T00:00:00"
+                );
+
+
+            const formattedDate =
+                appointmentDate.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "numeric",
+                        month: "short"
+                    }
+                );
+
+
+            const appointmentTime =
+                appointment.appointment_time.substring(
+                    0,
+                    5
+                );
+
+
+            const timeParts =
+                appointmentTime.split(":");
+
+
+            let hour =
+                parseInt(timeParts[0]);
+
+
+            const minutes =
+                timeParts[1];
+
+
+            const ampm =
+                hour >= 12
+                ? "PM"
+                : "AM";
+
+
+            hour =
+                hour % 12 || 12;
+
+
+            const displayTime =
+                String(hour).padStart(2, "0")
+                + ":"
+                + minutes
+                + " "
+                + ampm;
+
+
+            const appointmentItem =
+                document.createElement("div");
+
+
+            appointmentItem.className =
+                "appointment-item";
+
+
+            appointmentItem.innerHTML = `
+
+                <div class="doctor-avatar">
+
+                    <i class="fa-solid fa-user-doctor"></i>
+
+                </div>
+
+
+                <div class="appointment-info">
+
+                    <div class="appointment-top">
+
+                        <strong>
+                            ${appointment.doctor_name}
+                        </strong>
+
+
+                        <span class="status confirmed">
+
+                            ${appointment.status}
+
+                        </span>
+
+                    </div>
+
+
+                    <p>
+
+                        ${appointment.specialization}
+
+                    </p>
+
+
+                    <div class="appointment-meta">
+
+                        <span>
+
+                            <i class="fa-regular fa-calendar"></i>
+
+                            ${formattedDate}
+
+                        </span>
+
+
+                        <span>
+
+                            <i class="fa-regular fa-clock"></i>
+
+                            ${displayTime}
+
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="cancel-btn"
+                        onclick="cancelAppointment(${appointment.id})"
+                    >
+
+                        <i class="fa-solid fa-xmark"></i>
+
+                        Cancel Appointment
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            appointmentsList.appendChild(
+                appointmentItem
+            );
+
+        });
+
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Appointment loading error:",
+            error
+        );
+
+
+        document.getElementById(
+            "appointmentsList"
+        ).innerHTML =
+
+            "<p style='text-align:center; padding:20px;'>"
+            + "Unable to load appointments."
+            + "</p>";
+
+    }
+
+}
+
+
+// =====================================================
+// CANCEL APPOINTMENT + CANCELLATION EMAIL
+// =====================================================
+
+async function cancelAppointment(appointmentId) {
+
+
+    const confirmCancel =
+        confirm(
+            "Are you sure you want to cancel this appointment?"
+        );
+
+
+    if (!confirmCancel) {
+
+        return;
+
+    }
+
+
+    try {
+
+        // Get patient information
+
+        const patientId =
+            sessionStorage.getItem(
+                "medisyncUserId"
+            );
+
+
+        const patientEmail =
+            sessionStorage.getItem(
+                "medisyncEmail"
+            );
+
+
+        // Get appointment details before deleting it
+
+        const appointmentsResponse =
+            await fetch(
+                "get_appointments.php?patient_id="
+                + patientId
+            );
+
+
+        const appointmentData =
+            await appointmentsResponse.json();
+
+
+        if (
+            !appointmentData.success
+            || !appointmentData.appointments
+        ) {
+
+            alert(
+                "Unable to get appointment details."
+            );
+
+            return;
+
+        }
+
+
+        const appointment =
+            appointmentData.appointments.find(
+                function(item) {
+
+                    return item.id == appointmentId;
+
+                }
+            );
+
+
+        if (!appointment) {
+
+            alert(
+                "Appointment details not found."
+            );
+
+            return;
+
+        }
+
+
+        // Cancel appointment in database
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "appointment_id",
+            appointmentId
+        );
+
+
+        const response =
+            await fetch(
+                "cancel_appointment.php",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const text =
+            await response.text();
+
+
+        console.log(
+            "CANCEL PHP RESPONSE:",
+            text
+        );
+
+
+        let result;
+
+
+        try {
+
+            result =
+                JSON.parse(text);
+
+        }
+
+
+        catch (error) {
+
+            alert(
+                "PHP RESPONSE:\n\n"
+                + text
+            );
+
+            return;
+
+        }
+
+
+        if (result.success) {
+
+
+            // Send cancellation email
+
+            try {
+
+                await emailjs.send(
+
+                    "service_b4o1edb",
+
+                    "template_2kpbtqq",
+
+                    {
+
+                        user_email:
+                            patientEmail,
+
+                        patient_name:
+                            patientName,
+
+                        doctor_name:
+                            appointment.doctor_name,
+
+                        specialization:
+                            appointment.specialization,
+
+                        appointment_date:
+                            appointment.appointment_date,
+
+                        appointment_time:
+                            appointment.appointment_time,
+
+                        reason:
+                            appointment.reason
+                            || "Not specified",
+
+                        appointment_status:
+                            "❌ Appointment Status : Cancelled",
+
+                        appointment_message:
+                            "Your appointment has been cancelled successfully."
+
+                    }
+
+                );
+
+
+                alert(
+                    "Appointment cancelled successfully.\n\n"
+                    + "Cancellation email has been sent to "
+                    + patientEmail
+                    + "."
+                );
+
+            }
+
+
+            catch (emailError) {
+
+                console.error(
+                    "CANCELLATION EMAIL ERROR:",
+                    emailError
+                );
+
+
+                alert(
+                    "Appointment cancelled successfully.\n\n"
+                    + "However, the cancellation email could not be sent."
+                );
+
+            }
+
+
+            loadAppointments();
+
+        }
+
+
+        else {
+
+            alert(
+                result.message
+            );
+
+        }
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Cancel appointment error:",
+            error
+        );
+
+
+        alert(
+            "Something went wrong while cancelling the appointment."
+        );
+
+    }
+
+}
+
+
+// =====================================================
+// LOAD APPOINTMENTS WHEN PAGE OPENS
+// =====================================================
+
+loadAppointments();
+
+
+// =====================================================
+// APPOINTMENT FORM
+// =====================================================
+
+document.getElementById(
+    "appointmentForm"
+).addEventListener(
+
+    "submit",
+
+    async function(event) {
+
+
+        event.preventDefault();
+
+
+        const patientId =
+            sessionStorage.getItem(
+                "medisyncUserId"
+            );
+
+
+        const patientEmail =
+            sessionStorage.getItem(
+                "medisyncEmail"
+            );
+
+
+        const doctor =
+            document.getElementById(
+                "doctor"
+            ).value;
+
+
+        const specialization =
+            document.getElementById(
+                "specialization"
+            ).value;
+
+
+        const date =
+            document.getElementById(
+                "appointmentDate"
+            ).value;
+
+
+        const time =
+            document.getElementById(
+                "appointmentTime"
+            ).value;
+
+
+        const reason =
+            document.getElementById(
+                "reason"
+            ).value;
+
+
+        if (!patientId) {
+
+            alert(
+                "Patient session not found. Please login again."
+            );
+
+            return;
+
+        }
+
+
+        if (!patientEmail) {
+
+            alert(
+                "Patient email not found. Please login again."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            !doctor
+            || !specialization
+            || !date
+            || !time
+        ) {
+
+            alert(
+                "Please fill all required fields."
+            );
+
+            return;
+
+        }
+
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "patient_id",
+            patientId
+        );
+
+
+        formData.append(
+            "doctor_name",
+            doctor
+        );
+
+
+        formData.append(
+            "specialization",
+            specialization
+        );
+
+
+        formData.append(
+            "appointment_date",
+            date
+        );
+
+
+        formData.append(
+            "appointment_time",
+            time
+        );
+
+
+        formData.append(
+            "reason",
+            reason
+        );
+
+
+        try {
+
+
+            const response =
+                await fetch(
+                    "book_appointment.php",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+            const text =
+                await response.text();
+
+
+            console.log(
+                "PHP RESPONSE:",
+                text
+            );
+
+
+            let result;
+
+
+            try {
+
+                result =
+                    JSON.parse(text);
+
+            }
+
+
+            catch (error) {
+
+                alert(
+                    "PHP Response:\n\n"
+                    + text
+                );
+
+                return;
+
+            }
+
+
+            if (result.success) {
+
+
+                try {
+
+
+                    await emailjs.send(
+
+                        "service_b4o1edb",
+
+                        "template_2kpbtqq",
+
+                        {
+
+                            user_email:
+                                patientEmail,
+
+                            patient_name:
+                                patientName,
+
+                            doctor_name:
+                                doctor,
+
+                            specialization:
+                                specialization,
+
+                            appointment_date:
+                                date,
+
+                            appointment_time:
+                                time,
+
+                            reason:
+                                reason,
+
+                            appointment_status:
+                                "✅ Appointment Status : Confirmed",
+
+                            appointment_message:
+                                "Your appointment has been successfully booked. Please arrive at least 10 minutes before your scheduled appointment."
+
+                        }
+
+                    );
+
+
+                    alert(
+
+                        "Appointment booked successfully with "
+                        + doctor
+                        + "!\n\nConfirmation email has been sent to "
+                        + patientEmail
+                        + "."
+
+                    );
+
+
+                }
+
+
+                catch (emailError) {
+
+
+                    console.error(
+                        "EMAIL ERROR:",
+                        emailError
+                    );
+
+
+                    alert(
+
+                        "Appointment booked successfully with "
+                        + doctor
+                        + "!\n\nHowever, the confirmation email could not be sent."
+
+                    );
+
+                }
+
+
+                this.reset();
+
+
+                document.getElementById(
+                    "doctor"
+                ).innerHTML =
+                    '<option value="">Choose a doctor</option>';
+
+
+                loadAppointments();
+
+
+            }
+
+
+            else {
+
+
+                alert(
+                    result.message
+                );
+
+            }
+
+
+        }
+
+
+        catch (error) {
+
+
+            console.error(error);
+
+
+            alert(
+                "Something went wrong while booking the appointment."
+            );
+
+        }
+
+    }
+
+);
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+function logout() {
+
+
+    sessionStorage.removeItem(
+        "medisyncUserId"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncUserName"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncEmail"
+    );
+
+
+    sessionStorage.removeItem(
+        "medisyncRole"
+    );
+
+
+    window.location.href =
+        "login index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

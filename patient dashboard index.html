@@ -73,13 +73,13 @@
 
             <div class="dropdown-menu">
 
-                <a href="#appointments">
-                    <i class="fa-regular fa-calendar-check"></i>
+                <a href="patient appointment.html">
+                    <i class="fa-solid fa-calendar-check"></i>
                     My Appointments
                 </a>
 
-                <a href="#doctors">
-                    <i class="fa-solid fa-user-doctor"></i>
+                <a href="patient doctors.html">
+                <i class="fa-solid fa-user-doctor"></i>
                     My Doctors
                 </a>
 
@@ -212,13 +212,14 @@
 
             </div>
 
+
             <div class="hero-date">
 
                 <i class="fa-regular fa-calendar"></i>
 
                 <div>
                     <span>Today</span>
-                    <strong>07 September 2026</strong>
+                    <strong id="todayDate">Loading...</strong>
                 </div>
 
             </div>
@@ -257,18 +258,18 @@
 
                 <span>Next Appointment</span>
 
-                <strong>
-                    Tomorrow · 10:30 AM
+                <strong id="heroAppointment">
+                    Loading...
                 </strong>
 
-                <small>
-                    Dr. Sharma · Cardiology
+                <small id="heroDoctor">
+                    Loading...
                 </small>
 
             </div>
 
 
-            <a href="#appointments"
+            <a href="patient appointment.html"
                class="hero-action">
 
                 View Appointment
@@ -289,16 +290,26 @@
 
 <section class="stats-grid">
 
-    <div class="stat-card appointments">
+    <div class="stat-card appointments"
+         onclick="window.location.href='patient appointment.html'"
+         style="cursor: pointer;">
 
         <div class="stat-icon">
             <i class="fa-regular fa-calendar-check"></i>
         </div>
 
         <div class="stat-info">
+
             <span>Appointments</span>
-            <strong>02</strong>
-            <small>1 upcoming</small>
+
+            <strong id="appointmentCount">
+                0
+            </strong>
+
+            <small id="upcomingCount">
+                0 upcoming
+            </small>
+
         </div>
 
         <div class="stat-arrow">
@@ -315,9 +326,13 @@
         </div>
 
         <div class="stat-info">
+
             <span>My Doctors</span>
+
             <strong>03</strong>
+
             <small>Care team</small>
+
         </div>
 
         <div class="stat-arrow">
@@ -334,9 +349,13 @@
         </div>
 
         <div class="stat-info">
+
             <span>Prescriptions</span>
+
             <strong>03</strong>
+
             <small>Active medicines</small>
+
         </div>
 
         <div class="stat-arrow">
@@ -353,9 +372,13 @@
         </div>
 
         <div class="stat-info">
+
             <span>Lab Reports</span>
+
             <strong>04</strong>
+
             <small>2 recent reports</small>
+
         </div>
 
         <div class="stat-arrow">
@@ -380,11 +403,13 @@
     <div class="card-header">
 
         <div>
+
             <span class="card-label">
                 HEALTH ANALYTICS
             </span>
 
             <h2>Health Activity</h2>
+
         </div>
 
         <button class="period-btn">
@@ -472,6 +497,7 @@
             </svg>
 
             <div class="chart-days">
+
                 <span>Mon</span>
                 <span>Tue</span>
                 <span>Wed</span>
@@ -479,6 +505,7 @@
                 <span>Fri</span>
                 <span>Sat</span>
                 <span>Sun</span>
+
             </div>
 
         </div>
@@ -496,11 +523,13 @@
     <div class="card-header">
 
         <div>
+
             <span class="card-label">
                 UPCOMING
             </span>
 
             <h2>Your next visit</h2>
+
         </div>
 
         <i class="fa-solid fa-ellipsis"></i>
@@ -512,13 +541,15 @@
 
         <div class="calendar-month">
 
-            <button>
+            <button id="previousMonth">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
 
-            <strong>September 2026</strong>
+            <strong id="calendarMonth">
+                September 2026
+            </strong>
 
-            <button>
+            <button id="nextMonth">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
 
@@ -538,23 +569,10 @@
         </div>
 
 
-        <div class="calendar-numbers">
+        <div class="calendar-numbers"
+             id="calendarNumbers">
 
-            <span class="muted">31</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-
-            <span>7</span>
-            <span class="active-day">8</span>
-            <span>9</span>
-            <span>10</span>
-            <span>11</span>
-            <span>12</span>
-            <span>13</span>
+            <span>Loading...</span>
 
         </div>
 
@@ -565,29 +583,51 @@
 
         <div class="appointment-date">
 
-            <strong>08</strong>
-            <span>SEP</span>
+            <strong id="nextAppointmentDay">
+                --
+            </strong>
+
+            <span id="nextAppointmentMonth">
+                ---
+            </span>
 
         </div>
 
+
         <div class="appointment-info">
 
-            <strong>Dr. Sharma</strong>
+            <strong id="nextDoctor">
+                Loading...
+            </strong>
 
             <span>
+
                 <i class="fa-solid fa-stethoscope"></i>
-                Cardiologist
+
+                <span id="nextSpecialization">
+                    Loading...
+                </span>
+
             </span>
 
             <small>
+
                 <i class="fa-regular fa-clock"></i>
-                10:30 AM
+
+                <span id="nextTime">
+                    Loading...
+                </span>
+
             </small>
 
         </div>
 
-        <span class="confirmed">
-            Confirmed
+
+        <span class="confirmed"
+              id="nextStatus">
+
+            Loading...
+
         </span>
 
     </div>
@@ -694,6 +734,8 @@
         </div>
 
 
+        <!-- ================= LAST VISIT ================= -->
+
         <div class="vital">
 
             <div class="vital-top">
@@ -706,12 +748,15 @@
 
             </div>
 
-            <strong>28</strong>
+            <strong id="lastVisitDay">--</strong>
 
-            <small>Aug 2026</small>
+            <small id="lastVisitDate">
+                No previous visit
+            </small>
 
-            <div class="visit-status">
-                Completed
+            <div class="visit-status"
+                 id="lastVisitStatus">
+                —
             </div>
 
         </div>
@@ -1012,7 +1057,7 @@
 
     <div class="services-grid">
 
-        <a href="#appointments"
+        <a href="patient appointment.html"
            class="service-card"
            id="appointments">
 
@@ -1029,7 +1074,7 @@
         </a>
 
 
-        <a href="#doctors"
+        <a href="patient doctors.html"
            class="service-card">
 
             <div class="service-icon">
@@ -1114,7 +1159,7 @@
 
 
 
-<!-- ================= PATIENT PROFILE ================= -->
+<!-- ================= PROFILE ================= -->
 
 <section class="profile-banner">
 
@@ -1190,21 +1235,20 @@
 
 </footer>
 
-</div>
-
 </main>
 
 
 
-<!-- ================= SESSION SCRIPT ================= -->
-
 <script>
+
+/* ================= SESSION ================= */
 
 const role =
     sessionStorage.getItem("medisyncRole");
 
 const email =
     sessionStorage.getItem("medisyncEmail");
+
 
 if (!email || role !== "patient") {
 
@@ -1213,15 +1257,38 @@ if (!email || role !== "patient") {
 
 }
 
+
 const patientName =
     sessionStorage.getItem("medisyncUserName")
     || "Patient";
+
 
 document.getElementById("patientName")
     .textContent = patientName;
 
 document.getElementById("welcomeName")
     .textContent = patientName;
+
+
+
+/* ================= TODAY'S DATE ================= */
+
+const todayForDisplay = new Date();
+
+document.getElementById("todayDate")
+    .textContent =
+    todayForDisplay.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
+
+
+/* ================= LOGOUT ================= */
 
 function logout() {
 
@@ -1232,7 +1299,703 @@ function logout() {
 
     window.location.href =
         "login index.html";
+
 }
+
+
+
+/* ================= APPOINTMENT VARIABLES ================= */
+
+let allUpcomingAppointments = [];
+
+let calendarYear =
+    new Date().getFullYear();
+
+let calendarMonth =
+    new Date().getMonth();
+
+
+
+/* ================= LOAD APPOINTMENTS ================= */
+
+async function loadDashboardAppointments() {
+
+    const patientId =
+        sessionStorage.getItem("medisyncUserId");
+
+
+    if (!patientId) {
+
+        console.log("Patient ID not found.");
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "get_appointments.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+            console.log(result.message);
+
+            return;
+
+        }
+
+
+        const appointments =
+            result.appointments || [];
+
+
+        document.getElementById(
+            "appointmentCount"
+        ).textContent =
+            appointments.length;
+
+
+
+        const today =
+            new Date();
+
+        today.setHours(0, 0, 0, 0);
+
+
+
+        allUpcomingAppointments =
+            appointments.filter(function(appointment) {
+
+                const appointmentDate =
+                    new Date(
+                        appointment.appointment_date +
+                        "T00:00:00"
+                    );
+
+                return appointmentDate >= today;
+
+            });
+
+
+        document.getElementById(
+            "upcomingCount"
+        ).textContent =
+            allUpcomingAppointments.length +
+            " upcoming";
+
+
+
+        if (allUpcomingAppointments.length === 0) {
+
+            document.getElementById(
+                "heroAppointment"
+            ).textContent =
+                "No upcoming appointment";
+
+
+            document.getElementById(
+                "heroDoctor"
+            ).textContent =
+                "Book an appointment";
+
+
+            document.getElementById(
+                "nextDoctor"
+            ).textContent =
+                "No appointment";
+
+
+            document.getElementById(
+                "nextSpecialization"
+            ).textContent =
+                "Book an appointment";
+
+
+            document.getElementById(
+                "nextTime"
+            ).textContent =
+                "--";
+
+
+            document.getElementById(
+                "nextStatus"
+            ).textContent =
+                "None";
+
+
+            document.getElementById(
+                "nextAppointmentDay"
+            ).textContent =
+                "--";
+
+
+            document.getElementById(
+                "nextAppointmentMonth"
+            ).textContent =
+                "---";
+
+
+            createCalendar();
+
+            return;
+
+        }
+
+
+
+        /* ================= SORT ================= */
+
+        allUpcomingAppointments.sort(
+            function(a, b) {
+
+                const dateA =
+                    new Date(
+                        a.appointment_date +
+                        "T" +
+                        a.appointment_time
+                    );
+
+                const dateB =
+                    new Date(
+                        b.appointment_date +
+                        "T" +
+                        b.appointment_time
+                    );
+
+                return dateA - dateB;
+
+            }
+        );
+
+
+
+        /* ================= NEXT APPOINTMENT ================= */
+
+        const next =
+            allUpcomingAppointments[0];
+
+
+        const appointmentDate =
+            new Date(
+                next.appointment_date +
+                "T00:00:00"
+            );
+
+
+        calendarYear =
+            appointmentDate.getFullYear();
+
+        calendarMonth =
+            appointmentDate.getMonth();
+
+
+
+        const day =
+            String(
+                appointmentDate.getDate()
+            ).padStart(2, "0");
+
+
+        const month =
+            appointmentDate.toLocaleDateString(
+                "en-US",
+                {
+                    month: "short"
+                }
+            ).toUpperCase();
+
+
+
+        /* ================= TIME ================= */
+
+        const timeParts =
+            next.appointment_time
+                .substring(0, 5)
+                .split(":");
+
+
+        let hour =
+            parseInt(timeParts[0]);
+
+
+        const minutes =
+            timeParts[1];
+
+
+        const ampm =
+            hour >= 12
+                ? "PM"
+                : "AM";
+
+
+        hour =
+            hour % 12 || 12;
+
+
+        const displayTime =
+            String(hour).padStart(2, "0") +
+            ":" +
+            minutes +
+            " " +
+            ampm;
+
+
+
+        /* ================= HERO ================= */
+
+        document.getElementById(
+            "heroAppointment"
+        ).textContent =
+            appointmentDate.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "numeric",
+                    month: "short"
+                }
+            ) +
+            " · " +
+            displayTime;
+
+
+        document.getElementById(
+            "heroDoctor"
+        ).textContent =
+            next.doctor_name +
+            " · " +
+            next.specialization;
+
+
+
+        /* ================= NEXT VISIT ================= */
+
+        document.getElementById(
+            "nextAppointmentDay"
+        ).textContent =
+            day;
+
+
+        document.getElementById(
+            "nextAppointmentMonth"
+        ).textContent =
+            month;
+
+
+        document.getElementById(
+            "nextDoctor"
+        ).textContent =
+            next.doctor_name;
+
+
+        document.getElementById(
+            "nextSpecialization"
+        ).textContent =
+            next.specialization;
+
+
+        document.getElementById(
+            "nextTime"
+        ).textContent =
+            displayTime;
+
+
+        document.getElementById(
+            "nextStatus"
+        ).textContent =
+            next.status;
+
+
+
+        createCalendar();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Dashboard appointment error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* ================= LAST VISIT ================= */
+
+async function loadLastVisit() {
+
+    const patientId =
+        sessionStorage.getItem("medisyncUserId");
+
+
+    if (!patientId) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "get_last_visit.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!result.success) {
+
+            console.log(result.message);
+
+            return;
+
+        }
+
+
+        if (!result.visit_date) {
+
+            document.getElementById(
+                "lastVisitDay"
+            ).textContent = "--";
+
+
+            document.getElementById(
+                "lastVisitDate"
+            ).textContent =
+                "No previous visit";
+
+
+            document.getElementById(
+                "lastVisitStatus"
+            ).textContent =
+                "—";
+
+            return;
+
+        }
+
+
+
+        const visitDate =
+            new Date(
+                result.visit_date +
+                "T00:00:00"
+            );
+
+
+        document.getElementById(
+            "lastVisitDay"
+        ).textContent =
+            String(
+                visitDate.getDate()
+            ).padStart(2, "0");
+
+
+        document.getElementById(
+            "lastVisitDate"
+        ).textContent =
+            visitDate.toLocaleDateString(
+                "en-US",
+                {
+                    month: "short",
+                    year: "numeric"
+                }
+            );
+
+
+        document.getElementById(
+            "lastVisitStatus"
+        ).textContent =
+            "Completed";
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Last visit error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* ================= CREATE CALENDAR ================= */
+
+function createCalendar() {
+
+    const calendar =
+        document.getElementById(
+            "calendarNumbers"
+        );
+
+
+    const title =
+        document.getElementById(
+            "calendarMonth"
+        );
+
+
+    calendar.innerHTML = "";
+
+
+
+    const monthName =
+        new Date(
+            calendarYear,
+            calendarMonth,
+            1
+        ).toLocaleDateString(
+            "en-US",
+            {
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    title.textContent =
+        monthName;
+
+
+
+    let firstDay =
+        new Date(
+            calendarYear,
+            calendarMonth,
+            1
+        ).getDay();
+
+
+    firstDay =
+        firstDay === 0
+            ? 6
+            : firstDay - 1;
+
+
+
+    const daysInMonth =
+        new Date(
+            calendarYear,
+            calendarMonth + 1,
+            0
+        ).getDate();
+
+
+
+    const previousMonthDays =
+        new Date(
+            calendarYear,
+            calendarMonth,
+            0
+        ).getDate();
+
+
+    for (
+        let i = firstDay - 1;
+        i >= 0;
+        i--
+    ) {
+
+        const span =
+            document.createElement("span");
+
+
+        span.classList.add("muted");
+
+        span.textContent =
+            previousMonthDays - i;
+
+        calendar.appendChild(span);
+
+    }
+
+
+
+    const appointmentDates =
+        allUpcomingAppointments.map(
+            function(appointment) {
+
+                return appointment.appointment_date;
+
+            }
+        );
+
+
+
+    for (
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ) {
+
+        const span =
+            document.createElement("span");
+
+
+        span.textContent =
+            day;
+
+
+        const monthString =
+            String(calendarMonth + 1)
+                .padStart(2, "0");
+
+
+        const dayString =
+            String(day)
+                .padStart(2, "0");
+
+
+        const dateKey =
+            calendarYear +
+            "-" +
+            monthString +
+            "-" +
+            dayString;
+
+
+
+        if (
+            appointmentDates.includes(
+                dateKey
+            )
+        ) {
+
+            span.classList.add(
+                "active-day"
+            );
+
+        }
+
+
+
+        const currentDate =
+            new Date();
+
+
+        if (
+            day === currentDate.getDate() &&
+            calendarMonth === currentDate.getMonth() &&
+            calendarYear === currentDate.getFullYear()
+        ) {
+
+            span.classList.add(
+                "today"
+            );
+
+        }
+
+
+        calendar.appendChild(span);
+
+    }
+
+
+
+    const totalDays =
+        firstDay +
+        daysInMonth;
+
+
+    const remaining =
+        42 - totalDays;
+
+
+    for (
+        let day = 1;
+        day <= remaining;
+        day++
+    ) {
+
+        const span =
+            document.createElement("span");
+
+
+        span.classList.add("muted");
+
+        span.textContent =
+            day;
+
+        calendar.appendChild(span);
+
+    }
+
+}
+
+
+
+/* ================= CALENDAR PREVIOUS ================= */
+
+document.getElementById(
+    "previousMonth"
+).addEventListener(
+    "click",
+    function() {
+
+        calendarMonth--;
+
+        if (calendarMonth < 0) {
+
+            calendarMonth = 11;
+            calendarYear--;
+
+        }
+
+        createCalendar();
+
+    }
+);
+
+
+
+/* ================= CALENDAR NEXT ================= */
+
+document.getElementById(
+    "nextMonth"
+).addEventListener(
+    "click",
+    function() {
+
+        calendarMonth++;
+
+        if (calendarMonth > 11) {
+
+            calendarMonth = 0;
+            calendarYear++;
+
+        }
+
+        createCalendar();
+
+    }
+);
+
+
+
+/* ================= START ================= */
+
+loadDashboardAppointments();
+
+loadLastVisit();
 
 </script>
 
