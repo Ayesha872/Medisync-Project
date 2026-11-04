@@ -53,5 +53,5 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-
+ post appointment cancellation, you might want to send a notification to the user or update related record
 ?>

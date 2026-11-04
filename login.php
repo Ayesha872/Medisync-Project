@@ -1,20 +1,14 @@
 <?php
-
 header("Content-Type: application/json");
 
+/* DATABASE CONNECTION - Yahan bhi wahi details rakhein jo register.php me hain */
 $host = "localhost";
 $username = "root";
-$password = "12345";
+$password = "12345"; // Agar password nahi hai toh blank rakhein
 $database = "medisync";
-$port = 3306;
+$port = 3307; // Wahi port rakhein jo upar hai
 
-$conn = new mysqli(
-    $host,
-    $username,
-    $password,
-    $database,
-    $port
-);
+$conn = new mysqli($host, $username, $password, $database, $port);
 
 if ($conn->connect_error) {
     echo json_encode([
@@ -43,10 +37,7 @@ if ($email === "" || $user_password === "") {
     exit();
 }
 
-$sql = "SELECT id, name, email, password, role
-        FROM users
-        WHERE email = ?";
-
+$sql = "SELECT id, name, email, password, role FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
@@ -59,7 +50,6 @@ if (!$stmt) {
 
 $stmt->bind_param("s", $email);
 $stmt->execute();
-
 $result = $stmt->get_result();
 
 if ($result->num_rows !== 1) {
@@ -91,5 +81,4 @@ echo json_encode([
 
 $stmt->close();
 $conn->close();
-
 ?>
