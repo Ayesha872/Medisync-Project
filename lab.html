@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Lab & Diagnostics</title>
+    <link rel="stylesheet" href="lab style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <img src="./logo.jpeg" alt="MediSync Logo" class="main-logo">
+            <h2>MediSync</h2>
+            <p>Smart Healthcare</p>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="appointment.html">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="pharmacy.html">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="lab.html" class="active">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+    <div class="page-area">
+
+        <!-- ================= HEADER ================= -->
+        <header class="top-header">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Search test reports, patients, samples...">
+            </div>
+
+            <div class="header-right">
+                <button class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile" onclick="window.location.href='login index.html'">
+                    <div class="profile-picture">
+                        👤
+                    </div>
+                    <div>
+                        <strong id="loggedInName">Admin</strong>
+                        <small>Hospital Administrator</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main-content">
+
+            <!-- PAGE TITLE -->
+            <section class="page-heading">
+                <div>
+                    <p class="small-title">LABORATORY MANAGEMENT</p>
+                    <h1>Lab & Diagnostics</h1>
+                    <p class="heading-text">
+                        Track blood tests, pathology reports, radiology scans, and lab sample collections.
+                    </p>
+                </div>
+
+                <button class="add-patient">
+                    + Add New Test Report
+                </button>
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+            <section class="patient-overview">
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Total Tests</p>
+                            <h2>450</h2>
+                        </div>
+                        <div class="card-icon">
+                            🧪
+                        </div>
+                    </div>
+                    <span class="growth">↑ 14.2% from last month</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Pending Reports</p>
+                            <h2>32</h2>
+                        </div>
+                        <div class="card-icon">
+                            ⏳
+                        </div>
+                    </div>
+                    <span class="growth" style="color: #c48721;">Analysis in progress</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Completed Reports</p>
+                            <h2>408</h2>
+                        </div>
+                        <div class="card-icon">
+                            ✓
+                        </div>
+                    </div>
+                    <span class="growth">Successfully verified</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Pathology & Scans</p>
+                            <h2>86</h2>
+                        </div>
+                        <div class="card-icon">
+                            📋
+                        </div>
+                    </div>
+                    <span class="growth">Radiology & Blood tests</span>
+                </div>
+            </section>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+            <section class="filter-section">
+                <div class="filter-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search by patient name or Test ID">
+                </div>
+
+                <select>
+                    <option>All Departments</option>
+                    <option>Pathology</option>
+                    <option>Radiology</option>
+                    <option>Biochemistry</option>
+                    <option>Microbiology</option>
+                </select>
+
+                <select>
+                    <option>All Status</option>
+                    <option>Completed</option>
+                    <option>Pending</option>
+                    <option>In Progress</option>
+                </select>
+
+                <select>
+                    <option>Test Category</option>
+                    <option>Blood Test</option>
+                    <option>MRI / X-Ray</option>
+                    <option>Lipid Profile</option>
+                    <option>Urine Analysis</option>
+                </select>
+
+                <button class="filter-button">
+                    Filter
+                </button>
+            </section>
+
+
+            <!-- ================= LAB TABLE SECTION ================= -->
+            <section class="patient-section">
+                <div class="section-title">
+                    <div>
+                        <h2>Lab Test Reports</h2>
+                        <p>Complete records of patient diagnostic tests and sample collections</p>
+                    </div>
+                    <button>View All</button>
+                </div>
+
+                <div class="patient-table">
+                    <!-- TABLE HEADER -->
+                    <div class="table-row table-head">
+                        <div>Patient Name</div>
+                        <div>Test ID</div>
+                        <div>Test Name</div>
+                        <div>Department</div>
+                        <div>Date</div>
+                        <div>Status</div>
+                        <div>Action</div>
+                    </div>
+
+                    <!-- ROW 1 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">SK</div>
+                            <div>
+                                <strong>Sarah Khan</strong>
+                                <small>PT-1001</small>
+                            </div>
+                        </div>
+                        <div>TST-501</div>
+                        <div>Complete Blood Count (CBC)</div>
+                        <div>Pathology</div>
+                        <div>02 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Completed</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 2 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">AM</div>
+                            <div>
+                                <strong>Arjun Mehta</strong>
+                                <small>PT-1002</small>
+                            </div>
+                        </div>
+                        <div>TST-502</div>
+                        <div>MRI Brain Scan</div>
+                        <div>Radiology</div>
+                        <div>04 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Completed</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 3 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">PS</div>
+                            <div>
+                                <strong>Priya Singh</strong>
+                                <small>PT-1003</small>
+                            </div>
+                        </div>
+                        <div>TST-503</div>
+                        <div>Lipid Profile Test</div>
+                        <div>Biochemistry</div>
+                        <div>06 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Pending</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 4 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">RV</div>
+                            <div>
+                                <strong>Rahul Verma</strong>
+                                <small>PT-1004</small>
+                            </div>
+                        </div>
+                        <div>TST-504</div>
+                        <div>Chest X-Ray</div>
+                        <div>Radiology</div>
+                        <div>08 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Completed</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 5 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">AA</div>
+                            <div>
+                                <strong>Ayesha Ali</strong>
+                                <small>PT-1005</small>
+                            </div>
+                        </div>
+                        <div>TST-505</div>
+                        <div>Blood Glucose Fasting</div>
+                        <div>Pathology</div>
+                        <div>09 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Pending</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+            <section class="bottom-grid">
+
+                <!-- RECENT LAB ACTIVITY -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Recent Lab Activity</h2>
+                            <p>Latest sample collections and report updates</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">🧪</div>
+                        <div>
+                            <strong>CBC Test Completed</strong>
+                            <p>Report verified for Sarah Khan (PT-1001)</p>
+                            <small>15 minutes ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">📋</div>
+                        <div>
+                            <strong>MRI Scan Uploaded</strong>
+                            <p>Radiology scan added for Arjun Mehta</p>
+                            <small>1 hour ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">⏳</div>
+                        <div>
+                            <strong>Sample Collected</strong>
+                            <p>Lipid profile sample collected for Priya Singh</p>
+                            <small>3 hours ago</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- LAB TEST STATISTICS -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Lab Test Statistics</h2>
+                            <p>Distribution breakdown by test category</p>
+                        </div>
+                    </div>
+
+                    <div class="statistics">
+                        <div class="stat-row">
+                            <span>Pathology</span>
+                            <div class="stat-bar">
+                                <div style="width: 65%;"></div>
+                            </div>
+                            <strong>65%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Radiology</span>
+                            <div class="stat-bar">
+                                <div style="width: 45%;"></div>
+                            </div>
+                            <strong>45%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Biochemistry</span>
+                            <div class="stat-bar">
+                                <div style="width: 55%;"></div>
+                            </div>
+                            <strong>55%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Microbiology</span>
+                            <div class="stat-bar">
+                                <div style="width: 30%;"></div>
+                            </div>
+                            <strong>30%</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= LOGIN NAME SCRIPT ================= -->
+    <script>
+        const savedEmail = sessionStorage.getItem("medisyncEmail");
+
+        if (savedEmail) {
+            let name = savedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ");
+
+            name = name.replace(/\b\w/g, function(letter) {
+                return letter.toUpperCase();
+            });
+
+            document.getElementById("loggedInName").textContent = name;
+        }
+    </script>
+
+</body>
+
+</html>

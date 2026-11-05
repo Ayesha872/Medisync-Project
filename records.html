@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Medical Records</title>
+    <link rel="stylesheet" href="records style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <img src="./logo.jpeg" alt="MediSync Logo" class="main-logo">
+            <h2>MediSync</h2>
+            <p>Smart Healthcare</p>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="appointment.html">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="pharmacy.html">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="lab.html">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="records.html" class="active">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+    <div class="page-area">
+
+        <!-- ================= HEADER ================= -->
+        <header class="top-header">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Search medical records, patients, IDs...">
+            </div>
+
+            <div class="header-right">
+                <button class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile" onclick="window.location.href='login index.html'">
+                    <div class="profile-picture">
+                        👤
+                    </div>
+                    <div>
+                        <strong id="loggedInName">Admin</strong>
+                        <small>Hospital Administrator</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main-content">
+
+            <!-- PAGE TITLE -->
+            <section class="page-heading">
+                <div>
+                    <p class="small-title">MEDICAL RECORDS ARCHIVE</p>
+                    <h1>Patient Records</h1>
+                    <p class="heading-text">
+                        Access and manage electronic health records, past histories, and clinical archives.
+                    </p>
+                </div>
+
+                <button class="add-patient">
+                    + Add New Record
+                </button>
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+            <section class="patient-overview">
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Total Records</p>
+                            <h2>3,420</h2>
+                        </div>
+                        <div class="card-icon">
+                            📋
+                        </div>
+                    </div>
+                    <span class="growth">↑ 9.4% from last month</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Prescriptions</p>
+                            <h2>1,425</h2>
+                        </div>
+                        <div class="card-icon">
+                            💊
+                        </div>
+                    </div>
+                    <span class="growth">Digital prescriptions</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Lab Reports</p>
+                            <h2>1,150</h2>
+                        </div>
+                        <div class="card-icon">
+                            🧪
+                        </div>
+                    </div>
+                    <span class="growth">Archived diagnostics</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Discharge Summaries</p>
+                            <h2>845</h2>
+                        </div>
+                        <div class="card-icon">
+                            📁
+                        </div>
+                    </div>
+                    <span class="growth" style="color: #2ba66a;">IPD case histories</span>
+                </div>
+            </section>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+            <section class="filter-section">
+                <div class="filter-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search by patient name or Record ID">
+                </div>
+
+                <select>
+                    <option>All Departments</option>
+                    <option>Cardiology</option>
+                    <option>Neurology</option>
+                    <option>Orthopedics</option>
+                    <option>General Medicine</option>
+                </select>
+
+                <select>
+                    <option>Record Type</option>
+                    <option>Prescription</option>
+                    <option>Lab Report</option>
+                    <option>Discharge Summary</option>
+                    <option>Case History</option>
+                </select>
+
+                <select>
+                    <option>All Status</option>
+                    <option>Verified</option>
+                    <option>Pending Review</option>
+                    <option>Archived</option>
+                </select>
+
+                <button class="filter-button">
+                    Filter
+                </button>
+            </section>
+
+
+            <!-- ================= RECORDS TABLE SECTION ================= -->
+            <section class="patient-section">
+                <div class="section-title">
+                    <div>
+                        <h2>Medical Record Archives</h2>
+                        <p>Complete historical logs and patient documentation</p>
+                    </div>
+                    <button>View All</button>
+                </div>
+
+                <div class="patient-table">
+                    <!-- TABLE HEADER -->
+                    <div class="table-row table-head">
+                        <div>Patient Name</div>
+                        <div>Record ID</div>
+                        <div>Record Type</div>
+                        <div>Department</div>
+                        <div>Date Added</div>
+                        <div>Status</div>
+                        <div>Action</div>
+                    </div>
+
+                    <!-- ROW 1 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">SK</div>
+                            <div>
+                                <strong>Sarah Khan</strong>
+                                <small>PT-1001</small>
+                            </div>
+                        </div>
+                        <div>REC-901</div>
+                        <div>Prescription History</div>
+                        <div>Cardiology</div>
+                        <div>02 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Verified</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 2 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">AM</div>
+                            <div>
+                                <strong>Arjun Mehta</strong>
+                                <small>PT-1002</small>
+                            </div>
+                        </div>
+                        <div>REC-902</div>
+                        <div>Discharge Summary</div>
+                        <div>Neurology</div>
+                        <div>04 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Verified</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 3 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">PS</div>
+                            <div>
+                                <strong>Priya Singh</strong>
+                                <small>PT-1003</small>
+                            </div>
+                        </div>
+                        <div>REC-903</div>
+                        <div>Lab Diagnostic Archive</div>
+                        <div>Orthopedics</div>
+                        <div>06 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Pending Review</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 4 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">RV</div>
+                            <div>
+                                <strong>Rahul Verma</strong>
+                                <small>PT-1004</small>
+                            </div>
+                        </div>
+                        <div>REC-904</div>
+                        <div>Clinical Case Note</div>
+                        <div>General Medicine</div>
+                        <div>08 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Verified</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 5 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">AA</div>
+                            <div>
+                                <strong>Ayesha Ali</strong>
+                                <small>PT-1005</small>
+                            </div>
+                        </div>
+                        <div>REC-905</div>
+                        <div>Prescription History</div>
+                        <div>Cardiology</div>
+                        <div>09 Sep 2026</div>
+                        <div>
+                            <span class="status active-status">Verified</span>
+                        </div>
+                        <div>
+                            <button class="action-button">View</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+            <section class="bottom-grid">
+
+                <!-- RECENT RECORD ACTIVITY -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Recent Record Activity</h2>
+                            <p>Latest document uploads and modifications</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">📋</div>
+                        <div>
+                            <strong>Prescription Added</strong>
+                            <p>New medication log added for Sarah Khan</p>
+                            <small>20 minutes ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">📁</div>
+                        <div>
+                            <strong>Discharge Summary Generated</strong>
+                            <p>IPD case closed for Arjun Mehta</p>
+                            <small>1 hour ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">🧪</div>
+                        <div>
+                            <strong>Lab Archive Linked</strong>
+                            <p>Diagnostic report attached for Priya Singh</p>
+                            <small>4 hours ago</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- RECORD STATISTICS -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Record Statistics</h2>
+                            <p>Distribution breakdown by document type</p>
+                        </div>
+                    </div>
+
+                    <div class="statistics">
+                        <div class="stat-row">
+                            <span>Prescriptions</span>
+                            <div class="stat-bar">
+                                <div style="width: 70%;"></div>
+                            </div>
+                            <strong>70%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Lab Reports</span>
+                            <div class="stat-bar">
+                                <div style="width: 55%;"></div>
+                            </div>
+                            <strong>55%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Discharge</span>
+                            <div class="stat-bar">
+                                <div style="width: 40%;"></div>
+                            </div>
+                            <strong>40%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Case Notes</span>
+                            <div class="stat-bar">
+                                <div style="width: 25%;"></div>
+                            </div>
+                            <strong>25%</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= LOGIN NAME SCRIPT ================= -->
+    <script>
+        const savedEmail = sessionStorage.getItem("medisyncEmail");
+
+        if (savedEmail) {
+            let name = savedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ");
+
+            name = name.replace(/\b\w/g, function(letter) {
+                return letter.toUpperCase();
+            });
+
+            document.getElementById("loggedInName").textContent = name;
+        }
+    </script>
+
+</body>
+
+</html>
