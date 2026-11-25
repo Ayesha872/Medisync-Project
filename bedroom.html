@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Bed Room Management</title>
+    <link rel="stylesheet" href="bedroom style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <img src="./logo.jpeg" alt="MediSync Logo" class="main-logo">
+            <h2>MediSync</h2>
+            <p>Smart Healthcare</p>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="appointment.html">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="pharmacy.html">
+                <span>💊</span>
+                Pharmacy
+            </a>
+
+            <a href="lab.html">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="records.html">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="opd_ipd.html">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="bedroom.html" class="active">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+    <div class="page-area">
+
+        <!-- ================= HEADER ================= -->
+        <header class="top-header">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Search wards, rooms, bed numbers...">
+            </div>
+
+            <div class="header-right">
+                <button class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile" onclick="window.location.href='login index.html'">
+                    <div class="profile-picture">
+                        👤
+                    </div>
+                    <div>
+                        <strong id="loggedInName">Admin</strong>
+                        <small>Hospital Administrator</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main-content">
+
+            <!-- PAGE TITLE -->
+            <section class="page-heading">
+                <div>
+                    <p class="small-title">WARD & BED ALLOCATION</p>
+                    <h1>Bed Room Management</h1>
+                    <p class="heading-text">
+                        Monitor ward occupancies, room availability, bed statuses, and patient allocations.
+                    </p>
+                </div>
+
+                <button class="add-patient">
+                    + Allocate New Bed
+                </button>
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+            <section class="patient-overview">
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Total Hospital Beds</p>
+                            <h2>250</h2>
+                        </div>
+                        <div class="card-icon">
+                            🛏️
+                        </div>
+                    </div>
+                    <span class="growth">All wards capacity</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Occupied Beds</p>
+                            <h2>184</h2>
+                        </div>
+                        <div class="card-icon">
+                            👥
+                        </div>
+                    </div>
+                    <span class="growth" style="color: #c48721;">74% occupancy rate</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Available Beds</p>
+                            <h2>52</h2>
+                        </div>
+                        <div class="card-icon">
+                            ✓
+                        </div>
+                    </div>
+                    <span class="growth" style="color: #23925a;">Ready for admission</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Under Maintenance</p>
+                            <h2>14</h2>
+                        </div>
+                        <div class="card-icon">
+                            ⚙️
+                        </div>
+                    </div>
+                    <span class="growth" style="color: #ff6868;">Cleaning & repair</span>
+                </div>
+            </section>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+            <section class="filter-section">
+                <div class="filter-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search by patient name or Room/Bed number">
+                </div>
+
+                <select>
+                    <option>All Wards</option>
+                    <option>General Ward</option>
+                    <option>ICU (Intensive Care)</option>
+                    <option>Private Room</option>
+                    <option>Emergency Ward</option>
+                </select>
+
+                <select>
+                    <option>Bed Status</option>
+                    <option>Occupied</option>
+                    <option>Available</option>
+                    <option>Maintenance</option>
+                </select>
+
+                <select>
+                    <option>Floor Level</option>
+                    <option>Floor 1 - General</option>
+                    <option>Floor 2 - ICU & Surgery</option>
+                    <option>Floor 3 - Private Suites</option>
+                </select>
+
+                <button class="filter-button">
+                    Filter
+                </button>
+            </section>
+
+
+            <!-- ================= BED TABLE SECTION ================= -->
+            <section class="patient-section">
+                <div class="section-title">
+                    <div>
+                        <h2>Ward & Room Status</h2>
+                        <p>Detailed list of hospital beds and current patient allocations</p>
+                    </div>
+                    <button>View All</button>
+                </div>
+
+                <div class="patient-table">
+                    <!-- TABLE HEADER -->
+                    <div class="table-row table-head">
+                        <div>Room / Bed No.</div>
+                        <div>Ward Type</div>
+                        <div>Assigned Patient</div>
+                        <div>Patient ID</div>
+                        <div>Admission Date</div>
+                        <div>Status</div>
+                        <div>Action</div>
+                    </div>
+
+                    <!-- ROW 1 -->
+                    <div class="table-row">
+                        <div>
+                            <strong>ICU-101</strong>
+                        </div>
+                        <div>Intensive Care Unit</div>
+                        <div class="patient-name">
+                            <div class="patient-avatar">SK</div>
+                            <div>
+                                <strong>Sarah Khan</strong>
+                                <small>Cardiology</small>
+                            </div>
+                        </div>
+                        <div>PT-1001</div>
+                        <div>02 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Occupied</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Manage</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 2 -->
+                    <div class="table-row">
+                        <div>
+                            <strong>GEN-204</strong>
+                        </div>
+                        <div>General Ward</div>
+                        <div class="patient-name">
+                            <div class="patient-avatar">AM</div>
+                            <div>
+                                <strong>Arjun Mehta</strong>
+                                <small>Neurology</small>
+                            </div>
+                        </div>
+                        <div>PT-1002</div>
+                        <div>04 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Occupied</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Manage</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 3 -->
+                    <div class="table-row">
+                        <div>
+                            <strong>PRV-302</strong>
+                        </div>
+                        <div>Private Room</div>
+                        <div class="patient-name">
+                            <div class="patient-avatar">PS</div>
+                            <div>
+                                <strong>Priya Singh</strong>
+                                <small>Orthopedics</small>
+                            </div>
+                        </div>
+                        <div>PT-1003</div>
+                        <div>06 Sep 2026</div>
+                        <div>
+                            <span class="status admitted-status">Occupied</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Manage</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 4 -->
+                    <div class="table-row">
+                        <div>
+                            <strong>GEN-205</strong>
+                        </div>
+                        <div>General Ward</div>
+                        <div class="patient-name" style="color: #8994a8;">
+                            <i>-- Vacant --</i>
+                        </div>
+                        <div>--</div>
+                        <div>--</div>
+                        <div>
+                            <span class="status active-status">Available</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Allocate</button>
+                        </div>
+                    </div>
+
+                    <!-- ROW 5 -->
+                    <div class="table-row">
+                        <div>
+                            <strong>ICU-102</strong>
+                        </div>
+                        <div>Intensive Care Unit</div>
+                        <div class="patient-name" style="color: #8994a8;">
+                            <i>-- Cleaning --</i>
+                        </div>
+                        <div>--</div>
+                        <div>--</div>
+                        <div>
+                            <span class="status" style="color: #ff6868; background: #ffebeb;">Maintenance</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Inspect</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+            <section class="bottom-grid">
+
+                <!-- RECENT BED ACTIVITY -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Recent Bed Activity</h2>
+                            <p>Latest room transfers and cleaning logs</p>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">🛏️</div>
+                        <div>
+                            <strong>Bed Allocated</strong>
+                            <p>Sarah Khan assigned to ICU-101</p>
+                            <small>15 minutes ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">✓</div>
+                        <div>
+                            <strong>Room Vacated</strong>
+                            <p>GEN-205 cleaned and marked available</p>
+                            <small>1 hour ago</small>
+                        </div>
+                    </div>
+
+                    <div class="activity">
+                        <div class="activity-icon">⚙️</div>
+                        <div>
+                            <strong>Maintenance Scheduled</strong>
+                            <p>ICU-102 sent for equipment check</p>
+                            <small>3 hours ago</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- WARD OCCUPANCY STATISTICS -->
+                <div class="bottom-card">
+                    <div class="bottom-title">
+                        <div>
+                            <h2>Ward Occupancy Statistics</h2>
+                            <p>Bed utilization breakdown across wards</p>
+                        </div>
+                    </div>
+
+                    <div class="statistics">
+                        <div class="stat-row">
+                            <span>General Ward</span>
+                            <div class="stat-bar">
+                                <div style="width: 85%;"></div>
+                            </div>
+                            <strong>85%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>ICU Unit</span>
+                            <div class="stat-bar">
+                                <div style="width: 90%;"></div>
+                            </div>
+                            <strong>90%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Private Rooms</span>
+                            <div class="stat-bar">
+                                <div style="width: 60%;"></div>
+                            </div>
+                            <strong>60%</strong>
+                        </div>
+
+                        <div class="stat-row">
+                            <span>Emergency</span>
+                            <div class="stat-bar">
+                                <div style="width: 50%;"></div>
+                            </div>
+                            <strong>50%</strong>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= LOGIN NAME SCRIPT ================= -->
+    <script>
+        const savedEmail = sessionStorage.getItem("medisyncEmail");
+
+        if (savedEmail) {
+            let name = savedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ");
+
+            name = name.replace(/\b\w/g, function(letter) {
+                return letter.toUpperCase();
+            });
+
+            document.getElementById("loggedInName").textContent = name;
+        }
+    </script>
+
+</body>
+
+</html>

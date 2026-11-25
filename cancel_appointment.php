@@ -2,7 +2,7 @@
 
 header("Content-Type: application/json");
 
-$conn = new mysqli("localhost", "root", "123456789", "medisync", 3307);
+$conn = new mysqli("localhost", "root", "1234567", "medisync", 3307);
 
 if ($conn->connect_error) {
     echo json_encode([
@@ -53,5 +53,5 @@ if ($stmt->execute()) {
 
 $stmt->close();
 $conn->close();
-
+ post appointment cancellation, you might want to send a notification to the user or update related record
 ?>

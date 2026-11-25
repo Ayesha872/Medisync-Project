@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediSync - Pharmacy </title>
+
+    <link rel="stylesheet" href="patient style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <img src="./logo.jpeg" alt="MediSync Logo" class="main-logo">
+            <h2>MediSync</h2>
+            <p>Smart Healthcare</p>
+        </div>
+
+        <nav class="menu">
+
+            <a href="index.html">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="about.html">
+                <span>ℹ️</span>
+                About Us
+            </a>
+
+            <a href="patient.html">
+                <span>👥</span>
+                Patients
+            </a>
+
+            <a href="./doctor.html">
+                <span>👨‍⚕️</span>
+                Doctors
+            </a>
+
+            <a href="appointment.html">
+                <span>📅</span>
+                Appointments
+            </a>
+
+            <a href="pharmacy.html" class="active">
+                <span>💊</span>
+                Pharmacy 
+            </a>
+
+            <a href="#">
+                <span>🧪</span>
+                Lab
+            </a>
+
+            <a href="#">
+                <span>📋</span>
+                Records
+            </a>
+
+            <a href="#">
+                <span>🩺</span>
+                OPD / IPD Consultation
+            </a>
+
+            <a href="#">
+                <span>🛏️</span>
+                Bed Room Management
+            </a>
+
+            <a href="#">
+                <span>💳</span>
+                Billing
+            </a>
+
+            <a href="#">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+            <a href="#">
+                <span>❓</span>
+                Help
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= MAIN PAGE ================= -->
+
+    <div class="page-area">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="top-header">
+
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" placeholder="Search medicines, categories, stock...">
+            </div>
+
+            <div class="header-right">
+
+                <button class="notification">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="profile" onclick="window.location.href='login index.html'">
+
+                    <div class="profile-picture">
+                        👤
+                    </div>
+
+                    <div>
+                        <strong id="loggedInName">Admin</strong>
+                        <small>Hospital Pharmacist</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+            <!-- PAGE TITLE -->
+
+            <section class="page-heading">
+
+                <div>
+                    <p class="small-title">INVENTORY & STOCK</p>
+                    <h1>Pharmacy </h1>
+                    <p class="heading-text">
+                        Check available medicines, stock status, dosage, and unit prices.
+                    </p>
+                </div>
+
+                <button class="add-patient">
+                    + Add New Medicine
+                </button>
+
+            </section>
+
+
+            <!-- ================= OVERVIEW CARDS ================= -->
+
+            <section class="patient-overview">
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Total Medicines</p>
+                            <h2>120</h2>
+                        </div>
+                        <div class="card-icon">💊</div>
+                    </div>
+                    <span class="growth">All registered items</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>In Stock</p>
+                            <h2>98</h2>
+                        </div>
+                        <div class="card-icon">✅</div>
+                    </div>
+                    <span class="growth" style="color: #10b981;">Available for dispensing</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Low Stock</p>
+                            <h2>14</h2>
+                        </div>
+                        <div class="card-icon">⚠️</div>
+                    </div>
+                    <span class="growth" style="color: #f59e0b;">Needs reordering soon</span>
+                </div>
+
+                <div class="overview-card">
+                    <div class="overview-top">
+                        <div>
+                            <p>Out of Stock</p>
+                            <h2>8</h2>
+                        </div>
+                        <div class="card-icon">❌</div>
+                    </div>
+                    <span class="growth" style="color: #ef4444;">Unavailable items</span>
+                </div>
+
+            </section>
+
+
+            <!-- ================= FILTER SECTION ================= -->
+
+            <section class="filter-section">
+
+                <div class="filter-search">
+                    <span>🔍</span>
+                    <input type="text" placeholder="Search medicine name or generic name...">
+                </div>
+
+                <select>
+                    <option>All Categories</option>
+                    <option>Pain Relief / Analgesic</option>
+                    <option>Cardiology / BP</option>
+                    <option>Antibiotics</option>
+                    <option>Vitamins & Supplements</option>
+                </select>
+
+                <select>
+                    <option>All Stock Status</option>
+                    <option>In Stock</option>
+                    <option>Low Stock</option>
+                    <option>Out of Stock</option>
+                </select>
+
+                <button class="filter-button">
+                    Filter
+                </button>
+
+            </section>
+
+
+            <!-- ================= MEDICINE STOCK TABLE ================= -->
+
+            <section class="patient-section">
+
+                <div class="section-title">
+                    <div>
+                        <h2>Medicine Inventory List</h2>
+                        <p>Real-time stock status and details</p>
+                    </div>
+                    <button>View All</button>
+                </div>
+
+
+                <div class="patient-table">
+
+                    <!-- TABLE HEADER -->
+                    <div class="table-row table-head">
+                        <div>Medicine Name</div>
+                        <div>Med ID</div>
+                        <div>Category</div>
+                        <div>Dosage</div>
+                        <div>Quantity</div>
+                        <div>Price</div>
+                        <div>Status</div>
+                        <div>Action</div>
+                    </div>
+
+
+                    <!-- MEDICINE 1 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">💊</div>
+                            <div>
+                                <strong>Paracetamol 500mg</strong>
+                                <small>Crocin / Calpol</small>
+                            </div>
+                        </div>
+                        <div>MED-101</div>
+                        <div>Analgesic / Fever</div>
+                        <div>1 Tablet twice daily</div>
+                        <div><strong>450 Strip</strong></div>
+                        <div>₹15.00</div>
+                        <div>
+                            <span class="status active-status">In Stock</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+
+
+                    <!-- MEDICINE 2 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">💊</div>
+                            <div>
+                                <strong>Amlodipine 5mg</strong>
+                                <small>Amlokind</small>
+                            </div>
+                        </div>
+                        <div>MED-102</div>
+                        <div>Cardiology / BP</div>
+                        <div>1 Tablet daily</div>
+                        <div><strong>12 Strip</strong></div>
+                        <div>₹28.50</div>
+                        <div>
+                            <span class="status admitted-status" style="background-color: #fef3c7; color: #d97706;">Low Stock</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+
+
+                    <!-- MEDICINE 3 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">💊</div>
+                            <div>
+                                <strong>Telmisartan 40mg</strong>
+                                <small>Telmikind</small>
+                            </div>
+                        </div>
+                        <div>MED-103</div>
+                        <div>Cardiology / BP</div>
+                        <div>1 Tablet daily</div>
+                        <div><strong>0 Strip</strong></div>
+                        <div>₹45.00</div>
+                        <div>
+                            <span class="status completed-status" style="background-color: #fee2e2; color: #dc2626;">Out of Stock</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+
+
+                    <!-- MEDICINE 4 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">💊</div>
+                            <div>
+                                <strong>Azithromycin 500mg</strong>
+                                <small>Azithral</small>
+                            </div>
+                        </div>
+                        <div>MED-104</div>
+                        <div>Antibiotic</div>
+                        <div>1 Tablet daily (3 days)</div>
+                        <div><strong>180 Strip</strong></div>
+                        <div>₹110.00</div>
+                        <div>
+                            <span class="status active-status">In Stock</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+
+
+                    <!-- MEDICINE 5 -->
+                    <div class="table-row">
+                        <div class="patient-name">
+                            <div class="patient-avatar">💊</div>
+                            <div>
+                                <strong>Vitamin D3 Capsule</strong>
+                                <small>Uprise-D3</small>
+                            </div>
+                        </div>
+                        <div>MED-105</div>
+                        <div>Vitamins</div>
+                        <div>1 Capsule weekly</div>
+                        <div><strong>8 Strip</strong></div>
+                        <div>₹60.00</div>
+                        <div>
+                            <span class="status admitted-status" style="background-color: #fef3c7; color: #d97706;">Low Stock</span>
+                        </div>
+                        <div>
+                            <button class="action-button">Edit</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script>
+        const savedEmail = sessionStorage.getItem("medisyncEmail");
+
+        if (savedEmail) {
+            let name = savedEmail
+                .split("@")[0]
+                .replace(/[._-]/g, " ");
+
+            name = name.replace(/\b\w/g, function(letter) {
+                return letter.toUpperCase();
+            });
+
+            document.getElementById("loggedInName").textContent = name;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@ header("Content-Type: application/json");
 $conn = new mysqli(
     "localhost",
     "root",
-    "123456789",
+    "12345",
     "medisync",
     3307
 );
