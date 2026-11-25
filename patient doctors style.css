@@ -2113,3 +2113,272 @@ body {
     }
 
 }
+
+/* =====================================================
+   MEDISYNC - FIND A DOCTOR PAGE UPDATES
+   Add this at the bottom of existing CSS
+===================================================== */
+
+
+/* =====================================================
+   SEARCH AND SPECIALIZATION FILTER
+===================================================== */
+
+.doctor-directory-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+}
+
+.doctor-search-box,
+.doctor-filter-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 46px;
+    padding: 0 14px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    transition: 0.2s;
+}
+
+.doctor-search-box {
+    flex: 1;
+    min-width: 220px;
+}
+
+.doctor-filter-box {
+    min-width: 220px;
+}
+
+.doctor-search-box i,
+.doctor-filter-box i {
+    color: var(--teal);
+    font-size: 13px;
+}
+
+.doctor-search-box input,
+.doctor-filter-box select {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+}
+
+.doctor-filter-box select {
+    cursor: pointer;
+}
+
+.doctor-search-box:focus-within,
+.doctor-filter-box:focus-within {
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(21, 154, 156, 0.08);
+}
+
+#doctorCount {
+    width: 100%;
+    color: var(--muted);
+    font-size: 12px;
+    margin: 0;
+}
+
+
+/* =====================================================
+   NEW DOCTOR CARD HEADER
+===================================================== */
+
+.doctor-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.doctor-card-header .doctor-details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+    border: none;
+}
+
+.doctor-card-header .doctor-details h3 {
+    font-size: 17px;
+    margin-bottom: 2px;
+}
+
+.doctor-specialization {
+    font-size: 12px;
+    color: var(--teal-dark);
+    font-weight: 700;
+}
+
+.doctor-qualification {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.doctor-profile-photo {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 2px solid var(--teal-light);
+}
+
+
+/* =====================================================
+   DATABASE DOCTOR DETAILS
+===================================================== */
+
+.doctor-info-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 11px;
+}
+
+.doctor-info-row span {
+    color: var(--muted);
+    flex-shrink: 0;
+}
+
+.doctor-info-row span i {
+    width: 16px;
+    margin-right: 5px;
+    color: var(--teal);
+    text-align: center;
+}
+
+.doctor-info-row strong {
+    max-width: 58%;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.doctor-fee strong {
+    color: var(--teal-dark);
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   UPDATED DOCTOR ACTIONS
+===================================================== */
+
+/* Only one booking button is currently displayed */
+
+.doctor-card .doctor-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.doctor-card .doctor-actions a {
+    width: 100%;
+    min-height: 40px;
+}
+
+.doctor-card .full-message-btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
+/* =====================================================
+   SEARCH EMPTY STATE
+===================================================== */
+
+.doctor-no-results {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 45px 20px;
+    text-align: center;
+}
+
+.doctor-no-results .empty-icon {
+    margin: 0 auto 15px;
+}
+
+.doctor-no-results h3 {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.doctor-no-results p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE SEARCH AND DOCTOR CARDS
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .doctor-directory-tools {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .doctor-search-box,
+    .doctor-filter-box {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .doctor-card-header {
+        gap: 12px;
+    }
+
+    .doctor-profile-photo {
+        width: 55px;
+        height: 55px;
+        min-width: 55px;
+    }
+
+    .doctor-info-row {
+        font-size: 10px;
+    }
+
+    .doctor-info-row strong {
+        font-size: 10px;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .doctor-card-header .doctor-details h3 {
+        font-size: 15px;
+    }
+
+    .doctor-qualification {
+        font-size: 10px;
+    }
+
+    .doctor-info-row {
+        gap: 8px;
+    }
+
+}

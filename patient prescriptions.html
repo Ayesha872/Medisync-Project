@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>My Prescriptions | MediSync</title>
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+      href="patient prescriptions.css">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="hospital-nav">
+
+<!-- BRAND -->
+
+<div class="nav-brand">
+
+    <div class="brand-logo">
+
+        <img src="logo.jpeg"
+             alt="MediSync Logo">
+
+    </div>
+
+
+    <div class="brand-text">
+
+        <strong>MediSync</strong>
+
+        <span>
+            A Smart Hospital Management & Patient Care System
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- MAIN NAVIGATION -->
+
+<div class="main-navigation">
+
+
+    <a href="patient dashboard index.html"
+       class="nav-link">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Dashboard</span>
+
+    </a>
+
+
+
+    <a href="patient-about.html"
+       class="nav-link">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        <span>About Us</span>
+
+    </a>
+
+
+
+    <!-- PATIENT SERVICES -->
+
+    <div class="nav-dropdown">
+
+        <button type="button"
+                class="dropdown-btn active">
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            <span>Patient Services</span>
+
+            <i class="fa-solid fa-chevron-down arrow"></i>
+
+        </button>
+
+
+
+        <div class="dropdown-menu">
+
+
+            <a href="patient appointment.html">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                My Appointments
+
+            </a>
+
+
+
+            <a href="patient doctors.html">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+                Find a Doctor
+
+            </a>
+
+
+
+            <a href="patient prescriptions.html"
+             class="active">
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+                Prescriptions
+
+            </a>
+
+
+
+            <a href="patient lab reports.html">
+
+                <i class="fa-solid fa-flask"></i>
+
+                Lab Reports
+
+            </a>
+
+
+
+            <a href="#records">
+
+                <i class="fa-solid fa-file-medical"></i>
+
+                Medical Records
+
+            </a>
+
+
+
+            <a href="#consultations">
+
+                <i class="fa-solid fa-comments"></i>
+
+                Consultations
+
+            </a>
+
+
+            <a href="#billing">
+
+                <i class="fa-solid fa-receipt"></i>
+
+                Billing
+
+            </a>
+
+            <a href="#settings">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Settings
+
+            </a>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- RIGHT SIDE -->
+
+<div class="nav-right">
+
+
+    <button class="notification-btn">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span>3</span>
+
+    </button>
+
+
+
+    <div class="nav-profile">
+
+
+        <div class="profile-avatar">
+
+            <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+
+        <div class="profile-details">
+
+            <strong id="patientName">
+                Patient
+            </strong>
+
+            <span>
+                Patient
+            </span>
+
+        </div>
+
+
+
+        <button class="logout-btn"
+                onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+</nav>
+
+<!-- ================= MAIN ================= -->
+
+<main class="prescription-container">
+
+<!-- PAGE HEADER -->
+
+<section class="page-header">
+
+
+    <div>
+
+
+        <span class="page-label">
+
+            <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+            PATIENT SERVICES
+
+        </span>
+
+
+
+        <h1>
+            My Prescriptions
+        </h1>
+
+
+
+        <p>
+
+            View your current medicines, dosage instructions,
+            prescription history and renewal information.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="header-date">
+
+
+        <i class="fa-regular fa-calendar"></i>
+
+
+        <div>
+
+            <span>
+                Today
+            </span>
+
+            <strong id="todayDate">
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= SUMMARY ================= -->
+
+<section class="prescription-stats">
+
+
+    <!-- ACTIVE -->
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-pills"></i>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Active Prescriptions
+            </span>
+
+            <strong id="activePrescriptionCount">
+                00
+            </strong>
+
+            <small>
+                Currently active
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- MEDICINES -->
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-capsules"></i>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Total Medicines
+            </span>
+
+            <strong id="totalMedicineCount">
+                00
+            </strong>
+
+            <small>
+                Current medicines
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- HISTORY -->
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Prescription History
+            </span>
+
+            <strong id="historyCount">
+                00
+            </strong>
+
+            <small>
+                Previous records
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- DOCTORS -->
+
+    <div class="summary-card">
+
+
+        <div class="summary-icon">
+
+            <i class="fa-solid fa-user-doctor"></i>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Prescribed By
+            </span>
+
+            <strong id="doctorCount">
+                00
+            </strong>
+
+            <small>
+                Doctors
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= MAIN GRID ================= -->
+
+<section class="prescription-grid">
+
+
+
+    <!-- ACTIVE PRESCRIPTIONS -->
+
+    <div class="prescription-card active-prescriptions">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+                <span class="card-label">
+                    CURRENT MEDICATION
+                </span>
+
+                <h2>
+                    Active Prescriptions
+                </h2>
+
+            </div>
+
+
+            <span class="active-count"
+                  id="activeCountLabel">
+
+                0 Active
+
+            </span>
+
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+
+            <input type="text"
+                   id="medicineSearch"
+                   placeholder="Search medicine..."
+                   onkeyup="searchMedicine()">
+
+
+        </div>
+
+
+
+        <!-- REAL MEDICINES WILL LOAD HERE -->
+
+        <div id="activeMedicineList">
+
+
+            <div class="medicine-card">
+
+
+                <div class="medicine-icon">
+
+                    <i class="fa-solid fa-pills"></i>
+
+                </div>
+
+
+                <div class="medicine-details">
+
+
+                    <div class="medicine-title">
+
+                        <div>
+
+                            <strong>
+                                Loading...
+                            </strong>
+
+                            <span>
+                                <i class="fa-solid fa-spinner"></i>
+                                Loading prescriptions
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================= RIGHT SIDE ================= -->
+
+    <div class="right-column">
+
+
+
+        <!-- TODAY -->
+
+        <div class="side-card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <span class="card-label">
+                        MEDICATION
+                    </span>
+
+                    <h2>
+                        Today's Schedule
+                    </h2>
+
+                </div>
+
+
+                <i class="fa-regular fa-clock"></i>
+
+
+            </div>
+
+
+
+            <div id="todaySchedule">
+
+
+                <div class="schedule-item">
+
+
+                    <div class="schedule-time">
+
+                        <strong>
+                            --
+                        </strong>
+
+                        <span>
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="schedule-info">
+
+                        <strong>
+                            No schedule available
+                        </strong>
+
+                        <span>
+                            Your prescription schedule will appear here.
+                        </span>
+
+                    </div>
+
+
+                    <i class="fa-regular fa-clock schedule-pending"></i>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- IMPORTANT NOTES -->
+
+        <div class="side-card notes-card">
+
+
+            <div class="card-header">
+
+
+                <div>
+
+                    <span class="card-label">
+                        REMINDERS
+                    </span>
+
+                    <h2>
+                        Important Notes
+                    </h2>
+
+                </div>
+
+
+                <i class="fa-solid fa-note-sticky"></i>
+
+
+            </div>
+
+
+
+            <div class="note-item">
+
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+
+                <div>
+
+                    <strong>
+                        Do not skip doses
+                    </strong>
+
+                    <span>
+                        Follow the dosage given by your doctor.
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="note-item">
+
+
+                <i class="fa-solid fa-glass-water"></i>
+
+
+                <div>
+
+                    <strong>
+                        Stay hydrated
+                    </strong>
+
+                    <span>
+                        Take medicines with sufficient water.
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="note-item">
+
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+
+                <div>
+
+                    <strong>
+                        Need help?
+                    </strong>
+
+                    <span>
+                        Contact your doctor before changing medicines.
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <button class="message-doctor-btn"
+                    onclick="messageDoctor()">
+
+                <i class="fa-regular fa-comment"></i>
+
+                Message Doctor
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= HISTORY ================= -->
+
+<section class="history-card">
+
+
+    <div class="card-header">
+
+
+        <div>
+
+            <span class="card-label">
+                MEDICAL RECORD
+            </span>
+
+            <h2>
+                Prescription History
+            </h2>
+
+        </div>
+
+
+        <button class="history-filter"
+                type="button">
+
+            <i class="fa-solid fa-filter"></i>
+
+            All Records
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="table-wrapper">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Medicine
+                    </th>
+
+                    <th>
+                        Prescribed By
+                    </th>
+
+                    <th>
+                        Date
+                    </th>
+
+                    <th>
+                        Duration
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th>
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+
+            <tbody id="historyTableBody">
+
+
+                <tr>
+
+                    <td colspan="6"
+                        style="text-align:center;">
+
+                        Loading prescription history...
+
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="prescription-footer">
+
+
+    <div>
+
+        <strong>
+            MediSync
+        </strong>
+
+        <span>
+            Smart Hospital Management & Patient Care System
+        </span>
+
+    </div>
+
+
+    <p>
+        © 2026 MediSync. All rights reserved.
+    </p>
+
+
+</footer>
+
+</main>
+
+<!-- ================= VIEW MODAL ================= -->
+
+<div class="modal-overlay"
+     id="prescriptionModal">
+
+<div class="prescription-modal">
+
+
+    <button class="modal-close"
+            onclick="closePrescription()">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+
+
+    <div class="modal-icon">
+
+        <i class="fa-solid fa-prescription-bottle-medical"></i>
+
+    </div>
+
+
+
+    <span class="modal-label">
+        PRESCRIPTION DETAILS
+    </span>
+
+
+
+    <h2 id="modalMedicine">
+        Medicine
+    </h2>
+
+
+
+    <div class="modal-doctor">
+
+        <i class="fa-solid fa-user-doctor"></i>
+
+        Prescribed by
+
+        <strong id="modalDoctor">
+            Doctor
+        </strong>
+
+    </div>
+
+
+
+    <div class="modal-details">
+
+
+        <div>
+
+            <span>
+                Dosage
+            </span>
+
+            <strong id="modalDosage">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Frequency
+            </span>
+
+            <strong id="modalFrequency">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Duration
+            </span>
+
+            <strong id="modalDuration">
+                -
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>
+                Status
+            </span>
+
+            <strong class="modal-active"
+                    id="modalStatus">
+                -
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="modal-instruction">
+
+
+        <i class="fa-solid fa-circle-info"></i>
+
+
+        <span id="modalInstruction">
+
+            Follow the instructions provided
+            by your doctor.
+
+        </span>
+
+
+    </div>
+
+
+
+    <div class="modal-actions">
+
+
+        <button onclick="printPrescription()">
+
+            <i class="fa-solid fa-print"></i>
+
+            Print Prescription
+
+        </button>
+
+
+        <button onclick="closePrescription()">
+
+            Close
+
+        </button>
+
+
+    </div>
+
+
+</div>
+```
+
+</div>
+
+<script>
+
+
+/* =================================================
+   LOGIN CHECK
+================================================= */
+
+const patientEmail =
+    sessionStorage.getItem("medisyncEmail");
+
+const patientRole =
+    sessionStorage.getItem("medisyncRole");
+
+
+if (!patientEmail || patientRole !== "patient") {
+
+    window.location.href =
+        "login index.html";
+
+}
+
+
+
+/* =================================================
+   PATIENT INFORMATION
+================================================= */
+
+const patientId =
+    sessionStorage.getItem("medisyncUserId");
+
+
+const storedName =
+    sessionStorage.getItem("medisyncUserName");
+
+
+if (storedName) {
+
+    document.getElementById("patientName")
+        .textContent = storedName;
+
+}
+
+
+
+/* =================================================
+   DATE
+================================================= */
+
+const today =
+    new Date();
+
+
+document.getElementById("todayDate")
+    .textContent =
+    today.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+
+
+/* =================================================
+   GLOBAL PRESCRIPTION DATA
+================================================= */
+
+let allPrescriptions = [];
+
+let activeMedicines = [];
+
+let historyMedicines = [];
+
+
+
+/* =================================================
+   LOAD PRESCRIPTIONS
+================================================= */
+
+async function loadPrescriptions() {
+
+
+    if (!patientId) {
+
+        showError(
+            "Patient ID not found."
+        );
+
+        return;
+
+    }
+
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "get_prescriptions.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+
+        const result =
+            await response.json();
+
+
+
+        if (!result.success) {
+
+            showError(
+                result.message ||
+                "Unable to load prescriptions."
+            );
+
+            return;
+
+        }
+
+
+
+        allPrescriptions =
+            result.prescriptions || [];
+
+
+
+        separatePrescriptions();
+
+
+
+        updateSummary();
+
+
+
+        displayActiveMedicines();
+
+
+
+        displayHistory();
+
+
+
+        displaySchedule();
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(
+            "Prescription loading error:",
+            error
+        );
+
+
+        showError(
+            "Unable to connect to the server."
+        );
+
+
+    }
+
+}
+
+
+
+/* =================================================
+   SEPARATE ACTIVE + HISTORY
+================================================= */
+
+function separatePrescriptions() {
+
+
+    activeMedicines =
+        allPrescriptions.filter(function(item) {
+
+            return (
+                String(item.medicine_status)
+                    .toLowerCase() === "active"
+                ||
+                String(item.prescription_status)
+                    .toLowerCase() === "active"
+            );
+
+        });
+
+
+
+    historyMedicines =
+        allPrescriptions.filter(function(item) {
+
+            return (
+                String(item.medicine_status)
+                    .toLowerCase() !== "active"
+                &&
+                String(item.prescription_status)
+                    .toLowerCase() !== "active"
+            );
+
+        });
+
+
+}
+
+
+
+/* =================================================
+   UPDATE SUMMARY
+================================================= */
+
+function updateSummary() {
+
+
+    document.getElementById(
+        "activePrescriptionCount"
+    ).textContent =
+        String(activeMedicines.length)
+            .padStart(2, "0");
+
+
+
+    document.getElementById(
+        "totalMedicineCount"
+    ).textContent =
+        String(activeMedicines.length)
+            .padStart(2, "0");
+
+
+
+    document.getElementById(
+        "historyCount"
+    ).textContent =
+        String(historyMedicines.length)
+            .padStart(2, "0");
+
+
+
+    const doctors =
+        new Set();
+
+
+    allPrescriptions.forEach(function(item) {
+
+        if (item.doctor_name) {
+
+            doctors.add(
+                item.doctor_name
+            );
+
+        }
+
+    });
+
+
+
+    document.getElementById(
+        "doctorCount"
+    ).textContent =
+        String(doctors.size)
+            .padStart(2, "0");
+
+
+
+    document.getElementById(
+        "activeCountLabel"
+    ).textContent =
+        activeMedicines.length +
+        " Active";
+
+}
+
+
+
+/* =================================================
+   DISPLAY ACTIVE MEDICINES
+================================================= */
+
+function displayActiveMedicines() {
+
+
+    const container =
+        document.getElementById(
+            "activeMedicineList"
+        );
+
+
+    container.innerHTML = "";
+
+
+
+    if (activeMedicines.length === 0) {
+
+
+        container.innerHTML = `
+
+            <div class="medicine-card">
+
+                <div class="medicine-icon">
+
+                    <i class="fa-solid fa-pills"></i>
+
+                </div>
+
+                <div class="medicine-details">
+
+                    <div class="medicine-title">
+
+                        <div>
+
+                            <strong>
+                                No Active Prescriptions
+                            </strong>
+
+                            <span>
+                                No current medicines found.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    activeMedicines.forEach(function(
+        medicine,
+        index
+    ) {
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "medicine-card";
+
+
+        card.dataset.index =
+            index;
+
+
+
+        card.innerHTML = `
+
+            <div class="medicine-icon">
+
+                <i class="fa-solid fa-pills"></i>
+
+            </div>
+
+
+            <div class="medicine-details">
+
+
+                <div class="medicine-title">
+
+
+                    <div>
+
+                        <strong>
+                            ${escapeHTML(
+                                medicine.medicine_name
+                            )}
+                        </strong>
+
+
+                        <span>
+
+                            <i class="fa-solid fa-user-doctor"></i>
+
+                            ${escapeHTML(
+                                medicine.doctor_name
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+                    <span class="status-active">
+
+                        ${escapeHTML(
+                            medicine.medicine_status ||
+                            "Active"
+                        )}
+
+                    </span>
+
+
+                </div>
+
+
+
+                <div class="medicine-info-grid">
+
+
+                    <div>
+
+                        <span>
+                            Dosage
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                medicine.dosage
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Frequency
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                medicine.frequency
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Duration
+                        </span>
+
+                        <strong>
+                            ${escapeHTML(
+                                medicine.duration
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Started
+                        </span>
+
+                        <strong>
+                            ${formatDate(
+                                medicine.start_date
+                            )}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="medicine-note">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    ${escapeHTML(
+                        medicine.instructions ||
+                        "Follow the instructions provided by your doctor."
+                    )}
+
+                </div>
+
+
+
+                <div class="medicine-actions">
+
+
+                    <button type="button"
+                            class="view-prescription-btn">
+
+                        <i class="fa-regular fa-eye"></i>
+
+                        View Prescription
+
+                    </button>
+
+
+
+                    <button type="button"
+                            class="renewal-btn">
+
+                        <i class="fa-solid fa-rotate"></i>
+
+                        Request Renewal
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+
+        const viewButton =
+            card.querySelector(
+                ".view-prescription-btn"
+            );
+
+
+        viewButton.addEventListener(
+            "click",
+            function() {
+
+                viewPrescription(
+                    medicine
+                );
+
+            }
+        );
+
+
+
+        const renewalButton =
+            card.querySelector(
+                ".renewal-btn"
+            );
+
+
+        renewalButton.addEventListener(
+            "click",
+            function() {
+
+                requestRenewal(
+                    medicine
+                );
+
+            }
+        );
+
+
+
+        container.appendChild(card);
+
+
+    });
+
+
+}
+
+
+
+/* =================================================
+   DISPLAY HISTORY
+================================================= */
+
+function displayHistory() {
+
+
+    const tableBody =
+        document.getElementById(
+            "historyTableBody"
+        );
+
+
+    tableBody.innerHTML = "";
+
+
+
+    if (historyMedicines.length === 0) {
+
+
+        tableBody.innerHTML = `
+
+            <tr>
+
+                <td colspan="6"
+                    style="text-align:center;">
+
+                    No prescription history found.
+
+                </td>
+
+            </tr>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    historyMedicines.forEach(function(
+        medicine
+    ) {
+
+
+        const row =
+            document.createElement("tr");
+
+
+        row.innerHTML = `
+
+            <td>
+
+                <strong>
+
+                    ${escapeHTML(
+                        medicine.medicine_name
+                    )}
+
+                </strong>
+
+            </td>
+
+
+            <td>
+
+                ${escapeHTML(
+                    medicine.doctor_name
+                )}
+
+            </td>
+
+
+            <td>
+
+                ${formatDate(
+                    medicine.start_date ||
+                    medicine.prescription_date
+                )}
+
+            </td>
+
+
+            <td>
+
+                ${escapeHTML(
+                    medicine.duration
+                )}
+
+            </td>
+
+
+            <td>
+
+                <span class="status-completed">
+
+                    ${escapeHTML(
+                        medicine.medicine_status ||
+                        medicine.prescription_status ||
+                        "Completed"
+                    )}
+
+                </span>
+
+            </td>
+
+
+            <td>
+
+                <button class="view-btn"
+                        type="button">
+
+                    View
+
+                </button>
+
+            </td>
+
+        `;
+
+
+
+        row.querySelector(
+            ".view-btn"
+        ).addEventListener(
+            "click",
+            function() {
+
+                viewPrescription(
+                    medicine
+                );
+
+            }
+        );
+
+
+
+        tableBody.appendChild(row);
+
+
+    });
+
+
+}
+
+
+
+/* =================================================
+   TODAY'S SCHEDULE
+================================================= */
+
+function displaySchedule() {
+
+
+    const schedule =
+        document.getElementById(
+            "todaySchedule"
+        );
+
+
+    schedule.innerHTML = "";
+
+
+
+    if (activeMedicines.length === 0) {
+
+
+        schedule.innerHTML = `
+
+            <div class="schedule-item">
+
+                <div class="schedule-time">
+
+                    <strong>--</strong>
+
+                    <span>--</span>
+
+                </div>
+
+
+                <div class="schedule-info">
+
+                    <strong>
+                        No medicines scheduled
+                    </strong>
+
+                    <span>
+                        Your active prescription schedule will appear here.
+                    </span>
+
+                </div>
+
+
+                <i class="fa-regular fa-clock schedule-pending"></i>
+
+            </div>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    activeMedicines.forEach(function(
+        medicine
+    ) {
+
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "schedule-item";
+
+
+        item.innerHTML = `
+
+            <div class="schedule-time">
+
+                <strong>
+                    --
+                </strong>
+
+                <span>
+                    TODAY
+                </span>
+
+            </div>
+
+
+            <div class="schedule-info">
+
+                <strong>
+
+                    ${escapeHTML(
+                        medicine.medicine_name
+                    )}
+
+                </strong>
+
+
+                <span>
+
+                    ${escapeHTML(
+                        medicine.dosage
+                    )}
+
+                    •
+
+                    ${escapeHTML(
+                        medicine.frequency
+                    )}
+
+                </span>
+
+            </div>
+
+
+            <i class="fa-regular fa-clock schedule-pending"></i>
+
+        `;
+
+
+        schedule.appendChild(item);
+
+
+    });
+
+
+}
+
+
+
+/* =================================================
+   SEARCH MEDICINE
+================================================= */
+
+function searchMedicine() {
+
+
+    const search =
+        document.getElementById(
+            "medicineSearch"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+
+    const medicines =
+        document.querySelectorAll(
+            "#activeMedicineList .medicine-card"
+        );
+
+
+
+    medicines.forEach(function(
+        medicine
+    ) {
+
+
+        const text =
+            medicine.textContent
+                .toLowerCase();
+
+
+
+        if (text.includes(search)) {
+
+            medicine.style.display =
+                "flex";
+
+        }
+
+        else {
+
+            medicine.style.display =
+                "none";
+
+        }
+
+
+    });
+
+
+}
+
+
+
+/* =================================================
+   VIEW PRESCRIPTION
+================================================= */
+
+function viewPrescription(
+    medicine
+) {
+
+
+    document.getElementById(
+        "modalMedicine"
+    ).textContent =
+        medicine.medicine_name ||
+        "Medicine";
+
+
+
+    document.getElementById(
+        "modalDoctor"
+    ).textContent =
+        medicine.doctor_name ||
+        "Doctor";
+
+
+
+    document.getElementById(
+        "modalDosage"
+    ).textContent =
+        medicine.dosage ||
+        "-";
+
+
+
+    document.getElementById(
+        "modalFrequency"
+    ).textContent =
+        medicine.frequency ||
+        "-";
+
+
+
+    document.getElementById(
+        "modalDuration"
+    ).textContent =
+        medicine.duration ||
+        "-";
+
+
+
+    document.getElementById(
+        "modalStatus"
+    ).textContent =
+        medicine.medicine_status ||
+        medicine.prescription_status ||
+        "Active";
+
+
+
+    document.getElementById(
+        "modalInstruction"
+    ).textContent =
+        medicine.instructions ||
+        "Follow the instructions provided by your doctor.";
+
+
+
+    document.getElementById(
+        "prescriptionModal"
+    ).classList.add("show");
+
+
+}
+
+
+
+/* =================================================
+   CLOSE MODAL
+================================================= */
+
+function closePrescription() {
+
+
+    document.getElementById(
+        "prescriptionModal"
+    ).classList.remove("show");
+
+
+}
+
+
+
+
+
+/* =================================================
+   REQUEST RENEWAL
+================================================= */
+
+async function requestRenewal(medicine) {
+
+    const confirmRequest =
+        confirm(
+            "Do you want to request renewal for " +
+            medicine.medicine_name +
+            "?"
+        );
+
+    if (!confirmRequest) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "request_renewal.php",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded"
+                    },
+
+                    body:
+                        "medicine_id=" +
+                        encodeURIComponent(
+                            medicine.medicine_id
+                        ) +
+
+                        "&patient_id=" +
+                        encodeURIComponent(
+                            patientId
+                        ) +
+
+                        "&medicine_name=" +
+                        encodeURIComponent(
+                            medicine.medicine_name
+                        ) +
+
+                        "&doctor_name=" +
+                        encodeURIComponent(
+                            medicine.doctor_name
+                        )
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (result.success) {
+
+            alert(
+                "Renewal request sent successfully!"
+            );
+
+        }
+
+        else {
+
+            alert(
+                result.message ||
+                "Unable to send renewal request."
+            );
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Renewal error:",
+            error
+        );
+
+
+        alert(
+            "Unable to connect to the server."
+        );
+
+    }
+
+}
+
+
+
+/* =================================================
+   MESSAGE DOCTOR
+================================================= */
+
+function messageDoctor() {
+
+
+    if (
+        activeMedicines.length === 0
+    ) {
+
+        alert(
+            "No doctor information is available."
+        );
+
+        return;
+
+    }
+
+
+
+    const doctorName =
+        activeMedicines[0].doctor_name;
+
+
+
+    sessionStorage.setItem(
+        "openDoctorMessage",
+        doctorName
+    );
+
+
+
+    window.location.href =
+        "patient doctors.html";
+
+
+}
+
+
+
+/* =================================================
+   PRINT
+================================================= */
+
+function printPrescription() {
+    const modal = document.querySelector(".prescription-modal");
+
+    if (!modal) {
+        alert("Prescription details not found.");
+        return;
+    }
+
+    const printWindow = window.open("", "_blank", "width=800,height=600");
+
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>MediSync Prescription</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    color: #102a43;
+                    padding: 30px;
+                }
+
+                h1 {
+                    color: #087f81;
+                    text-align: center;
+                }
+
+                .print-header {
+                    text-align: center;
+                    border-bottom: 2px solid #159a9c;
+                    padding-bottom: 15px;
+                    margin-bottom: 25px;
+                }
+
+                .details {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 15px;
+                    margin: 20px 0;
+                }
+
+                .detail {
+                    border: 1px solid #d7e2e8;
+                    padding: 12px;
+                    border-radius: 6px;
+                }
+
+                .detail span {
+                    display: block;
+                    color: #526777;
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+
+                .detail strong {
+                    font-size: 15px;
+                }
+
+                .instructions {
+                    border: 1px solid #d7e2e8;
+                    padding: 15px;
+                    margin-top: 20px;
+                }
+
+                .footer {
+                    margin-top: 35px;
+                    text-align: center;
+                    font-size: 12px;
+                    color: #526777;
+                }
+
+                @media print {
+                    body {
+                        padding: 0;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-header">
+                <h1>MediSync</h1>
+                <p>Smart Hospital Management & Patient Care System</p>
+                <h2>Prescription Details</h2>
+            </div>
+
+            <h2>${modal.querySelector("#modalMedicine").textContent}</h2>
+
+            <p><strong>Prescribed by:</strong>
+                ${modal.querySelector("#modalDoctor").textContent}
+            </p>
+
+            <div class="details">
+                <div class="detail">
+                    <span>Dosage</span>
+                    <strong>${modal.querySelector("#modalDosage").textContent}</strong>
+                </div>
+
+                <div class="detail">
+                    <span>Frequency</span>
+                    <strong>${modal.querySelector("#modalFrequency").textContent}</strong>
+                </div>
+
+                <div class="detail">
+                    <span>Duration</span>
+                    <strong>${modal.querySelector("#modalDuration").textContent}</strong>
+                </div>
+
+                <div class="detail">
+                    <span>Status</span>
+                    <strong>${modal.querySelector("#modalStatus").textContent}</strong>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <strong>Instructions</strong>
+                <p>${modal.querySelector("#modalInstruction").textContent}</p>
+            </div>
+
+            <div class="footer">
+                <p>This prescription is provided through MediSync.</p>
+                <p>Please follow your doctor's advice.</p>
+            </div>
+        </body>
+        </html>
+    `);
+
+    printWindow.document.close();
+
+    printWindow.onload = function () {
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+    };
+}
+
+
+/* =================================================
+   LOGOUT
+================================================= */
+
+function logout() {
+
+
+    sessionStorage.clear();
+
+
+    window.location.href =
+        "login index.html";
+
+
+}
+
+
+
+/* =================================================
+   CLOSE MODAL OUTSIDE CLICK
+================================================= */
+
+document.getElementById(
+    "prescriptionModal"
+).addEventListener(
+    "click",
+    function(event) {
+
+
+        if (
+            event.target === this
+        ) {
+
+            closePrescription();
+
+        }
+
+
+    }
+);
+
+
+
+/* =================================================
+   FORMAT DATE
+================================================= */
+
+function formatDate(
+    dateString
+) {
+
+
+    if (!dateString) {
+
+        return "-";
+
+    }
+
+
+
+    const date =
+        new Date(
+            dateString + "T00:00:00"
+        );
+
+
+
+    if (isNaN(date.getTime())) {
+
+        return dateString;
+
+    }
+
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        }
+    );
+
+
+}
+
+
+
+/* =================================================
+   ESCAPE HTML
+================================================= */
+
+function escapeHTML(
+    value
+) {
+
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+
+}
+
+
+
+/* =================================================
+   ERROR MESSAGE
+================================================= */
+
+function showError(
+    message
+) {
+
+
+    document.getElementById(
+        "activeMedicineList"
+    ).innerHTML = `
+
+        <div class="medicine-card">
+
+            <div class="medicine-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+
+            <div class="medicine-details">
+
+                <div class="medicine-title">
+
+                    <div>
+
+                        <strong>
+                            Unable to load prescriptions
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(message)}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+}
+
+
+
+/* =================================================
+   START
+================================================= */
+
+loadPrescriptions();
+
+
+</script>
+
+</body>
+
+</html>

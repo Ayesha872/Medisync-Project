@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,1570 +8,1311 @@
 
     <link rel="stylesheet" href="patient appointment.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 </head>
 
 <body>
 
 <header class="hospital-nav">
-
     <div class="nav-brand">
-
         <img src="logo.jpeg" class="brand-logo" alt="MediSync Logo">
-
         <div class="brand-text">
-
             <strong>MediSync</strong>
-
             <span>Smart Healthcare</span>
-
         </div>
-
     </div>
-
 
     <nav class="main-navigation">
-
         <a href="patient dashboard index.html" class="nav-link">
-
-            <i class="fa-solid fa-house"></i>
-
-            Dashboard
-
+            <i class="fa-solid fa-house"></i> Dashboard
         </a>
-
 
         <a href="patient-about.html" class="nav-link">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-            About
-
+            <i class="fa-solid fa-circle-info"></i> About
         </a>
 
-
         <div class="nav-dropdown">
-
-            <button class="dropdown-btn">
-
+            <button class="dropdown-btn" type="button">
                 <i class="fa-solid fa-user"></i>
-
                 Patient Services
-
                 <i class="fa-solid fa-chevron-down"></i>
-
             </button>
 
-
             <div class="dropdown-menu">
-
                 <a href="patient appointment.html" class="active-dropdown">
-
-                    <i class="fa-solid fa-calendar-check"></i>
-
-                    My Appointments
-
+                    <i class="fa-solid fa-calendar-check"></i> My Appointments
                 </a>
-
-
-                <a href="patient dashboard index.html#doctors">
-
-                    <i class="fa-solid fa-user-doctor"></i>
-
-                    Find Doctors
-
+                <a href="patient doctors.html">
+                    <i class="fa-solid fa-user-doctor"></i> Find a Doctor
                 </a>
-
-
-                <a href="patient dashboard index.html#prescriptions">
-
-                    <i class="fa-solid fa-pills"></i>
-
-                    Prescriptions
-
+                <a href="patient prescriptions.html">
+                    <i class="fa-solid fa-pills"></i> Prescriptions
                 </a>
-
-
-                <a href="patient dashboard index.html#reports">
-
-                    <i class="fa-solid fa-file-medical"></i>
-
-                    Medical Reports
-
+                <a href="patient lab reports.html">
+                    <i class="fa-solid fa-file-medical"></i> Medical Reports
                 </a>
-
-
                 <a href="patient dashboard index.html#records">
-
-                    <i class="fa-solid fa-folder-open"></i>
-
-                    Medical Records
-
+                    <i class="fa-solid fa-folder-open"></i> Medical Records
                 </a>
-
-
                 <a href="patient dashboard index.html#consultations">
-
-                    <i class="fa-solid fa-video"></i>
-
-                    Consultations
-
+                    <i class="fa-solid fa-video"></i> Consultations
                 </a>
-
-
-                <a href="patient dashboard index.html#ipd">
-
-                    <i class="fa-solid fa-bed"></i>
-
-                    IPD Services
-
-                </a>
-
-
                 <a href="patient dashboard index.html#billing">
-
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-
-                    Billing
-
+                    <i class="fa-solid fa-file-invoice-dollar"></i> Billing
                 </a>
-
-
-                <a href="patient dashboard index.html#notifications">
-
-                    <i class="fa-solid fa-bell"></i>
-
-                    Notifications
-
-                </a>
-
-
                 <a href="patient dashboard index.html#settings">
-
-                    <i class="fa-solid fa-gear"></i>
-
-                    Settings
-
+                    <i class="fa-solid fa-gear"></i> Settings
                 </a>
-
-
-                <a href="patient dashboard index.html#help">
-
-                    <i class="fa-solid fa-circle-question"></i>
-
-                    Help & Support
-
-                </a>
-
             </div>
-
         </div>
-
     </nav>
 
-
     <div class="nav-right">
-
-        <button class="notification-btn">
-
+        <button class="notification-btn" type="button">
             <i class="fa-regular fa-bell"></i>
-
             <span>2</span>
-
         </button>
-
 
         <div class="nav-profile">
-
             <div class="profile-avatar">
-
                 <i class="fa-solid fa-user"></i>
-
             </div>
-
-
             <div class="profile-details">
-
                 <strong id="patientName">Patient</strong>
-
                 <span>Patient</span>
-
             </div>
-
         </div>
 
-
-        <button class="logout-btn" onclick="logout()">
-
+        <button class="logout-btn" onclick="logout()" type="button">
             <i class="fa-solid fa-right-from-bracket"></i>
-
             Logout
-
         </button>
-
     </div>
-
 </header>
-
 
 <main class="page-container">
 
-
-<section class="page-hero">
-
-    <div class="hero-content">
-
-        <div class="hero-icon">
-
-            <i class="fa-solid fa-calendar-check"></i>
-
-        </div>
-
-
-        <div>
-
-            <p class="hero-label">PATIENT SERVICES</p>
-
-            <h1>My Appointments</h1>
-
-            <p>
-                Book and manage your appointments with MediSync doctors.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-date">
-
-        <i class="fa-regular fa-calendar"></i>
-
-        <span id="currentDate"></span>
-
-    </div>
-
-</section>
-
-
-<section class="appointment-layout">
-
-
-    <!-- BOOK APPOINTMENT -->
-
-    <div class="booking-card">
-
-
-        <div class="card-heading">
-
-            <div class="heading-icon">
-
-                <i class="fa-solid fa-calendar-plus"></i>
-
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <i class="fa-solid fa-calendar-check"></i>
             </div>
-
 
             <div>
-
-                <h2>Book an Appointment</h2>
-
-                <p>Choose a doctor and suitable time.</p>
-
+                <p class="hero-label">PATIENT SERVICES</p>
+                <h1>My Appointments</h1>
+                <p>Book and manage your appointments with MediSync doctors.</p>
             </div>
-
         </div>
 
+        <div class="hero-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="currentDate"></span>
+        </div>
+    </section>
 
-        <form id="appointmentForm">
+    <section class="appointment-layout">
 
+        <!-- BOOK APPOINTMENT -->
+        <div class="booking-card">
 
-            <!-- SPECIALIZATION -->
-
-            <div class="form-row">
-
-
-                <div class="form-group">
-
-                    <label for="specialization">
-
-                        <i class="fa-solid fa-stethoscope"></i>
-
-                        Specialization
-
-                    </label>
-
-
-                    <select id="specialization" required>
-
-                        <option value="">
-                            Choose specialization
-                        </option>
-
-                        <option value="Cardiology">
-                            Cardiology
-                        </option>
-
-                        <option value="General Physician">
-                            General Physician
-                        </option>
-
-                        <option value="Dermatology">
-                            Dermatology
-                        </option>
-
-                        <option value="Neurology">
-                            Neurology
-                        </option>
-
-                        <option value="Orthopedics">
-                            Orthopedics
-                        </option>
-
-                        <option value="Pediatrics">
-                            Pediatrics
-                        </option>
-
-                    </select>
-
+            <div class="card-heading">
+                <div class="heading-icon">
+                    <i class="fa-solid fa-calendar-plus"></i>
                 </div>
-
-
-                <!-- DOCTOR -->
-
-                <div class="form-group">
-
-                    <label for="doctor">
-
-                        <i class="fa-solid fa-user-doctor"></i>
-
-                        Select Doctor
-
-                    </label>
-
-
-                    <select id="doctor" required>
-
-                        <option value="">
-                            Choose a doctor
-                        </option>
-
-                    </select>
-
+                <div>
+                    <h2>Book an Appointment</h2>
+                    <p>Choose a doctor and suitable time.</p>
                 </div>
-
             </div>
 
+            <form id="appointmentForm">
 
-            <!-- DATE + TIME -->
+                <div class="form-row">
 
-            <div class="form-row">
+                    <div class="form-group">
+                        <label for="specialization">
+                            <i class="fa-solid fa-stethoscope"></i>
+                            Specialization
+                        </label>
 
+                        <select id="specialization" required>
+                            <option value="">Loading specializations...</option>
+                        </select>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="doctor">
+                            <i class="fa-solid fa-user-doctor"></i>
+                            Select Doctor
+                        </label>
+
+                        <select id="doctor" required>
+                            <option value="">Choose a doctor</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- DOCTOR AVAILABILITY CALENDAR -->
                 <div class="form-group">
 
                     <label for="appointmentDate">
-
                         <i class="fa-regular fa-calendar"></i>
-
                         Appointment Date
-
                     </label>
-
 
                     <input
-                        type="date"
+                        type="text"
                         id="appointmentDate"
+                        placeholder="Select an available date"
+                        readonly
                         required
-                    >
+                        autocomplete="off">
 
+                    <div class="availability-calendar">
+
+                        <div class="calendar-header">
+                            <button type="button" id="previousMonth" aria-label="Previous month">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+
+                            <strong id="calendarMonthLabel">Select a doctor</strong>
+
+                            <button type="button" id="nextMonth" aria-label="Next month">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="calendar-weekdays">
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                            <span>Sun</span>
+                        </div>
+
+                        <div id="calendarDays" class="calendar-days">
+                            <p class="calendar-message">
+                                Select a doctor to view available days.
+                            </p>
+                        </div>
+
+                        <div class="calendar-legend">
+                            <span>
+                                <i class="legend-dot available-dot"></i>
+                                Available
+                            </span>
+                            <span>
+                                <i class="legend-dot unavailable-dot"></i>
+                                Unavailable
+                            </span>
+                            <span>
+                                <i class="legend-dot selected-dot"></i>
+                                Selected
+                            </span>
+                        </div>
+
+                        <p id="availabilityMessage" class="availability-message">
+                            Doctor availability will appear here.
+                        </p>
+
+                    </div>
                 </div>
 
-
+                <!-- TIME -->
                 <div class="form-group">
-
                     <label for="appointmentTime">
-
                         <i class="fa-regular fa-clock"></i>
-
                         Appointment Time
-
                     </label>
 
-
                     <select id="appointmentTime" required>
-
-                        <option value="">
-                            Choose time
-                        </option>
-
-                        <option value="10:00">
-                            10:00 AM
-                        </option>
-
-                        <option value="10:30">
-                            10:30 AM
-                        </option>
-
-                        <option value="11:00">
-                            11:00 AM
-                        </option>
-
-                        <option value="11:30">
-                            11:30 AM
-                        </option>
-
-                        <option value="12:00">
-                            12:00 PM
-                        </option>
-
-                        <option value="16:00">
-                            04:00 PM
-                        </option>
-
-                        <option value="16:30">
-                            04:30 PM
-                        </option>
-
-                        <option value="17:00">
-                            05:00 PM
-                        </option>
-
+                        <option value="">Choose time</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="16:00">04:00 PM</option>
+                        <option value="16:30">04:30 PM</option>
+                        <option value="17:00">05:00 PM</option>
                     </select>
-
                 </div>
 
-            </div>
+                <!-- REASON -->
+                <div class="form-group">
+                    <label for="reason">
+                        <i class="fa-solid fa-notes-medical"></i>
+                        Reason for Visit
+                    </label>
 
+                    <textarea
+                        id="reason"
+                        rows="4"
+                        placeholder="Briefly describe the reason for your visit..."></textarea>
+                </div>
 
-            <!-- REASON -->
+                <button type="submit" class="book-btn" id="bookAppointmentButton">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Book Appointment
+                </button>
 
-            <div class="form-group">
-
-                <label for="reason">
-
-                    <i class="fa-solid fa-notes-medical"></i>
-
-                    Reason for Visit
-
-                </label>
-
-
-                <textarea
-                    id="reason"
-                    rows="4"
-                    placeholder="Briefly describe the reason for your visit..."
-                ></textarea>
-
-            </div>
-
-
-            <!-- BOOK BUTTON -->
-
-            <button type="submit" class="book-btn">
-
-                <i class="fa-solid fa-calendar-check"></i>
-
-                Book Appointment
-
-            </button>
-
-        </form>
-
-    </div>
-
-
-    <!-- UPCOMING APPOINTMENTS -->
-
-    <div class="upcoming-card">
-
-
-        <div class="card-heading">
-
-            <div class="heading-icon">
-
-                <i class="fa-solid fa-clock"></i>
-
-            </div>
-
-
-            <div>
-
-                <h2>Upcoming Appointments</h2>
-
-                <p>Your scheduled visits.</p>
-
-            </div>
-
+            </form>
         </div>
 
+        <!-- UPCOMING APPOINTMENTS -->
+        <div class="upcoming-card">
 
-        <div id="appointmentsList">
+            <div class="card-heading">
+                <div class="heading-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <h2>Upcoming Appointments</h2>
+                    <p>Your scheduled visits.</p>
+                </div>
+            </div>
 
-            <p style="text-align:center; padding:20px;">
-
-                Loading appointments...
-
-            </p>
-
-        </div>
-
-
-        <div class="appointment-info-box">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-
-            <div>
-
-                <strong>Appointment Information</strong>
-
-                <p>
-
-                    Please arrive at least 10 minutes before
-                    your scheduled appointment.
-
+            <div id="appointmentsList">
+                <p style="text-align:center; padding:20px;">
+                    Loading appointments...
                 </p>
+            </div>
 
+            <div class="appointment-info-box">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong>Appointment Information</strong>
+                    <p>
+                        Please arrive at least 10 minutes before
+                        your scheduled appointment.
+                    </p>
+                </div>
             </div>
 
         </div>
-
-    </div>
-
-</section>
-
-
+    </section>
 </main>
 
-
 <footer class="page-footer">
+    <div>
+        <strong>MediSync</strong>
+        <span>Smart Hospital Management & Patient Care System</span>
+    </div>
 
-
-<div>
-
-    <strong>MediSync</strong>
-
-    <span>
-        Smart Hospital Management & Patient Care System
-    </span>
-
-</div>
-
-
-<p>
-    © 2026 MediSync. All rights reserved.
-</p>
-
-
+    <p>© 2026 MediSync. All rights reserved.</p>
 </footer>
-
 
 <script>
 
-
 // =====================================================
-// EMAILJS INITIALIZATION
+// EMAILJS
 // =====================================================
 
 emailjs.init({
-
     publicKey: "EZSSmEnDFJNEVuey8"
-
 });
 
-
 // =====================================================
-// CHECK PATIENT LOGIN
+// PATIENT LOGIN CHECK
 // =====================================================
 
-const email =
-    sessionStorage.getItem("medisyncEmail");
-
-const role =
-    sessionStorage.getItem("medisyncRole");
-
+const email = sessionStorage.getItem("medisyncEmail");
+const role = sessionStorage.getItem("medisyncRole");
 
 if (!email || role !== "patient") {
-
-    window.location.href =
-        "login index.html";
-
+    window.location.href = "login index.html";
 }
 
-
-// =====================================================
-// PATIENT NAME
-// =====================================================
-
 const patientName =
-    sessionStorage.getItem("medisyncUserName")
-    || "Patient";
+    sessionStorage.getItem("medisyncUserName") || "Patient";
 
+document.getElementById("patientName").textContent = patientName;
 
-document.getElementById("patientName").textContent =
-    patientName;
-
+const patientId = sessionStorage.getItem("medisyncUserId");
 
 // =====================================================
 // CURRENT DATE
 // =====================================================
 
 const today = new Date();
-
-
-const dateText =
-    today.toLocaleDateString("en-IN", {
-
-        day: "numeric",
-
-        month: "long",
-
-        year: "numeric"
-
-    });
-
+today.setHours(0, 0, 0, 0);
 
 document.getElementById("currentDate").textContent =
-    dateText;
+    new Date().toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
 
+function formatLocalDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
-// =====================================================
-// PREVENT SELECTING PREVIOUS DATES
-// =====================================================
+    return `${year}-${month}-${day}`;
+}
 
-const dateInput =
-    document.getElementById("appointmentDate");
-
-
-const year =
-    today.getFullYear();
-
-
-const month =
-    String(today.getMonth() + 1).padStart(2, "0");
-
-
-const day =
-    String(today.getDate()).padStart(2, "0");
-
-
-dateInput.min =
-    `${year}-${month}-${day}`;
-
+const dateInput = document.getElementById("appointmentDate");
 
 // =====================================================
-// DOCTORS ACCORDING TO SPECIALIZATION
+// DOCTOR DATA
 // =====================================================
 
-const doctorsBySpecialization = {
+let allDoctors = [];
 
-    "Cardiology": [
+const specializationSelect =
+    document.getElementById("specialization");
 
-        "Dr. Arjun Sharma",
-        "Dr. Neha Kapoor",
-        "Dr. Rahul Mehta"
+const doctorSelect =
+    document.getElementById("doctor");
 
-    ],
+const selectedDoctorId =
+    new URLSearchParams(window.location.search).get("doctor_id");
 
-    "General Physician": [
-
-        "Dr. Amit Verma",
-        "Dr. Priya Singh",
-        "Dr. Sameer Khan"
-
-    ],
-
-    "Dermatology": [
-
-        "Dr. Sana Khan",
-        "Dr. Riya Malhotra",
-        "Dr. Karan Gupta"
-
-    ],
-
-    "Neurology": [
-
-        "Dr. Vikram Rao",
-        "Dr. Anjali Sharma",
-        "Dr. Nitin Kapoor"
-
-    ],
-
-    "Orthopedics": [
-
-        "Dr. Rajiv Kumar",
-        "Dr. Pooja Mehta",
-        "Dr. Aditya Singh"
-
-    ],
-
-    "Pediatrics": [
-
-        "Dr. Meera Sharma",
-        "Dr. Ananya Gupta",
-        "Dr. Rohit Verma"
-
-    ]
-
-};
-
+let calendarMonth = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    1
+);
 
 // =====================================================
-// SPECIALIZATION → DOCTOR
+// SAFE HTML
 // =====================================================
 
-document.getElementById("specialization").addEventListener(
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function(char) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        }[char];
+    });
+}
 
-    "change",
+// =====================================================
+// NORMALIZE DOCTOR AVAILABLE DAYS
+// Supports values like:
+// Monday, Wednesday, Friday
+// Mon, Wed, Fri
+// Mon/Wed/Fri
+// ["Monday","Wednesday","Friday"]
+// =====================================================
 
-    function () {
+function getAvailableWeekdays(availableDays) {
 
-        const specialization =
-            this.value;
+    if (!availableDays) {
+        return [];
+    }
 
+    let values = availableDays;
 
-        const doctorSelect =
-            document.getElementById("doctor");
+    if (typeof values === "string") {
 
+        const trimmed = values.trim();
+
+        try {
+            const parsed = JSON.parse(trimmed);
+
+            if (Array.isArray(parsed)) {
+                values = parsed;
+            } else {
+                values = trimmed.split(/[,/|]+/);
+            }
+
+        } catch (error) {
+            values = trimmed.split(/[,/|]+/);
+        }
+    }
+
+    if (!Array.isArray(values)) {
+        values = [values];
+    }
+
+    const dayMap = {
+        mon: 1,
+        monday: 1,
+        tue: 2,
+        tues: 2,
+        tuesday: 2,
+        wed: 3,
+        wednesday: 3,
+        thu: 4,
+        thur: 4,
+        thurs: 4,
+        thursday: 4,
+        fri: 5,
+        friday: 5,
+        sat: 6,
+        saturday: 6,
+        sun: 0,
+        sunday: 0
+    };
+
+    return [...new Set(
+        values.map(day => {
+            const normalized = String(day)
+                .trim()
+                .toLowerCase()
+                .replace(/[^a-z]/g, "");
+
+            return dayMap[normalized];
+        }).filter(day => day !== undefined)
+    )];
+}
+
+// =====================================================
+// GET SELECTED DOCTOR
+// =====================================================
+
+function getSelectedDoctor() {
+
+    const selectedOption =
+        doctorSelect.options[doctorSelect.selectedIndex];
+
+    if (!selectedOption || !selectedOption.dataset.doctorId) {
+        return null;
+    }
+
+    return allDoctors.find(doctor =>
+        String(doctor.doctor_id) ===
+        String(selectedOption.dataset.doctorId)
+    ) || null;
+}
+
+// =====================================================
+// LOAD DOCTORS
+// =====================================================
+
+async function loadDoctors() {
+
+    try {
+
+        specializationSelect.innerHTML =
+            '<option value="">Loading specializations...</option>';
+
+        doctorSelect.innerHTML =
+            '<option value="">Loading doctors...</option>';
+
+        const response = await fetch("get_my_doctors.php");
+
+        if (!response.ok) {
+            throw new Error("Unable to connect to doctor API.");
+        }
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message || "Unable to load doctors.");
+        }
+
+        allDoctors = data.doctors || [];
+
+        const specializations = [
+            ...new Set(
+                allDoctors
+                    .map(doctor => doctor.specialization)
+                    .filter(Boolean)
+            )
+        ].sort();
+
+        specializationSelect.innerHTML =
+            '<option value="">Choose specialization</option>';
+
+        specializations.forEach(specialization => {
+
+            const option = document.createElement("option");
+
+            option.value = specialization;
+            option.textContent = specialization;
+
+            specializationSelect.appendChild(option);
+        });
 
         doctorSelect.innerHTML =
             '<option value="">Choose a doctor</option>';
 
+        if (selectedDoctorId) {
 
-        if (!specialization) {
+            const selectedDoctor = allDoctors.find(doctor =>
+                String(doctor.doctor_id) === String(selectedDoctorId)
+            );
 
-            return;
+            if (selectedDoctor) {
 
+                specializationSelect.value =
+                    selectedDoctor.specialization;
+
+                populateDoctors(selectedDoctor.doctor_id);
+
+            } else {
+
+                alert(
+                    "The selected doctor is not currently available. Please choose another doctor."
+                );
+            }
         }
 
+    } catch (error) {
 
-        const doctors =
-            doctorsBySpecialization[specialization];
+        console.error("Doctor loading error:", error);
 
+        specializationSelect.innerHTML =
+            '<option value="">Unable to load specializations</option>';
 
-        doctors.forEach(function (doctor) {
+        doctorSelect.innerHTML =
+            '<option value="">Unable to load doctors</option>';
 
-            const option =
-                document.createElement("option");
-
-
-            option.value =
-                doctor;
-
-
-            option.textContent =
-                doctor;
-
-
-            doctorSelect.appendChild(option);
-
-        });
-
+        alert(
+            "Unable to load approved doctors. Please check your server connection."
+        );
     }
-
-);
-
+}
 
 // =====================================================
-// LOAD PATIENT'S APPOINTMENTS FROM SQL
+// POPULATE DOCTORS
+// =====================================================
+
+function populateDoctors(doctorIdToSelect = "") {
+
+    const specialization = specializationSelect.value;
+
+    doctorSelect.innerHTML =
+        '<option value="">Choose a doctor</option>';
+
+    dateInput.value = "";
+
+    const calendarDays = document.getElementById("calendarDays");
+
+    calendarDays.innerHTML =
+        '<p class="calendar-message">Select a doctor to view available days.</p>';
+
+    document.getElementById("calendarMonthLabel").textContent =
+        "Select a doctor";
+
+    document.getElementById("availabilityMessage").textContent =
+        "Doctor availability will appear here.";
+
+    if (!specialization) {
+        return;
+    }
+
+    const matchingDoctors = allDoctors.filter(doctor =>
+        doctor.specialization === specialization
+    );
+
+    matchingDoctors.forEach(doctor => {
+
+        const option = document.createElement("option");
+
+        option.value = doctor.name;
+        option.textContent = doctor.name;
+        option.dataset.doctorId = doctor.doctor_id;
+
+        doctorSelect.appendChild(option);
+    });
+
+    if (doctorIdToSelect) {
+
+        const matchingDoctor = matchingDoctors.find(doctor =>
+            String(doctor.doctor_id) === String(doctorIdToSelect)
+        );
+
+        if (matchingDoctor) {
+            doctorSelect.value = matchingDoctor.name;
+            updateAvailabilityCalendar();
+        }
+    }
+}
+
+// =====================================================
+// SPECIALIZATION CHANGE
+// =====================================================
+
+specializationSelect.addEventListener("change", function() {
+    populateDoctors();
+});
+
+// =====================================================
+// DOCTOR CHANGE
+// =====================================================
+
+doctorSelect.addEventListener("change", function() {
+
+    dateInput.value = "";
+
+    calendarMonth = new Date(
+        today.getFullYear(),
+        today.getMonth(),
+        1
+    );
+
+    updateAvailabilityCalendar();
+});
+
+// =====================================================
+// CALENDAR
+// =====================================================
+
+function updateAvailabilityCalendar() {
+
+    const doctor = getSelectedDoctor();
+
+    if (!doctor) {
+
+        document.getElementById("calendarDays").innerHTML =
+            '<p class="calendar-message">Select a doctor to view available days.</p>';
+
+        document.getElementById("calendarMonthLabel").textContent =
+            "Select a doctor";
+
+        document.getElementById("availabilityMessage").textContent =
+            "Doctor availability will appear here.";
+
+        return;
+    }
+
+    const availableDays =
+        getAvailableWeekdays(doctor.available_days);
+
+    renderCalendar(availableDays);
+
+    const message =
+        document.getElementById("availabilityMessage");
+
+    if (availableDays.length === 0) {
+
+        message.textContent =
+            "Availability has not been added for this doctor yet.";
+
+    } else {
+
+        const names = [
+            "Sunday", "Monday", "Tuesday", "Wednesday",
+            "Thursday", "Friday", "Saturday"
+        ];
+
+        message.textContent =
+            "Available days: " +
+            availableDays.map(day => names[day]).join(", ");
+    }
+}
+
+function renderCalendar(availableDays) {
+
+    const calendarDays =
+        document.getElementById("calendarDays");
+
+    const monthLabel =
+        document.getElementById("calendarMonthLabel");
+
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+
+    monthLabel.textContent =
+        calendarMonth.toLocaleDateString("en-IN", {
+            month: "long",
+            year: "numeric"
+        });
+
+    calendarDays.innerHTML = "";
+
+    const firstDay = new Date(year, month, 1);
+
+    // Convert Sunday-first index into Monday-first index.
+    const startingOffset = (firstDay.getDay() + 6) % 7;
+
+    const totalDays =
+        new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < startingOffset; i++) {
+
+        const emptyCell = document.createElement("div");
+
+        emptyCell.className = "calendar-empty";
+
+        calendarDays.appendChild(emptyCell);
+    }
+
+    const selectedDate = dateInput.value;
+
+    for (let day = 1; day <= totalDays; day++) {
+
+        const currentDate = new Date(year, month, day);
+
+        currentDate.setHours(0, 0, 0, 0);
+
+        const dateString = formatLocalDate(currentDate);
+
+        const isPast = currentDate < today;
+
+        const isAvailable =
+            availableDays.includes(currentDate.getDay());
+
+        const isSelected =
+            selectedDate === dateString;
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.textContent = day;
+
+        button.className = "calendar-day";
+
+        if (isPast) {
+
+            button.classList.add("past-day");
+            button.disabled = true;
+
+        } else if (isAvailable) {
+
+            button.classList.add("available-day");
+
+            button.addEventListener("click", function() {
+
+                dateInput.value = dateString;
+
+                renderCalendar(availableDays);
+            });
+
+        } else {
+
+            button.classList.add("unavailable-day");
+            button.disabled = true;
+        }
+
+        if (isSelected) {
+            button.classList.add("selected-day");
+        }
+
+        calendarDays.appendChild(button);
+    }
+
+    // Disable previous-month navigation when it would show only past months.
+    const previousMonthButton =
+        document.getElementById("previousMonth");
+
+    const currentMonthStart =
+        new Date(today.getFullYear(), today.getMonth(), 1);
+
+    previousMonthButton.disabled =
+        calendarMonth <= currentMonthStart;
+}
+
+// =====================================================
+// MONTH NAVIGATION
+// =====================================================
+
+document.getElementById("previousMonth").addEventListener(
+    "click",
+    function() {
+
+        const previous = new Date(
+            calendarMonth.getFullYear(),
+            calendarMonth.getMonth() - 1,
+            1
+        );
+
+        const currentMonthStart =
+            new Date(today.getFullYear(), today.getMonth(), 1);
+
+        if (previous >= currentMonthStart) {
+
+            calendarMonth = previous;
+
+            updateAvailabilityCalendar();
+        }
+    }
+);
+
+document.getElementById("nextMonth").addEventListener(
+    "click",
+    function() {
+
+        calendarMonth = new Date(
+            calendarMonth.getFullYear(),
+            calendarMonth.getMonth() + 1,
+            1
+        );
+
+        updateAvailabilityCalendar();
+    }
+);
+
+// =====================================================
+// CHECK DATE AVAILABILITY BEFORE SUBMISSION
+// =====================================================
+
+function isSelectedDateAvailable(dateString, doctor) {
+
+    if (!doctor || !dateString) {
+        return false;
+    }
+
+    const selectedDate = new Date(dateString + "T00:00:00");
+
+    selectedDate.setHours(0, 0, 0, 0);
+
+    if (Number.isNaN(selectedDate.getTime())) {
+        return false;
+    }
+
+    if (selectedDate < today) {
+        return false;
+    }
+
+    const availableDays =
+        getAvailableWeekdays(doctor.available_days);
+
+    return availableDays.includes(selectedDate.getDay());
+}
+
+// =====================================================
+// LOAD APPOINTMENTS
 // =====================================================
 
 async function loadAppointments() {
 
-    const patientId =
+    const currentPatientId =
         sessionStorage.getItem("medisyncUserId");
 
-
-    if (!patientId) {
-
+    if (!currentPatientId) {
         return;
-
     }
-
 
     try {
 
-        const response =
-            await fetch(
-                "get_appointments.php?patient_id="
-                + patientId
-            );
+        const response = await fetch(
+            "get_appointments.php?patient_id=" +
+            encodeURIComponent(currentPatientId)
+        );
 
-
-        const result =
-            await response.json();
-
+        const result = await response.json();
 
         const appointmentsList =
-            document.getElementById(
-                "appointmentsList"
-            );
-
+            document.getElementById("appointmentsList");
 
         if (!result.success) {
 
             appointmentsList.innerHTML =
-                "<p style='text-align:center; padding:20px;'>"
-                + result.message
-                + "</p>";
-
+                `<p style="text-align:center; padding:20px;">
+                    ${escapeHTML(result.message || "Unable to load appointments.")}
+                </p>`;
 
             return;
-
         }
 
-
-        if (result.appointments.length === 0) {
+        if (!result.appointments || result.appointments.length === 0) {
 
             appointmentsList.innerHTML =
-                "<p style='text-align:center; padding:20px;'>"
-                + "No appointments booked yet."
-                + "</p>";
-
+                `<p style="text-align:center; padding:20px;">
+                    No appointments booked yet.
+                </p>`;
 
             return;
-
         }
-
 
         appointmentsList.innerHTML = "";
 
-
         result.appointments.forEach(function(appointment) {
 
+            const appointmentDate = new Date(
+                appointment.appointment_date + "T00:00:00"
+            );
 
-            const appointmentDate =
-                new Date(
-                    appointment.appointment_date
-                    + "T00:00:00"
-                );
-
-
-            const formattedDate =
-                appointmentDate.toLocaleDateString(
-                    "en-IN",
-                    {
-                        day: "numeric",
-                        month: "short"
-                    }
-                );
-
+            const formattedDate = appointmentDate.toLocaleDateString(
+                "en-IN",
+                {
+                    day: "numeric",
+                    month: "short"
+                }
+            );
 
             const appointmentTime =
-                appointment.appointment_time.substring(
-                    0,
-                    5
-                );
+                String(appointment.appointment_time).substring(0, 5);
 
+            const timeParts = appointmentTime.split(":");
 
-            const timeParts =
-                appointmentTime.split(":");
+            let hour = parseInt(timeParts[0], 10);
 
+            const minutes = timeParts[1];
 
-            let hour =
-                parseInt(timeParts[0]);
+            const ampm = hour >= 12 ? "PM" : "AM";
 
-
-            const minutes =
-                timeParts[1];
-
-
-            const ampm =
-                hour >= 12
-                ? "PM"
-                : "AM";
-
-
-            hour =
-                hour % 12 || 12;
-
+            hour = hour % 12 || 12;
 
             const displayTime =
-                String(hour).padStart(2, "0")
-                + ":"
-                + minutes
-                + " "
-                + ampm;
-
+                String(hour).padStart(2, "0") +
+                ":" + minutes + " " + ampm;
 
             const appointmentItem =
                 document.createElement("div");
 
+            appointmentItem.className = "appointment-item";
 
-            appointmentItem.className =
-                "appointment-item";
-
+            const doctorName = escapeHTML(appointment.doctor_name);
+            const specialization = escapeHTML(appointment.specialization);
+            const status = escapeHTML(appointment.status);
 
             appointmentItem.innerHTML = `
-
                 <div class="doctor-avatar">
-
                     <i class="fa-solid fa-user-doctor"></i>
-
                 </div>
-
 
                 <div class="appointment-info">
 
                     <div class="appointment-top">
-
-                        <strong>
-                            ${appointment.doctor_name}
-                        </strong>
-
-
-                        <span class="status confirmed">
-
-                            ${appointment.status}
-
-                        </span>
-
+                        <strong>${doctorName}</strong>
+                        <span class="status confirmed">${status}</span>
                     </div>
 
-
-                    <p>
-
-                        ${appointment.specialization}
-
-                    </p>
-
+                    <p>${specialization}</p>
 
                     <div class="appointment-meta">
-
                         <span>
-
                             <i class="fa-regular fa-calendar"></i>
-
                             ${formattedDate}
-
                         </span>
-
 
                         <span>
-
                             <i class="fa-regular fa-clock"></i>
-
                             ${displayTime}
-
                         </span>
-
                     </div>
-
 
                     <button
                         class="cancel-btn"
-                        onclick="cancelAppointment(${appointment.id})"
-                    >
+                        type="button"
+                        onclick="cancelAppointment(${Number(appointment.id)})">
 
                         <i class="fa-solid fa-xmark"></i>
-
                         Cancel Appointment
 
                     </button>
-
                 </div>
-
             `;
 
-
-            appointmentsList.appendChild(
-                appointmentItem
-            );
-
+            appointmentsList.appendChild(appointmentItem);
         });
 
+    } catch (error) {
 
+        console.error("Appointment loading error:", error);
+
+        document.getElementById("appointmentsList").innerHTML =
+            `<p style="text-align:center; padding:20px;">
+                Unable to load appointments.
+            </p>`;
     }
-
-
-    catch (error) {
-
-        console.error(
-            "Appointment loading error:",
-            error
-        );
-
-
-        document.getElementById(
-            "appointmentsList"
-        ).innerHTML =
-
-            "<p style='text-align:center; padding:20px;'>"
-            + "Unable to load appointments."
-            + "</p>";
-
-    }
-
 }
 
-
 // =====================================================
-// CANCEL APPOINTMENT + CANCELLATION EMAIL
+// CANCEL APPOINTMENT
 // =====================================================
 
 async function cancelAppointment(appointmentId) {
 
-
-    const confirmCancel =
-        confirm(
-            "Are you sure you want to cancel this appointment?"
-        );
-
+    const confirmCancel = confirm(
+        "Are you sure you want to cancel this appointment?"
+    );
 
     if (!confirmCancel) {
-
         return;
-
     }
-
 
     try {
 
-        // Get patient information
-
-        const patientId =
-            sessionStorage.getItem(
-                "medisyncUserId"
-            );
-
+        const currentPatientId =
+            sessionStorage.getItem("medisyncUserId");
 
         const patientEmail =
-            sessionStorage.getItem(
-                "medisyncEmail"
-            );
+            sessionStorage.getItem("medisyncEmail");
 
-
-        // Get appointment details before deleting it
-
-        const appointmentsResponse =
-            await fetch(
-                "get_appointments.php?patient_id="
-                + patientId
-            );
-
+        const appointmentsResponse = await fetch(
+            "get_appointments.php?patient_id=" +
+            encodeURIComponent(currentPatientId)
+        );
 
         const appointmentData =
             await appointmentsResponse.json();
 
-
-        if (
-            !appointmentData.success
-            || !appointmentData.appointments
-        ) {
-
-            alert(
-                "Unable to get appointment details."
-            );
-
+        if (!appointmentData.success || !appointmentData.appointments) {
+            alert("Unable to get appointment details.");
             return;
-
         }
-
 
         const appointment =
-            appointmentData.appointments.find(
-                function(item) {
-
-                    return item.id == appointmentId;
-
-                }
+            appointmentData.appointments.find(item =>
+                item.id == appointmentId
             );
-
 
         if (!appointment) {
-
-            alert(
-                "Appointment details not found."
-            );
-
+            alert("Appointment details not found.");
             return;
-
         }
 
+        const formData = new FormData();
 
-        // Cancel appointment in database
+        formData.append("appointment_id", appointmentId);
 
-        const formData =
-            new FormData();
+        const response = await fetch("cancel_appointment.php", {
+            method: "POST",
+            body: formData
+        });
 
+        const responseText = await response.text();
 
-        formData.append(
-            "appointment_id",
-            appointmentId
-        );
-
-
-        const response =
-            await fetch(
-                "cancel_appointment.php",
-                {
-                    method: "POST",
-                    body: formData
-                }
-            );
-
-
-        const text =
-            await response.text();
-
-
-        console.log(
-            "CANCEL PHP RESPONSE:",
-            text
-        );
-
+        console.log("CANCEL PHP RESPONSE:", responseText);
 
         let result;
 
-
         try {
-
-            result =
-                JSON.parse(text);
-
-        }
-
-
-        catch (error) {
-
-            alert(
-                "PHP RESPONSE:\n\n"
-                + text
-            );
-
+            result = JSON.parse(responseText);
+        } catch (error) {
+            alert("PHP RESPONSE:\n\n" + responseText);
             return;
-
         }
-
 
         if (result.success) {
-
-
-            // Send cancellation email
 
             try {
 
                 await emailjs.send(
-
                     "service_b4o1edb",
-
                     "template_2kpbtqq",
-
                     {
-
-                        user_email:
-                            patientEmail,
-
-                        patient_name:
-                            patientName,
-
-                        doctor_name:
-                            appointment.doctor_name,
-
-                        specialization:
-                            appointment.specialization,
-
-                        appointment_date:
-                            appointment.appointment_date,
-
-                        appointment_time:
-                            appointment.appointment_time,
-
-                        reason:
-                            appointment.reason
-                            || "Not specified",
-
-                        appointment_status:
-                            "❌ Appointment Status : Cancelled",
-
+                        user_email: patientEmail,
+                        patient_name: patientName,
+                        doctor_name: appointment.doctor_name,
+                        specialization: appointment.specialization,
+                        appointment_date: appointment.appointment_date,
+                        appointment_time: appointment.appointment_time,
+                        reason: appointment.reason || "Not specified",
+                        appointment_status: "❌ Appointment Status : Cancelled",
                         appointment_message:
                             "Your appointment has been cancelled successfully."
-
                     }
-
                 );
-
 
                 alert(
-                    "Appointment cancelled successfully.\n\n"
-                    + "Cancellation email has been sent to "
-                    + patientEmail
-                    + "."
+                    "Appointment cancelled successfully.\n\n" +
+                    "Cancellation email has been sent to " +
+                    patientEmail + "."
                 );
 
-            }
+            } catch (emailError) {
 
-
-            catch (emailError) {
-
-                console.error(
-                    "CANCELLATION EMAIL ERROR:",
-                    emailError
-                );
-
+                console.error("CANCELLATION EMAIL ERROR:", emailError);
 
                 alert(
-                    "Appointment cancelled successfully.\n\n"
-                    + "However, the cancellation email could not be sent."
+                    "Appointment cancelled successfully.\n\n" +
+                    "However, the cancellation email could not be sent."
                 );
-
             }
-
 
             loadAppointments();
 
+        } else {
+
+            alert(result.message || "Unable to cancel appointment.");
         }
 
+    } catch (error) {
 
-        else {
+        console.error("Cancel appointment error:", error);
 
-            alert(
-                result.message
-            );
-
-        }
-
+        alert("Something went wrong while cancelling the appointment.");
     }
-
-
-    catch (error) {
-
-        console.error(
-            "Cancel appointment error:",
-            error
-        );
-
-
-        alert(
-            "Something went wrong while cancelling the appointment."
-        );
-
-    }
-
 }
 
-
 // =====================================================
-// LOAD APPOINTMENTS WHEN PAGE OPENS
-// =====================================================
-
-loadAppointments();
-
-
-// =====================================================
-// APPOINTMENT FORM
+// BOOK APPOINTMENT
 // =====================================================
 
-document.getElementById(
-    "appointmentForm"
-).addEventListener(
-
+document.getElementById("appointmentForm").addEventListener(
     "submit",
-
     async function(event) {
-
 
         event.preventDefault();
 
-
-        const patientId =
-            sessionStorage.getItem(
-                "medisyncUserId"
-            );
-
+        const currentPatientId =
+            sessionStorage.getItem("medisyncUserId");
 
         const patientEmail =
-            sessionStorage.getItem(
-                "medisyncEmail"
-            );
+            sessionStorage.getItem("medisyncEmail");
 
+        const selectedOption =
+            doctorSelect.options[doctorSelect.selectedIndex];
 
-        const doctor =
-            document.getElementById(
-                "doctor"
-            ).value;
+        const doctor = doctorSelect.value;
 
+        const doctorId =
+            selectedOption?.dataset.doctorId || "";
 
-        const specialization =
-            document.getElementById(
-                "specialization"
-            ).value;
+        const specialization = specializationSelect.value;
 
-
-        const date =
-            document.getElementById(
-                "appointmentDate"
-            ).value;
-
+        const date = dateInput.value;
 
         const time =
-            document.getElementById(
-                "appointmentTime"
-            ).value;
-
+            document.getElementById("appointmentTime").value;
 
         const reason =
-            document.getElementById(
-                "reason"
-            ).value;
+            document.getElementById("reason").value.trim();
 
+        const selectedDoctor = getSelectedDoctor();
 
-        if (!patientId) {
+        const bookButton =
+            document.getElementById("bookAppointmentButton");
 
-            alert(
-                "Patient session not found. Please login again."
-            );
+        if (!currentPatientId || !patientEmail) {
 
-            return;
-
-        }
-
-
-        if (!patientEmail) {
-
-            alert(
-                "Patient email not found. Please login again."
-            );
+            alert("Patient session not found. Please login again.");
 
             return;
-
         }
-
 
         if (
-            !doctor
-            || !specialization
-            || !date
-            || !time
+            !doctor ||
+            !doctorId ||
+            !specialization ||
+            !date ||
+            !time
         ) {
 
             alert(
-                "Please fill all required fields."
+                "Please select a valid specialization, doctor, available date and time."
             );
 
             return;
-
         }
 
+        if (!isSelectedDateAvailable(date, selectedDoctor)) {
 
-        const formData =
-            new FormData();
+            alert(
+                "This doctor is not available on the selected date. Please choose a highlighted green date."
+            );
 
+            return;
+        }
 
-        formData.append(
-            "patient_id",
-            patientId
-        );
+        const formData = new FormData();
 
-
-        formData.append(
-            "doctor_name",
-            doctor
-        );
-
-
-        formData.append(
-            "specialization",
-            specialization
-        );
-
-
-        formData.append(
-            "appointment_date",
-            date
-        );
-
-
-        formData.append(
-            "appointment_time",
-            time
-        );
-
-
-        formData.append(
-            "reason",
-            reason
-        );
-
+        formData.append("patient_id", currentPatientId);
+        formData.append("doctor_id", doctorId);
+        formData.append("doctor_name", doctor);
+        formData.append("specialization", specialization);
+        formData.append("appointment_date", date);
+        formData.append("appointment_time", time);
+        formData.append("reason", reason);
 
         try {
 
+            bookButton.disabled = true;
 
-            const response =
-                await fetch(
-                    "book_appointment.php",
-                    {
-                        method: "POST",
-                        body: formData
-                    }
-                );
+            bookButton.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Booking...
+            `;
 
+            const response = await fetch("book_appointment.php", {
+                method: "POST",
+                body: formData
+            });
 
-            const text =
-                await response.text();
+            const responseText = await response.text();
 
-
-            console.log(
-                "PHP RESPONSE:",
-                text
-            );
-
+            console.log("PHP RESPONSE:", responseText);
 
             let result;
 
-
             try {
-
-                result =
-                    JSON.parse(text);
-
-            }
-
-
-            catch (error) {
-
-                alert(
-                    "PHP Response:\n\n"
-                    + text
-                );
-
+                result = JSON.parse(responseText);
+            } catch (error) {
+                alert("PHP Response:\n\n" + responseText);
                 return;
-
             }
-
 
             if (result.success) {
 
-
                 try {
 
-
                     await emailjs.send(
-
                         "service_b4o1edb",
-
                         "template_2kpbtqq",
-
                         {
-
-                            user_email:
-                                patientEmail,
-
-                            patient_name:
-                                patientName,
-
-                            doctor_name:
-                                doctor,
-
-                            specialization:
-                                specialization,
-
-                            appointment_date:
-                                date,
-
-                            appointment_time:
-                                time,
-
-                            reason:
-                                reason,
-
+                            user_email: patientEmail,
+                            patient_name: patientName,
+                            doctor_name: doctor,
+                            specialization: specialization,
+                            appointment_date: date,
+                            appointment_time: time,
+                            reason: reason,
                             appointment_status:
                                 "✅ Appointment Status : Confirmed",
-
                             appointment_message:
                                 "Your appointment has been successfully booked. Please arrive at least 10 minutes before your scheduled appointment."
-
                         }
-
                     );
-
 
                     alert(
-
-                        "Appointment booked successfully with "
-                        + doctor
-                        + "!\n\nConfirmation email has been sent to "
-                        + patientEmail
-                        + "."
-
+                        "Appointment booked successfully with " +
+                        doctor + "!\n\n" +
+                        "Confirmation email has been sent to " +
+                        patientEmail + "."
                     );
 
+                } catch (emailError) {
 
-                }
-
-
-                catch (emailError) {
-
-
-                    console.error(
-                        "EMAIL ERROR:",
-                        emailError
-                    );
-
+                    console.error("EMAIL ERROR:", emailError);
 
                     alert(
-
-                        "Appointment booked successfully with "
-                        + doctor
-                        + "!\n\nHowever, the confirmation email could not be sent."
-
+                        "Appointment booked successfully with " +
+                        doctor + "!\n\n" +
+                        "However, the confirmation email could not be sent."
                     );
-
                 }
 
+                dateInput.value = "";
 
-                this.reset();
+                document.getElementById("appointmentTime").value = "";
 
+                document.getElementById("reason").value = "";
 
-                document.getElementById(
-                    "doctor"
-                ).innerHTML =
-                    '<option value="">Choose a doctor</option>';
-
+                updateAvailabilityCalendar();
 
                 loadAppointments();
 
+            } else {
 
+                alert(result.message || "Unable to book appointment.");
             }
 
+        } catch (error) {
 
-            else {
+            console.error("Booking error:", error);
 
+            alert("Something went wrong while booking the appointment.");
 
-                alert(
-                    result.message
-                );
+        } finally {
 
-            }
+            bookButton.disabled = false;
 
-
+            bookButton.innerHTML = `
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Appointment
+            `;
         }
-
-
-        catch (error) {
-
-
-            console.error(error);
-
-
-            alert(
-                "Something went wrong while booking the appointment."
-            );
-
-        }
-
     }
-
 );
-
 
 // =====================================================
 // LOGOUT
@@ -1581,34 +1320,22 @@ document.getElementById(
 
 function logout() {
 
+    sessionStorage.removeItem("medisyncUserId");
+    sessionStorage.removeItem("medisyncUserName");
+    sessionStorage.removeItem("medisyncEmail");
+    sessionStorage.removeItem("medisyncRole");
 
-    sessionStorage.removeItem(
-        "medisyncUserId"
-    );
-
-
-    sessionStorage.removeItem(
-        "medisyncUserName"
-    );
-
-
-    sessionStorage.removeItem(
-        "medisyncEmail"
-    );
-
-
-    sessionStorage.removeItem(
-        "medisyncRole"
-    );
-
-
-    window.location.href =
-        "login index.html";
-
+    window.location.href = "login index.html";
 }
+
+// =====================================================
+// START
+// =====================================================
+
+loadDoctors();
+loadAppointments();
 
 </script>
 
 </body>
-
 </html>

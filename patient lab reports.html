@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MediSync - My Lab Reports</title>
+
+    <link rel="stylesheet" href="patient lab reports.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<header class="hospital-nav">
+
+    <div class="nav-brand">
+        <img src="logo.jpeg" class="brand-logo" alt="MediSync Logo">
+
+        <div class="brand-text">
+            <strong>MediSync</strong>
+            <span>Smart Healthcare</span>
+        </div>
+    </div>
+
+    <nav class="main-navigation">
+
+        <a href="patient dashboard index.html" class="nav-link">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </a>
+
+        <a href="patient-about.html" class="nav-link">
+            <i class="fa-solid fa-circle-info"></i>
+            About
+        </a>
+
+        <div class="nav-dropdown">
+
+            <button class="dropdown-btn" type="button">
+                <i class="fa-solid fa-user"></i>
+                Patient Services
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="dropdown-menu">
+
+                <a href="patient appointment.html">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    My Appointments
+                </a>
+
+                <a href="patient doctors.html">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    Find a Doctor
+                </a>
+
+                <a href="patient prescriptions.html">
+                    <i class="fa-solid fa-pills"></i>
+                    Prescriptions
+                </a>
+
+                <a href="patient lab reports.html" class="active-dropdown">
+                    <i class="fa-solid fa-file-medical"></i>
+                    Lab Reports
+                </a>
+
+                <a href="patient dashboard index.html#records">
+                    <i class="fa-solid fa-folder-open"></i>
+                    Medical Records
+                </a>
+
+                <a href="patient dashboard index.html#consultations">
+                    <i class="fa-solid fa-video"></i>
+                    Consultations
+                </a>
+
+                <a href="patient dashboard index.html#billing">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    Billing
+                </a>
+
+                <a href="patient dashboard index.html#settings">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="nav-right">
+
+        <button class="notification-btn" type="button">
+            <i class="fa-regular fa-bell"></i>
+            <span>2</span>
+        </button>
+
+        <div class="nav-profile">
+            <div class="profile-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="profile-details">
+                <strong id="patientName">Patient</strong>
+                <span>Patient</span>
+            </div>
+        </div>
+
+        <button class="logout-btn" type="button" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </div>
+</header>
+
+
+<main class="page-container">
+
+    <!-- PAGE HERO -->
+
+    <section class="page-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-icon">
+                <i class="fa-solid fa-file-medical"></i>
+            </div>
+
+            <div>
+                <p class="hero-label">PATIENT SERVICES</p>
+
+                <h1>My Lab Reports</h1>
+
+                <p>
+                    View, upload and manage your medical test reports.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="hero-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span id="currentDate"></span>
+        </div>
+
+    </section>
+
+
+    <!-- REPORT SUMMARY -->
+
+    <section class="report-summary">
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-file-medical"></i>
+            </div>
+
+            <div>
+                <span>Total Reports</span>
+                <h2 id="totalReports">0</h2>
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <div class="summary-icon pending-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div>
+                <span>Pending Reports</span>
+                <h2 id="pendingReports">0</h2>
+            </div>
+
+        </div>
+
+        <div class="summary-card">
+
+            <div class="summary-icon completed-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+                <span>Completed Reports</span>
+                <h2 id="completedReports">0</h2>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LAB REPORT LAYOUT -->
+
+    <section class="reports-layout">
+
+        <!-- UPLOAD REPORT -->
+
+        <div class="upload-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <div>
+                    <h2>Upload Lab Report</h2>
+                    <p>Add a medical test report to your records.</p>
+                </div>
+
+            </div>
+
+            <form id="reportUploadForm" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="testName">
+                        <i class="fa-solid fa-flask"></i>
+                        Test Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="testName"
+                        name="test_name"
+                        placeholder="e.g. Complete Blood Count"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="reportDate">
+                            <i class="fa-regular fa-calendar"></i>
+                            Report Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="reportDate"
+                            name="report_date"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="labName">
+                            <i class="fa-solid fa-hospital"></i>
+                            Lab / Clinic
+                        </label>
+
+                        <input
+                            type="text"
+                            id="labName"
+                            name="lab_name"
+                            placeholder="Lab or clinic name"
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="referringDoctor">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        Referring Doctor
+                    </label>
+
+                    <input
+                        type="text"
+                        id="referringDoctor"
+                        name="referring_doctor"
+                        placeholder="Doctor's name (optional)"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="reportFile">
+                        <i class="fa-solid fa-paperclip"></i>
+                        Select Report File
+                    </label>
+
+                    <input
+                        type="file"
+                        id="reportFile"
+                        name="report_file"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        required
+                    >
+
+                    <small class="input-note">
+                        Accepted formats: PDF, JPG, JPEG and PNG. Maximum size: 5 MB.
+                    </small>
+                </div>
+
+                <button type="submit" class="upload-btn">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    Upload Report
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- REPORT HISTORY -->
+
+        <div class="reports-card">
+
+            <div class="card-heading">
+
+                <div class="heading-icon">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div>
+                    <h2>Report History</h2>
+                    <p>Your uploaded and available lab reports.</p>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTERS -->
+
+            <div class="report-filters">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="reportSearch"
+                        placeholder="Search reports..."
+                    >
+
+                </div>
+
+                <select id="statusFilter">
+                    <option value="">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="reports-table">
+
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Date</th>
+                            <th>Lab / Doctor</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="reportsTableBody">
+
+                        <tr>
+                            <td colspan="5" class="empty-cell">
+                                <div class="empty-state">
+                                    <i class="fa-solid fa-file-circle-question"></i>
+                                    <strong>No lab reports available</strong>
+                                    <p>Your reports will appear here once uploaded.</p>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="report-info-box">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+                    <strong>Important Information</strong>
+
+                    <p>
+                        Lab reports contain medical information.
+                        Please consult your doctor for interpretation
+                        of your test results.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="page-footer">
+
+    <div>
+        <strong>MediSync</strong>
+
+        <span>
+            Smart Hospital Management & Patient Care System
+        </span>
+    </div>
+
+    <p>
+        © 2026 MediSync. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+
+// CHECK PATIENT LOGIN
+
+const email = sessionStorage.getItem("medisyncEmail");
+const role = sessionStorage.getItem("medisyncRole");
+const patientId = sessionStorage.getItem("medisyncUserId");
+
+if (!email || !patientId || role !== "patient") {
+    window.location.href = "login index.html";
+}
+
+
+// PATIENT NAME
+
+const patientName =
+    sessionStorage.getItem("medisyncUserName") || "Patient";
+
+document.getElementById("patientName").textContent = patientName;
+
+
+// CURRENT DATE
+
+const today = new Date();
+
+document.getElementById("currentDate").textContent =
+    today.toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+
+// PREVENT FUTURE REPORT DATES
+
+const reportDateInput = document.getElementById("reportDate");
+
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, "0");
+const day = String(today.getDate()).padStart(2, "0");
+
+reportDateInput.max = `${year}-${month}-${day}`;
+
+
+// LOAD REPORTS FROM DATABASE
+
+let allReports = [];
+
+async function loadReports() {
+
+    const currentPatientId =
+        sessionStorage.getItem("medisyncUserId");
+
+    const currentRole =
+        sessionStorage.getItem("medisyncRole");
+
+    if (!currentPatientId || currentRole !== "patient") {
+        window.location.href = "login index.html";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("patient_id", currentPatientId);
+
+    try {
+
+        const response = await fetch("get_lab_reports.php", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (!result.success) {
+            alert(result.message || "Unable to load lab reports.");
+            return;
+        }
+
+        allReports = result.reports || [];
+
+        displayReports(allReports);
+        updateSummary(allReports);
+
+    } catch (error) {
+
+        console.error("Load reports error:", error);
+
+        document.getElementById("reportsTableBody").innerHTML = `
+            <tr>
+                <td colspan="5" class="empty-cell">
+                    Unable to load reports. Please try again.
+                </td>
+            </tr>
+        `;
+    }
+}
+
+
+// DISPLAY REPORTS IN TABLE
+
+function displayReports(reports) {
+
+    const tableBody =
+        document.getElementById("reportsTableBody");
+
+    if (reports.length === 0) {
+
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="5" class="empty-cell">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-file-circle-question"></i>
+                        <strong>No lab reports available</strong>
+                        <p>Your reports will appear here once uploaded.</p>
+                    </div>
+                </td>
+            </tr>
+        `;
+
+        return;
+    }
+
+    tableBody.innerHTML = "";
+
+    reports.forEach(function(report) {
+
+        const row = document.createElement("tr");
+
+        row.setAttribute("data-report-row", "");
+        row.dataset.status = report.status || "";
+
+        const testCell = document.createElement("td");
+        testCell.textContent = report.test_name || "Lab Report";
+
+        const dateCell = document.createElement("td");
+
+        if (report.report_date) {
+            const dateParts = report.report_date.split("-");
+            dateCell.textContent =
+                `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+        } else {
+            dateCell.textContent = "—";
+        }
+
+        const labCell = document.createElement("td");
+
+        const labName = report.lab_name || "—";
+        const doctorName = report.referring_doctor || "";
+
+        labCell.textContent = doctorName
+            ? `${labName} / ${doctorName}`
+            : labName;
+
+        const statusCell = document.createElement("td");
+
+        const statusSpan = document.createElement("span");
+        statusSpan.className = "status-badge";
+        statusSpan.textContent = report.status || "Completed";
+
+        statusCell.appendChild(statusSpan);
+
+        const actionsCell = document.createElement("td");
+
+        const viewLink = document.createElement("a");
+        viewLink.href = report.file_path;
+        viewLink.target = "_blank";
+        viewLink.rel = "noopener noreferrer";
+        viewLink.className = "view-btn";
+        viewLink.innerHTML = '<i class="fa-solid fa-eye"></i> View';
+        viewLink.setAttribute("aria-label", "View lab report");
+
+        const downloadLink = document.createElement("a");
+        downloadLink.href = report.file_path;
+        downloadLink.download = report.file_name || "lab-report";
+        downloadLink.className = "download-btn";
+        downloadLink.innerHTML =
+            '<i class="fa-solid fa-download"></i> Download';
+        downloadLink.setAttribute("aria-label", "Download lab report");
+
+        actionsCell.appendChild(viewLink);
+        actionsCell.appendChild(document.createTextNode(" "));
+        actionsCell.appendChild(downloadLink);
+
+        row.appendChild(testCell);
+        row.appendChild(dateCell);
+        row.appendChild(labCell);
+        row.appendChild(statusCell);
+        row.appendChild(actionsCell);
+
+        tableBody.appendChild(row);
+    });
+
+    filterReports();
+}
+
+
+// UPDATE SUMMARY COUNTS
+
+function updateSummary(reports) {
+
+    const total = reports.length;
+
+    const pending = reports.filter(function(report) {
+        return (report.status || "").toLowerCase() === "pending";
+    }).length;
+
+    const completed = reports.filter(function(report) {
+        return (report.status || "").toLowerCase() === "completed";
+    }).length;
+
+    document.getElementById("totalReports").textContent = total;
+    document.getElementById("pendingReports").textContent = pending;
+    document.getElementById("completedReports").textContent = completed;
+}
+
+
+// SEARCH AND STATUS FILTER
+
+function filterReports() {
+
+    const searchValue =
+        document.getElementById("reportSearch").value.toLowerCase();
+
+    const statusValue =
+        document.getElementById("statusFilter").value;
+
+    const rows =
+        document.querySelectorAll("#reportsTableBody tr[data-report-row]");
+
+    rows.forEach(function(row) {
+
+        const text = row.textContent.toLowerCase();
+        const status = row.dataset.status || "";
+
+        const matchesSearch = text.includes(searchValue);
+        const matchesStatus = !statusValue || status === statusValue;
+
+        row.style.display =
+            matchesSearch && matchesStatus ? "" : "none";
+    });
+}
+
+document.getElementById("reportSearch")
+    .addEventListener("input", filterReports);
+
+document.getElementById("statusFilter")
+    .addEventListener("change", filterReports);
+
+
+// UPLOAD LAB REPORT
+
+document.getElementById("reportUploadForm")
+    .addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const currentPatientId =
+            sessionStorage.getItem("medisyncUserId");
+
+        const currentRole =
+            sessionStorage.getItem("medisyncRole");
+
+        if (!currentPatientId || currentRole !== "patient") {
+            alert("Please log in again.");
+            window.location.href = "login index.html";
+            return;
+        }
+
+        const form = this;
+        const uploadButton = form.querySelector(".upload-btn");
+        const formData = new FormData(form);
+
+        formData.append("patient_id", currentPatientId);
+
+        uploadButton.disabled = true;
+        uploadButton.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Uploading...';
+
+        try {
+
+            const response = await fetch("upload_lab_report.php", {
+                method: "POST",
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (!result.success) {
+                alert(result.message || "Upload failed.");
+                return;
+            }
+
+            alert(result.message || "Lab report uploaded successfully.");
+
+            form.reset();
+
+            // Reload reports after successful upload
+            await loadReports();
+
+        } catch (error) {
+
+            console.error("Lab report upload error:", error);
+
+            alert("Unable to upload the report. Please check XAMPP and try again.");
+
+        } finally {
+
+            uploadButton.disabled = false;
+
+            uploadButton.innerHTML =
+                '<i class="fa-solid fa-cloud-arrow-up"></i> Upload Report';
+
+        }
+    });
+
+
+// LOGOUT
+
+function logout() {
+
+    sessionStorage.removeItem("medisyncUserId");
+    sessionStorage.removeItem("medisyncUserName");
+    sessionStorage.removeItem("medisyncEmail");
+    sessionStorage.removeItem("medisyncRole");
+
+    window.location.href = "login index.html";
+}
+
+
+// LOAD REPORTS WHEN PAGE OPENS
+
+loadReports();
+
+</script>
+
+</body>
+</html>

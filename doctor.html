@@ -1,1026 +1,837 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>MediSync - Doctors</title>
+    <title>MediSync - Doctor Management</title>
 
+    <link rel="stylesheet" href="dashboard style.css">
     <link rel="stylesheet" href="doctor style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
-    <!-- ================= SIDEBAR ================= -->
+<!-- SIDEBAR -->
 
-    <aside class="sidebar">
+<aside class="sidebar">
 
-        <div class="logo-area">
+    <div class="logo-area">
+        <img src="logo.jpeg" class="main-logo" alt="MediSync Logo">
+        <h2>MediSync</h2>
+        <p>Smart Hospital Management</p>
+    </div>
 
-            <img src="logo.jpeg"
-                 alt="MediSync Logo"
-                 class="main-logo">
+    <nav class="menu">
 
-            <h2>MediSync</h2>
+        <a href="index.html">
+            <span><i class="fa-solid fa-house"></i></span>
+            Dashboard
+        </a>
 
-            <p>Smart Healthcare</p>
+        <a href="about.html">
+            <span><i class="fa-solid fa-circle-info"></i></span>
+            About Us
+        </a>
+
+        <a href="patient.html">
+            <span><i class="fa-solid fa-hospital-user"></i></span>
+            Patients
+        </a>
+
+        <a href="doctor.html" class="active">
+            <span><i class="fa-solid fa-user-doctor"></i></span>
+            Doctors
+        </a>
+
+        <a href="appointment.html">
+            <span><i class="fa-solid fa-calendar-check"></i></span>
+            Appointments
+        </a>
+
+        <a href="pharmacy.html">
+            <span><i class="fa-solid fa-capsules"></i></span>
+            Pharmacy
+        </a>
+
+        <a href="lab.html">
+            <span><i class="fa-solid fa-flask"></i></span>
+            Lab
+        </a>
+
+        <a href="records.html">
+            <span><i class="fa-solid fa-folder-open"></i></span>
+            Records
+        </a>
+
+        <a href="opd-ipd.html">
+            <span><i class="fa-solid fa-bed-pulse"></i></span>
+            OPD/IPD Consultation
+        </a>
+
+        <a href="bedroom.html">
+            <span><i class="fa-solid fa-bed"></i></span>
+            Bed Room Management
+        </a>
+
+        <a href="billing.html">
+            <span><i class="fa-solid fa-file-invoice"></i></span>
+            Billing
+        </a>
+
+        <a href="settings.html">
+            <span><i class="fa-solid fa-gear"></i></span>
+            Settings
+        </a>
+
+        <a href="help.html">
+            <span><i class="fa-solid fa-circle-question"></i></span>
+            Help
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- MAIN PAGE -->
+
+<div class="page-area">
+
+    <header class="top-header">
+
+        <div class="search-box">
+
+            <span><i class="fa-solid fa-magnifying-glass"></i></span>
+
+            <input type="text"
+                   id="doctorSearch"
+                   placeholder="Search doctors...">
 
         </div>
 
+        <div class="header-right">
 
-        <nav class="menu">
+            <button class="notification"
+                    type="button"
+                    title="Notifications">
 
-            <a href="./index.html">
-                <span>🏠</span>
-                Dashboard
-            </a>
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
 
-            <a href="./about.html">
-                <span>ℹ️</span>
-                About Us
-            </a>
+            </button>
 
-            <a href="./patient.html">
-                <span>👥</span>
-                Patients
-            </a>
+            <div class="profile"
+                 onclick="window.location.href='login%20index.html'">
 
-            <a href="./doctor.html" class="active">
-                <span>👨‍⚕️</span>
-                Doctors
-            </a>
+                <div class="profile-picture">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
 
-            <a href="#">
-                <span>📅</span>
-                Appointments
-            </a>
-
-            <a href="#">
-                <span>💊</span>
-                Pharmacy
-            </a>
-
-            <a href="#">
-                <span>🧪</span>
-                Lab
-            </a>
-
-            <a href="#">
-                <span>📋</span>
-                Records
-            </a>
-
-            <a href="#">
-                <span>🩺</span>
-                OPD / IPD Consultation
-            </a>
-
-            <a href="#">
-                <span>🛏️</span>
-                Bed Room Management
-            </a>
-
-            <a href="#">
-                <span>💳</span>
-                Billing
-            </a>
-
-            <a href="#">
-                <span>⚙️</span>
-                Settings
-            </a>
-
-            <a href="#">
-                <span>❓</span>
-                Help
-            </a>
-
-        </nav>
-
-    </aside>
-
-
-    <!-- ================= MAIN PAGE ================= -->
-
-    <div class="page-area">
-
-
-        <!-- ================= HEADER ================= -->
-
-        <header class="top-header">
-
-            <div class="search-box">
-
-                <span>🔍</span>
-
-                <input
-                    type="text"
-                    placeholder="Search patients, doctors, appointments..."
-                >
-
-            </div>
-
-
-            <div class="header-right">
-
-                <button class="notification">
-
-                    🔔
-
-                    <span class="notification-dot"></span>
-
-                </button>
-
-
-                <div class="profile"
-                     onclick="window.location.href='./login%20index.html'">
-
-                    <div class="profile-picture">
-                        👤
-                    </div>
-
-                    <div>
-
-                        <strong id="loggedInName">
-                            Admin
-                        </strong>
-
-                        <small>
-                            Hospital Administrator
-                        </small>
-
-                    </div>
-
+                <div>
+                    <strong id="loggedInName">Administrator</strong>
+                    <small>Hospital Administrator</small>
                 </div>
 
             </div>
 
-        </header>
+        </div>
+
+    </header>
 
 
-        <!-- ================= MAIN CONTENT ================= -->
-
-        <main class="main-content">
+    <main class="main-content">
 
 
-            <!-- ================= PAGE HEADING ================= -->
+        <!-- PAGE HEADING -->
 
-            <section class="page-heading">
+        <section class="doctor-welcome">
+
+            <div>
+
+                <p class="small-title">ADMINISTRATION</p>
+
+                <h1>Doctor Management</h1>
+
+                <p class="doctor-welcome-text">
+                    Manage doctor profiles, register new doctors
+                    and review account approval requests.
+                </p>
+
+            </div>
+
+            <div class="doctor-heading-icon">
+                <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+
+        <section class="doctor-stats">
+
+            <div class="doctor-stat-card">
+
+                <div class="doctor-stat-icon purple-icon">
+                    <i class="fa-solid fa-user-doctor"></i>
+                </div>
+
+                <p>Total Doctors</p>
+                <h2 id="totalDoctors">0</h2>
+                <small>Registered doctors</small>
+
+            </div>
+
+
+            <div class="doctor-stat-card">
+
+                <div class="doctor-stat-icon green-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <p>Approved Doctors</p>
+                <h2 id="approvedDoctors">0</h2>
+                <small>Approved accounts</small>
+
+            </div>
+
+
+            <div class="doctor-stat-card">
+
+                <div class="doctor-stat-icon orange-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <p>Pending Approval</p>
+                <h2 id="pendingDoctors">0</h2>
+                <small>Awaiting review</small>
+
+            </div>
+
+
+            <div class="doctor-stat-card">
+
+                <div class="doctor-stat-icon red-icon">
+                    <i class="fa-solid fa-ban"></i>
+                </div>
+
+                <p>Rejected Doctors</p>
+                <h2 id="rejectedDoctors">0</h2>
+                <small>Rejected accounts</small>
+
+            </div>
+
+        </section>
+
+
+        <!-- REGISTER DOCTOR -->
+
+        <section class="doctor-panel">
+
+            <div class="doctor-panel-heading">
 
                 <div>
 
-                    <p class="small-title">
-                        DOCTOR MANAGEMENT
-                    </p>
+                    <h2>
+                        <i class="fa-solid fa-user-plus"></i>
+                        Register New Doctor
+                    </h2>
 
-                    <h1>
-                        Doctors
-                    </h1>
-
-                    <p class="heading-text">
-                        Manage doctors, specializations and their availability.
-                    </p>
+                    <p>Add a doctor to the MediSync hospital system.</p>
 
                 </div>
 
+            </div>
 
-                <button class="add-doctor">
-                    + Add New Doctor
-                </button>
 
-            </section>
+            <form id="doctorForm">
 
+                <div class="doctor-form-grid">
 
+                    <div class="doctor-form-group">
 
-            <!-- ================= OVERVIEW CARDS ================= -->
+                        <label>Doctor Name</label>
 
-            <section class="doctor-overview">
-
-
-                <div class="overview-card">
-
-                    <div class="overview-top">
-
-                        <div>
-
-                            <p>
-                                Total Doctors
-                            </p>
-
-                            <h2>
-                                48
-                            </h2>
-
-                        </div>
-
-                        <div class="card-icon">
-                            👨‍⚕️
-                        </div>
-
-                    </div>
-
-                    <span class="growth">
-                        ↑ 6.4% from last month
-                    </span>
-
-                </div>
-
-
-
-                <div class="overview-card">
-
-                    <div class="overview-top">
-
-                        <div>
-
-                            <p>
-                                Available Today
-                            </p>
-
-                            <h2>
-                                32
-                            </h2>
-
-                        </div>
-
-                        <div class="card-icon">
-                            🟢
-                        </div>
-
-                    </div>
-
-                    <span class="growth">
-                        67% doctors available
-                    </span>
-
-                </div>
-
-
-
-                <div class="overview-card">
-
-                    <div class="overview-top">
-
-                        <div>
-
-                            <p>
-                                On Appointment
-                            </p>
-
-                            <h2>
-                                11
-                            </h2>
-
-                        </div>
-
-                        <div class="card-icon">
-                            📅
-                        </div>
-
-                    </div>
-
-                    <span class="growth">
-                        23% currently busy
-                    </span>
-
-                </div>
-
-
-
-                <div class="overview-card">
-
-                    <div class="overview-top">
-
-                        <div>
-
-                            <p>
-                                On Leave
-                            </p>
-
-                            <h2>
-                                5
-                            </h2>
-
-                        </div>
-
-                        <div class="card-icon">
-                            🏖️
-                        </div>
-
-                    </div>
-
-                    <span class="leave-text">
-                        10% of total doctors
-                    </span>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ================= FILTER SECTION ================= -->
-
-            <section class="filter-section">
-
-
-                <div class="filter-search">
-
-                    <span>🔍</span>
-
-                    <input
-                        type="text"
-                        placeholder="Search doctor by name or Doctor ID"
-                    >
-
-                </div>
-
-
-                <select>
-
-                    <option>
-                        All Departments
-                    </option>
-
-                    <option>
-                        Cardiology
-                    </option>
-
-                    <option>
-                        Neurology
-                    </option>
-
-                    <option>
-                        Orthopedics
-                    </option>
-
-                    <option>
-                        General Medicine
-                    </option>
-
-                    <option>
-                        Pediatrics
-                    </option>
-
-                </select>
-
-
-                <select>
-
-                    <option>
-                        All Specializations
-                    </option>
-
-                    <option>
-                        Cardiologist
-                    </option>
-
-                    <option>
-                        Neurologist
-                    </option>
-
-                    <option>
-                        Orthopedic
-                    </option>
-
-                    <option>
-                        Physician
-                    </option>
-
-                    <option>
-                        Pediatrician
-                    </option>
-
-                </select>
-
-
-                <select>
-
-                    <option>
-                        All Status
-                    </option>
-
-                    <option>
-                        Available
-                    </option>
-
-                    <option>
-                        Busy
-                    </option>
-
-                    <option>
-                        On Leave
-                    </option>
-
-                </select>
-
-
-                <button class="filter-button">
-                    Filter
-                </button>
-
-            </section>
-
-
-
-            <!-- ================= DOCTOR LIST ================= -->
-
-            <section class="doctor-section">
-
-
-                <div class="section-title">
-
-                    <div>
-
-                        <h2>
-                            Doctor List
-                        </h2>
-
-                        <p>
-                            Registered doctors and their current availability
-                        </p>
+                        <input type="text"
+                               name="name"
+                               placeholder="Enter doctor's full name"
+                               required>
 
                     </div>
 
 
-                    <button>
-                        View All
+                    <div class="doctor-form-group">
+
+                        <label>Email Address</label>
+
+                        <input type="email"
+                               name="email"
+                               placeholder="Enter email address"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Temporary Password</label>
+
+                        <input type="password"
+                               name="password"
+                               placeholder="Create temporary password"
+                               minlength="6"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Specialization</label>
+
+                        <select name="specialization" required>
+
+                            <option value="">Select Specialization</option>
+                            <option>Cardiology</option>
+                            <option>General Physician</option>
+                            <option>Dermatology</option>
+                            <option>Neurology</option>
+                            <option>Orthopedics</option>
+                            <option>Psychiatry</option>
+                            <option>Pediatrics</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Qualification</label>
+
+                        <input type="text"
+                               name="qualification"
+                               placeholder="e.g. MBBS, MD"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Experience (Years)</label>
+
+                        <input type="number"
+                               name="experience_years"
+                               min="0"
+                               placeholder="Enter experience"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Consultation Fee (₹)</label>
+
+                        <input type="number"
+                               name="consultation_fee"
+                               min="0"
+                               placeholder="Enter consultation fee"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group">
+
+                        <label>Available Days</label>
+
+                        <input type="text"
+                               name="available_days"
+                               placeholder="Monday, Wednesday, Friday"
+                               required>
+
+                    </div>
+
+
+                    <div class="doctor-form-group full-width">
+
+                        <label>Available Time</label>
+
+                        <input type="text"
+                               name="available_time"
+                               placeholder="10:00 AM - 2:00 PM"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <div class="doctor-form-footer">
+
+                    <p id="formMessage"></p>
+
+                    <button type="submit" class="doctor-primary-btn">
+
+                        <i class="fa-solid fa-plus"></i>
+                        Register Doctor
+
                     </button>
 
                 </div>
 
+            </form>
 
+        </section>
 
-                <div class="doctor-table">
 
+        <!-- REGISTERED DOCTORS -->
 
-                    <!-- TABLE HEADER -->
+        <section class="doctor-panel">
 
-                    <div class="table-row table-head">
+            <div class="doctor-panel-heading doctor-list-heading">
 
-                        <div>
-                            Doctor
-                        </div>
+                <div>
 
-                        <div>
-                            Doctor ID
-                        </div>
+                    <h2>
+                        <i class="fa-solid fa-users"></i>
+                        Registered Doctors
+                    </h2>
 
-                        <div>
-                            Specialization
-                        </div>
-
-                        <div>
-                            Department
-                        </div>
-
-                        <div>
-                            Experience
-                        </div>
-
-                        <div>
-                            Status
-                        </div>
-
-                        <div>
-                            Action
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 1 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👨‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Rajesh Sharma
-                                </strong>
-
-                                <small>
-                                    MBBS, MD
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1001
-                        </div>
-
-                        <div>
-                            Cardiologist
-                        </div>
-
-                        <div>
-                            Cardiology
-                        </div>
-
-                        <div>
-                            12 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status available">
-                                Available
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 2 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👩‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Neha Verma
-                                </strong>
-
-                                <small>
-                                    MBBS, DM
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1002
-                        </div>
-
-                        <div>
-                            Neurologist
-                        </div>
-
-                        <div>
-                            Neurology
-                        </div>
-
-                        <div>
-                            9 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status busy">
-                                Busy
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 3 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👨‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Amit Kapoor
-                                </strong>
-
-                                <small>
-                                    MBBS, MS
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1003
-                        </div>
-
-                        <div>
-                            Orthopedic
-                        </div>
-
-                        <div>
-                            Orthopedics
-                        </div>
-
-                        <div>
-                            15 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status available">
-                                Available
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 4 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👩‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Sana Khan
-                                </strong>
-
-                                <small>
-                                    MBBS, MD
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1004
-                        </div>
-
-                        <div>
-                            Physician
-                        </div>
-
-                        <div>
-                            General Medicine
-                        </div>
-
-                        <div>
-                            7 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status available">
-                                Available
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 5 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👨‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Arjun Mehta
-                                </strong>
-
-                                <small>
-                                    MBBS, MD
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1005
-                        </div>
-
-                        <div>
-                            Pediatrician
-                        </div>
-
-                        <div>
-                            Pediatrics
-                        </div>
-
-                        <div>
-                            10 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status leave">
-                                On Leave
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DOCTOR 6 -->
-
-                    <div class="table-row">
-
-                        <div class="doctor-name">
-
-                            <div class="doctor-avatar">
-                                👩‍⚕️
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Dr. Priya Singh
-                                </strong>
-
-                                <small>
-                                    MBBS, MS
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                        <div>
-                            DR-1006
-                        </div>
-
-                        <div>
-                            General Surgeon
-                        </div>
-
-                        <div>
-                            Surgery
-                        </div>
-
-                        <div>
-                            11 Years
-                        </div>
-
-                        <div>
-
-                            <span class="status available">
-                                Available
-                            </span>
-
-                        </div>
-
-                        <div>
-
-                            <button class="action-button">
-                                View
-                            </button>
-
-                        </div>
-
-                    </div>
-
+                    <p>View doctor details and manage approval requests.</p>
 
                 </div>
 
-            </section>
 
+                <button class="doctor-refresh-btn"
+                        type="button"
+                        onclick="loadDoctors()">
 
+                    <i class="fa-solid fa-rotate"></i>
+                    Refresh
 
- <!-- ================= BOTTOM GRID ================= -->
-
-<section class="bottom-grid">
-
-    <!-- DOCTOR ACTIVITY -->
-
-    <div class="bottom-card">
-
-        <div class="bottom-title">
-            <h2>Recent Doctor Activity</h2>
-            <p>Latest updates</p>
-        </div>
-
-        <div class="activity">
-
-            <div class="activity-icon">🩺</div>
-
-            <div>
-                <strong>Dr. Rajesh Sharma</strong>
-                <p>Consultation completed</p>
-                <small>10 minutes ago</small>
-            </div>
-
-        </div>
-
-
-        <div class="activity">
-
-            <div class="activity-icon">📅</div>
-
-            <div>
-                <strong>Dr. Neha Verma</strong>
-                <p>New appointment scheduled</p>
-                <small>25 minutes ago</small>
-            </div>
-
-        </div>
-
-
-        <div class="activity">
-
-            <div class="activity-icon">🟢</div>
-
-            <div>
-                <strong>Dr. Amit Kapoor</strong>
-                <p>Doctor is now available</p>
-                <small>45 minutes ago</small>
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- DEPARTMENT STATISTICS -->
-
-    <div class="bottom-card">
-
-        <div class="bottom-title">
-            <h2>Department Statistics</h2>
-            <p>Doctors by department</p>
-        </div>
-
-
-        <div class="statistics">
-
-            <div class="stat-row">
-
-                <span>Cardiology</span>
-
-                <div class="stat-bar">
-                    <div style="width: 82%;"></div>
-                </div>
-
-                <strong>12</strong>
+                </button>
 
             </div>
 
 
-            <div class="stat-row">
+            <div class="doctor-filter">
 
-                <span>Neurology</span>
+                <select id="statusFilter">
 
-                <div class="stat-bar">
-                    <div style="width: 65%;"></div>
-                </div>
+                    <option value="all">All Doctors</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
 
-                <strong>8</strong>
-
-            </div>
-
-
-            <div class="stat-row">
-
-                <span>Orthopedics</span>
-
-                <div class="stat-bar">
-                    <div style="width: 55%;"></div>
-                </div>
-
-                <strong>7</strong>
+                </select>
 
             </div>
 
 
-            <div class="stat-row">
+            <div class="doctor-table-wrapper">
 
-                <span>General Medicine</span>
+                <table class="doctor-table">
 
-                <div class="stat-bar">
-                    <div style="width: 72%;"></div>
-                </div>
+                    <thead>
 
-                <strong>10</strong>
+                        <tr>
+                            <th>Doctor ID</th>
+                            <th>Doctor Details</th>
+                            <th>Specialization</th>
+                            <th>Experience</th>
+                            <th>Approval Status</th>
+                            <th>Actions</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="doctorTableBody">
+
+                        <tr>
+                            <td colspan="6">Loading doctors...</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
-        </div>
+        </section>
 
-    </div>
+    </main>
 
-</section>
+</div>
 
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <p>
-        © 2026 MediSync. Smart Healthcare Management System.
-    </p>
-
-</footer>
-
-
-</main>
-
-
-<!-- ================= LOGIN / PROFILE SCRIPT ================= -->
 
 <script>
 
-    const loggedInName =
-        sessionStorage.getItem("medisyncEmail");
+// ADMIN PROFILE NAME
 
-    if (loggedInName) {
+const adminName = sessionStorage.getItem("medisyncUserName");
 
-        const name =
-            loggedInName
-                .split("@")[0]
-                .replace(/[._-]/g, " ")
-                .replace(/\b\w/g, letter => letter.toUpperCase());
+if (adminName) {
+    document.getElementById("loggedInName").textContent = adminName;
+}
 
-        const profileName =
-            document.getElementById("loggedInName");
 
-        if (profileName) {
-            profileName.textContent = name;
+// FORM ELEMENTS
+
+const doctorForm = document.getElementById("doctorForm");
+const formMessage = document.getElementById("formMessage");
+
+
+// REGISTER DOCTOR
+
+doctorForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const button = doctorForm.querySelector("button[type='submit']");
+
+    button.disabled = true;
+    button.innerHTML = "Saving...";
+
+    try {
+
+        const response = await fetch("add_doctor.php", {
+            method: "POST",
+            body: new FormData(doctorForm),
+            cache: "no-store"
+        });
+
+        const result = await response.json();
+
+        formMessage.textContent = result.message;
+
+        formMessage.style.color =
+            result.success ? "#23925a" : "#dc3545";
+
+        if (result.success) {
+
+            doctorForm.reset();
+
+            alert(
+                "Doctor registered successfully!\n\n" +
+                "Doctor ID: " + result.doctor_id +
+                "\nShare this ID and temporary password securely with the doctor."
+            );
+
+            loadDoctors();
+
         }
+
+    } catch (error) {
+
+        formMessage.textContent =
+            "Unable to connect to the server.";
+
+        formMessage.style.color = "#dc3545";
 
     }
 
+    button.disabled = false;
+
+    button.innerHTML =
+        '<i class="fa-solid fa-plus"></i> Register Doctor';
+
+});
+
+
+// STORE DOCTOR DATA
+
+let allDoctors = [];
+
+
+// LOAD DOCTORS
+
+async function loadDoctors() {
+
+    const tableBody = document.getElementById("doctorTableBody");
+
+    tableBody.innerHTML =
+        '<tr><td colspan="6">Loading doctors...</td></tr>';
+
+    try {
+
+        const response = await fetch(
+            "get_doctors.php",
+            { cache: "no-store" }
+        );
+
+        const result = await response.json();
+
+        if (!result.success) {
+
+            tableBody.innerHTML =
+                `<tr><td colspan="6">${escapeHTML(result.message)}</td></tr>`;
+
+            return;
+
+        }
+
+        allDoctors = result.doctors || [];
+
+        document.getElementById("totalDoctors").textContent =
+            allDoctors.length;
+
+        document.getElementById("approvedDoctors").textContent =
+            allDoctors.filter(d => d.approval_status === "approved").length;
+
+        document.getElementById("pendingDoctors").textContent =
+            allDoctors.filter(d => d.approval_status === "pending").length;
+
+        document.getElementById("rejectedDoctors").textContent =
+            allDoctors.filter(d => d.approval_status === "rejected").length;
+
+        renderDoctors();
+
+    } catch (error) {
+
+        tableBody.innerHTML =
+            '<tr><td colspan="6">Unable to load doctors. Check your PHP connection.</td></tr>';
+
+    }
+
+}
+
+
+// DISPLAY DOCTORS
+
+function renderDoctors() {
+
+    const tableBody = document.getElementById("doctorTableBody");
+
+    const filter = document.getElementById("statusFilter").value;
+
+    const search = document.getElementById("doctorSearch")
+        .value.toLowerCase().trim();
+
+    const filteredDoctors = allDoctors.filter(doctor => {
+
+        const matchesStatus =
+            filter === "all" || doctor.approval_status === filter;
+
+        const matchesSearch =
+            String(doctor.name || "").toLowerCase().includes(search) ||
+            String(doctor.email || "").toLowerCase().includes(search) ||
+            String(doctor.specialization || "").toLowerCase().includes(search) ||
+            String(doctor.doctor_id || "").toLowerCase().includes(search);
+
+        return matchesStatus && matchesSearch;
+
+    });
+
+
+    if (filteredDoctors.length === 0) {
+
+        tableBody.innerHTML =
+            '<tr><td colspan="6">No matching doctors found.</td></tr>';
+
+        return;
+
+    }
+
+
+    tableBody.innerHTML = filteredDoctors.map(doctor => {
+
+        const doctorID = Number(doctor.doctor_id);
+
+        const status = String(doctor.approval_status || "").toLowerCase();
+
+        const statusClass =
+            status === "approved" ? "approved" :
+            status === "rejected" ? "rejected" : "pending";
+
+
+        let actions = "";
+
+        if (status === "pending") {
+
+            actions = `
+                <button type="button"
+                    class="doctor-action-btn approve-btn"
+                    onclick="updateDoctorStatus(${doctorID}, 'approved')">
+                    Approve
+                </button>
+
+                <button type="button"
+                    class="doctor-action-btn reject-btn"
+                    onclick="updateDoctorStatus(${doctorID}, 'rejected')">
+                    Reject
+                </button>`;
+
+        } else if (status === "rejected") {
+
+            actions = `
+                <button type="button"
+                    class="doctor-action-btn approve-btn"
+                    onclick="updateDoctorStatus(${doctorID}, 'approved')">
+                    Approve
+                </button>`;
+
+        } else {
+
+            actions = '<span class="approved-text">Account Approved</span>';
+
+        }
+
+
+        return `
+            <tr>
+
+                <td>
+                    <strong class="doctor-id">
+                        DOC${escapeHTML(doctor.doctor_id)}
+                    </strong>
+                </td>
+
+                <td>
+
+                    <div class="doctor-details">
+
+                        <div class="doctor-avatar">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+
+                        <div>
+                            <strong>${escapeHTML(doctor.name)}</strong>
+                            <small>${escapeHTML(doctor.email)}</small>
+                        </div>
+
+                    </div>
+
+                </td>
+
+                <td>${escapeHTML(doctor.specialization)}</td>
+
+                <td>${escapeHTML(doctor.experience_years)} years</td>
+
+                <td>
+                    <span class="doctor-status ${statusClass}">
+                        ${escapeHTML(status)}
+                    </span>
+                </td>
+
+                <td>${actions}</td>
+
+            </tr>`;
+
+    }).join("");
+
+}
+
+
+// UPDATE DOCTOR STATUS
+
+async function updateDoctorStatus(doctorID, status) {
+
+    if (
+        !Number.isInteger(Number(doctorID)) ||
+        Number(doctorID) <= 0 ||
+        !["approved", "rejected"].includes(status)
+    ) {
+
+        alert("Invalid doctor ID or status.");
+        return;
+
+    }
+
+
+    const action = status === "approved" ? "approve" : "reject";
+
+    if (!confirm("Are you sure you want to " + action + " this doctor?")) {
+        return;
+    }
+
+
+    const formData = new FormData();
+
+    // These names must match update_doctor_status.php
+
+    formData.append("doctor_id", String(doctorID));
+    formData.append("status", status);
+
+
+    try {
+
+        const response = await fetch("update_doctor_status.php", {
+
+            method: "POST",
+            body: formData,
+            cache: "no-store"
+
+        });
+
+
+        const result = await response.json();
+
+        alert(result.message || "Server response received.");
+
+        if (result.success) {
+
+            await loadDoctors();
+
+        }
+
+    } catch (error) {
+
+        console.error("Doctor status update error:", error);
+
+        alert("Unable to update doctor status. Check the PHP connection.");
+
+    }
+
+}
+
+
+// SEARCH AND FILTER
+
+document.getElementById("doctorSearch")
+    .addEventListener("input", renderDoctors);
+
+document.getElementById("statusFilter")
+    .addEventListener("change", renderDoctors);
+
+
+// SAFE HTML
+
+function escapeHTML(value) {
+
+    return String(value ?? "").replace(/[&<>"']/g, function(char) {
+
+        return {
+
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+
+        }[char];
+
+    });
+
+}
+
+
+// INITIAL LOAD
+
+loadDoctors();
+
 </script>
 
-
 </body>
-
 </html>

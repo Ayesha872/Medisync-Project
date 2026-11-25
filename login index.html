@@ -1,10 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Medisync - Login</title>
@@ -13,120 +12,73 @@
 
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 </head>
-
 
 <body>
 
-
     <div class="main-container">
 
-
-        <!-- ================= LEFT SIDE ================= -->
+        <!-- LEFT SIDE -->
 
         <div class="hospital-info">
 
             <div class="logo-box">
-
                 <img src="logo.jpeg" alt="Medisync Logo">
-
             </div>
 
-
             <h1>MEDISYNC</h1>
-
 
             <h2>
                 A Smart Hospital Management & Patient Care System
             </h2>
-
 
             <p>
                 A smart and efficient platform designed to connect
                 patients, doctors and hospital services in one place.
             </p>
 
-
             <div class="features">
 
-
                 <div class="feature">
-
                     <span>✓</span>
-
                     <div>
-
-                        <strong>
-                            Patient Management
-                        </strong>
-
-                        <small>
-                            Manage patient information easily
-                        </small>
-
+                        <strong>Patient Management</strong>
+                        <small>Manage patient information easily</small>
                     </div>
-
                 </div>
 
-
                 <div class="feature">
-
                     <span>✓</span>
-
                     <div>
-
-                        <strong>
-                            Doctor Management
-                        </strong>
-
-                        <small>
-                            Organize doctors and appointments
-                        </small>
-
+                        <strong>Doctor Management</strong>
+                        <small>Organize doctors and appointments</small>
                     </div>
-
                 </div>
 
-
                 <div class="feature">
-
                     <span>✓</span>
-
                     <div>
-
-                        <strong>
-                            Smart Healthcare
-                        </strong>
-
-                        <small>
-                            Better and faster hospital services
-                        </small>
-
+                        <strong>Smart Healthcare</strong>
+                        <small>Better and faster hospital services</small>
                     </div>
-
                 </div>
-
 
             </div>
 
         </div>
 
 
-        <!-- ================= RIGHT SIDE ================= -->
+        <!-- RIGHT SIDE -->
 
         <div class="login-section">
 
             <div class="login-card">
 
-
                 <div class="login-heading">
 
                     <p>WELCOME BACK</p>
 
-                    <h2>
-                        Login to Medisync
-                    </h2>
+                    <h2>Login to Medisync</h2>
 
                     <span>
                         Access your hospital dashboard
@@ -139,18 +91,17 @@
 
                 <form id="loginForm">
 
-
                     <div class="input-group">
 
                         <label for="email">
-                            Email Address
+                            Email Address / Doctor ID
                         </label>
 
                         <input
-                            type="email"
+                            type="text"
                             id="email"
                             name="email"
-                            placeholder="Enter your email"
+                            placeholder="Enter email or Doctor ID"
                             required
                         >
 
@@ -177,13 +128,9 @@
                     <div class="login-options">
 
                         <label class="remember">
-
                             <input type="checkbox">
-
                             Remember me
-
                         </label>
-
 
                         <a href="#">
                             Forgot Password?
@@ -192,10 +139,7 @@
                     </div>
 
 
-                    <button
-                        type="submit"
-                        id="loginButton"
-                    >
+                    <button type="submit" id="loginButton">
 
                         Login
 
@@ -203,188 +147,124 @@
 
                     </button>
 
-
                 </form>
 
 
                 <div class="divider">
-
                     <span>MEDISYNC</span>
-
                 </div>
 
 
                 <p class="bottom-text">
-
                     Smart care. Better management. Connected healthcare.
-
                 </p>
-
 
             </div>
 
         </div>
 
-
     </div>
-
 
 
     <script>
 
-
-        /* =========================================
-           INITIALIZE EMAILJS
-        ========================================== */
+        /* INITIALIZE EMAILJS */
 
         emailjs.init({
-
             publicKey: "EZSSmEnDFJNEVuey8"
-
         });
 
 
-
-        /* =========================================
-           LOGIN FORM
-        ========================================== */
+        /* LOGIN FORM */
 
         document
             .getElementById("loginForm")
             .addEventListener("submit", async function(event) {
 
-
                 event.preventDefault();
 
-
-                const email =
-                    document
+                const identifier = document
                     .getElementById("email")
                     .value
                     .trim();
 
-
-                const password =
-                    document
+                const password = document
                     .getElementById("password")
                     .value;
 
-
-                const loginButton =
-                    document
+                const loginButton = document
                     .getElementById("loginButton");
 
 
-                /* Check fields */
+                if (identifier === "" || password === "") {
 
-                if (email === "" || password === "") {
-
-                    alert(
-                        "Please enter your email and password."
-                    );
-
+                    alert("Please enter your login ID and password.");
                     return;
 
                 }
 
 
-                loginButton.innerHTML =
-                    "Checking...";
-
+                loginButton.innerHTML = "Checking...";
                 loginButton.disabled = true;
 
 
                 try {
 
+                    /* CHECK LOGIN USING PHP AND MYSQL */
 
-                    /* =========================================
-                       CHECK LOGIN USING PHP + MYSQL
-                    ========================================== */
+                    const response = await fetch("login.php", {
 
-                    const response =
-                        await fetch(
-                            "login.php",
-                            {
+                        method: "POST",
 
-                                method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
 
-                                headers: {
+                        body:
+                            "email=" + encodeURIComponent(identifier) +
+                            "&password=" + encodeURIComponent(password)
 
-                                    "Content-Type":
-                                        "application/x-www-form-urlencoded"
-
-                                },
-
-                                body:
-                                    "email=" +
-                                    encodeURIComponent(email) +
-                                    "&password=" +
-                                    encodeURIComponent(password)
-
-                            }
-                        );
+                    });
 
 
                     if (!response.ok) {
-
-                        throw new Error(
-                            "Server returned " +
-                            response.status
-                        );
-
+                        throw new Error("Server returned " + response.status);
                     }
 
 
-                    const result =
-                        await response.json();
+                    const result = await response.json();
 
 
-                    /* =========================================
-                       LOGIN FAILED
-                    ========================================== */
+                    /* LOGIN FAILED */
 
                     if (!result.success) {
 
-                        alert(
-                            result.message
-                        );
+                        alert(result.message);
 
-
-                        loginButton.innerHTML =
-                            'Login <span>→</span>';
-
-
-                        loginButton.disabled =
-                            false;
-
+                        loginButton.innerHTML = 'Login <span>→</span>';
+                        loginButton.disabled = false;
 
                         return;
 
                     }
 
 
-                    /* =========================================
-                       LOGIN SUCCESSFUL
-                       STORE USER INFORMATION
-                    ========================================== */
+                    /* STORE USER INFORMATION */
 
                     sessionStorage.setItem(
                         "medisyncUserId",
                         result.id
                     );
 
-
                     sessionStorage.setItem(
                         "medisyncUserName",
                         result.name
                     );
 
-
                     sessionStorage.setItem(
                         "medisyncEmail",
                         result.email
                     );
-
 
                     sessionStorage.setItem(
                         "medisyncRole",
@@ -392,30 +272,40 @@
                     );
 
 
-                    /* =========================================
-                       GENERATE OTP
-                    ========================================== */
+                    /* STORE DOCTOR ID IF DOCTOR */
 
-                    const otp =
-                        Math.floor(
-                            100000 +
-                            Math.random() * 900000
-                        ).toString();
+                    if (result.role === "doctor") {
+
+                        sessionStorage.setItem(
+                            "medisyncDoctorId",
+                            result.doctor_id
+                        );
+
+                    } else {
+
+                        sessionStorage.removeItem(
+                            "medisyncDoctorId"
+                        );
+
+                    }
 
 
-                    /* OTP valid for 2 minutes */
+                    /* GENERATE OTP */
 
-                    const expiryTime =
-                        Date.now() + 120000;
+                    const otp = Math.floor(
+                        100000 + Math.random() * 900000
+                    ).toString();
 
 
-                    /* Save OTP */
+                    /* OTP VALID FOR 2 MINUTES */
+
+                    const expiryTime = Date.now() + 120000;
+
 
                     sessionStorage.setItem(
                         "medisyncOTP",
                         otp
                     );
-
 
                     sessionStorage.setItem(
                         "medisyncOTPExpiry",
@@ -423,129 +313,72 @@
                     );
 
 
-                    /* Save email */
+                    /* EMAIL WHERE OTP WILL BE SENT */
+
+                    const otpEmail = result.otp_email;
+
+                    if (!otpEmail) {
+                        throw new Error("OTP email address is missing.");
+                    }
 
                     sessionStorage.setItem(
-                        "medisyncEmail",
-                        email
+                        "medisyncOTPEmail",
+                        otpEmail
                     );
 
 
-                    loginButton.innerHTML =
-                        "Sending OTP...";
+                    loginButton.innerHTML = "Sending OTP...";
 
 
-                    /* =========================================
-                       SEND OTP THROUGH EMAILJS
-                    ========================================== */
+                    /* SEND OTP THROUGH EMAILJS */
 
-                    emailjs.send(
+                    await emailjs.send(
 
                         "service_b4o1edb",
 
                         "template_lwf1eh9",
 
                         {
-
-                            user_email: email,
-
+                            user_email: otpEmail,
                             otp: otp
-
                         }
 
-                    )
-
-                    .then(function(response) {
+                    );
 
 
-                        console.log(
-                            "OTP sent successfully:",
-                            response
-                        );
+                    alert("OTP has been sent successfully.");
 
 
-                        alert(
-                            "OTP has been sent to your email."
-                        );
+                    /* OPEN OTP VERIFICATION PAGE */
 
-
-                        /* Go to OTP verification */
-
-                        window.location.href =
-                            "otp.html";
-
-
-                    })
-
-
-                    .catch(function(error) {
-
-
-                        console.error(
-                            "EmailJS Error:",
-                            error
-                        );
-
-
-                        /* Remove OTP */
-
-                        sessionStorage.removeItem(
-                            "medisyncOTP"
-                        );
-
-
-                        sessionStorage.removeItem(
-                            "medisyncOTPExpiry"
-                        );
-
-
-                        alert(
-                            "Unable to send OTP. Please try again."
-                        );
-
-
-                        loginButton.innerHTML =
-                            'Login <span>→</span>';
-
-
-                        loginButton.disabled =
-                            false;
-
-                    });
+                    window.location.href = "otp.html";
 
 
                 }
-
 
                 catch (error) {
 
+                    console.error("Login Error:", error);
 
-                    console.error(
-                        "Login Error:",
-                        error
-                    );
+
+                    sessionStorage.removeItem("medisyncOTP");
+                    sessionStorage.removeItem("medisyncOTPExpiry");
+                    sessionStorage.removeItem("medisyncOTPEmail");
 
 
                     alert(
-                        "Something went wrong while checking your login."
+                        "Unable to complete login or send OTP. Please try again."
                     );
 
 
-                    loginButton.innerHTML =
-                        'Login <span>→</span>';
-
-
-                    loginButton.disabled =
-                        false;
+                    loginButton.innerHTML = 'Login <span>→</span>';
+                    loginButton.disabled = false;
 
                 }
 
-
             });
 
-
     </script>
-
 
 </body>
 

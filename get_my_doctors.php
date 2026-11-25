@@ -2,83 +2,50 @@
 
 header("Content-Type: application/json");
 
-$conn = new mysqli(
-    "localhost",
-    "root",
-    "123456789",
-    "medisync",
-    3307
-);
+$conn = new mysqli("localhost", "root", "123456789", "medisync", 3307);
 
 if ($conn->connect_error) {
-    echo json_encode([
-        "success" => false,
-        "message" => "Database connection failed"
-    ]);
-    exit;
+    die("Database connection failed");
 }
-
-$patient_id = isset($_GET["patient_id"])
-    ? intval($_GET["patient_id"])
-    : 0;
-
-if ($patient_id <= 0) {
-    echo json_encode([
-        "success" => false,
-        "message" => "Invalid patient ID"
-    ]);
-    exit;
-}
-
-
-/*
-    Get doctors who have appointments
-    with this patient.
-
-    Cancelled appointments are ignored.
-*/
 
 $sql = "
-    SELECT DISTINCT
-        doctor_name,
-        specialization
-    FROM appointments
-    WHERE patient_id = ?
-      AND (
-          status IS NULL
-          OR LOWER(status) <> 'cancelled'
-      )
-    ORDER BY doctor_name
+    SELECT
+        d.doctor_id,
+        d.user_id,
+        u.name,
+        d.specialization,
+        d.qualification,
+        d.experience_years,
+        d.consultation_fee,
+        d.available_days,
+        d.available_time,
+        d.profile_photo
+    FROM doctors d
+    INNER JOIN users u ON d.user_id = u.id
+    WHERE
+        d.status = 'active'
+        AND d.approval_status = 'approved'
+        AND u.role = 'doctor'
+    ORDER BY u.name ASC
 ";
 
+$result = $conn->query($sql);
 
-$stmt = $conn->prepare($sql);
-
-$stmt->bind_param("i", $patient_id);
-
-$stmt->execute();
-
-$result = $stmt->get_result();
+if (!$result) {
+    die("SQL Error: " . $conn->error);
+}
 
 $doctors = [];
 
 while ($row = $result->fetch_assoc()) {
-
-    $doctors[] = [
-        "doctor_name" => $row["doctor_name"],
-        "specialization" => $row["specialization"]
-    ];
-
+    $doctors[] = $row;
 }
-
 
 echo json_encode([
     "success" => true,
     "doctors" => $doctors
 ]);
 
-
-$stmt->close();
 $conn->close();
 
 ?>

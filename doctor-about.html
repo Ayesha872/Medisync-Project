@@ -1,1322 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>MediSync - About Us</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- About Page CSS -->
-    <link rel="stylesheet" href="doctor-about.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediSync - About Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="doctor-about.css">
 </head>
-
 <body>
 
-<!-- =====================================================
-     NAVIGATION BAR
-===================================================== -->
-
 <header class="hospital-nav">
-
-    <!-- BRAND -->
-
-    <div class="nav-brand">
-
-        <div class="brand-logo">
-
-            <img src="logo.jpeg"
-                 alt="MediSync Logo">
-
-        </div>
-
-        <div class="brand-text">
-
-            <strong>MEDISYNC</strong>
-
-            <span>
-              A Smart Hospital Management & Patient Care System
-            </span>
-
-        </div>
-
-    </div>
-
-    <!-- NAVIGATION -->
-
-    <nav class="main-navigation">
-
-        <!-- DASHBOARD -->
-
-        <a href="doctor-dashboard.html"
-           class="nav-link">
-
-            <i class="fa-solid fa-house"></i>
-
-            <span>
-                Dashboard
-            </span>
-
-        </a>
-
-        <!-- ABOUT -->
-
-        <a href="doctor-about.html"
-           class="nav-link active">
-
-            <i class="fa-solid fa-circle-info"></i>
-
-            <span>
-                About Us
-            </span>
-
-        </a>
-
-        <!-- DOCTOR SERVICES -->
-
-        <div class="nav-dropdown">
-
-            <button class="dropdown-btn">
-
-                <i class="fa-solid fa-grid-2"></i>
-
-                <span>
-                    Doctor Services
-                </span>
-
-                <i class="fa-solid fa-chevron-down arrow"></i>
-
-            </button>
-
-            <!-- DROPDOWN -->
-
-            <div class="dropdown-menu">
-
-                <a href="doctor-dashboard.html#opd">
-
-                    <i class="fa-solid fa-hospital-user"></i>
-
-                    OPD
-
-                </a>
-
-                <a href="doctor-dashboard.html#appointments">
-
-                    <i class="fa-regular fa-calendar-check"></i>
-
-                    Appointments
-
-                </a>
-
-                <a href="doctor-dashboard.html#patients">
-
-                    <i class="fa-solid fa-users"></i>
-
-                    My Patients
-
-                </a>
-
-                <a href="doctor-dashboard.html#records">
-
-                    <i class="fa-solid fa-file-medical"></i>
-
-                    Patient Records
-
-                </a>
-
-                <a href="doctor-dashboard.html#prescriptions">
-
-                    <i class="fa-solid fa-prescription-bottle-medical"></i>
-
-                    Prescriptions
-
-                </a>
-
-                <a href="doctor-dashboard.html#reports">
-
-                    <i class="fa-solid fa-flask"></i>
-
-                    Lab Reports
-
-                </a>
-
-                <a href="doctor-dashboard.html#consultations">
-
-                    <i class="fa-solid fa-comments"></i>
-
-                    Consultations
-
-                </a>
-
-                <a href="doctor-dashboard.html#notifications">
-
-                    <i class="fa-regular fa-bell"></i>
-
-                    Notifications
-
-                </a>
-
-                <a href="doctor-dashboard.html#settings">
-
-                    <i class="fa-solid fa-gear"></i>
-
-                    Settings
-
-                </a>
-
-                <a href="doctor-dashboard.html#help">
-
-                    <i class="fa-regular fa-circle-question"></i>
-
-                    Help
-
-                </a>
-
-            </div>
-
-        </div>
-    </nav>
-
-    <!-- RIGHT SIDE -->
-
-    <div class="nav-right">
-
-        <!-- NOTIFICATION -->
-
-        <button class="notification-btn">
-
-            <i class="fa-regular fa-bell"></i>
-
-            <span>
-                3
-            </span>
-
-        </button>
-
-        <!-- PROFILE -->
-
-        <div class="nav-profile">
-
-            <div class="profile-avatar">
-
-                <i class="fa-solid fa-user-doctor"></i>
-
-            </div>
-
-            <div class="profile-details">
-
-                <strong id="doctorName">
-                    Doctor
-                </strong>
-
-                <span>
-                    Doctor Portal
-                </span>
-
-            </div>
-
-        </div>
-
-        <!-- LOGOUT -->
-
-        <button class="logout-btn"
-                onclick="logout()">
-
-            <i class="fa-solid fa-right-from-bracket"></i>
-
-        </button>
-
-    </div>
-
+<div class="nav-brand">
+<div class="brand-logo">
+<img src="logo.jpeg" alt="MediSync Logo">
+</div>
+<div class="brand-text">
+<strong>MEDISYNC</strong>
+<span>A Smart Hospital Management & Patient Care System</span>
+</div>
+</div>
+
+<nav class="main-navigation">
+<a href="doctor-dashboard.html" class="nav-link">
+<i class="fa-solid fa-house"></i>
+<span>Dashboard</span>
+</a>
+
+<a href="doctor-about.html" class="nav-link active">
+<i class="fa-solid fa-circle-info"></i>
+<span>About Us</span>
+</a>
+
+<div class="nav-dropdown">
+<button class="dropdown-btn">
+<i class="fa-solid fa-grid-2"></i>
+<span>Doctor Services</span>
+<i class="fa-solid fa-chevron-down arrow"></i>
+</button>
+
+<div class="dropdown-menu">
+<a href="doctor-dashboard.html#appointments">
+<i class="fa-regular fa-calendar-check"></i>
+Appointments
+</a>
+
+<a href="doctor-dashboard.html#patients">
+<i class="fa-solid fa-users"></i>
+My Patients
+</a>
+
+<a href="doctor-dashboard.html#records">
+<i class="fa-solid fa-file-medical"></i>
+Patient Records
+</a>
+
+<a href="doctor-dashboard.html#prescriptions">
+<i class="fa-solid fa-prescription-bottle-medical"></i>
+Add Prescriptions
+</a>
+
+<a href="doctor-dashboard.html#reports">
+<i class="fa-solid fa-flask"></i>
+Lab Reports
+</a>
+
+<a href="doctor-dashboard.html#consultations">
+<i class="fa-solid fa-comments"></i>
+Consultations
+</a>
+
+<a href="doctor-dashboard.html#settings">
+<i class="fa-solid fa-gear"></i>
+Settings
+</a>
+</div>
+</div>
+</nav>
+
+<div class="nav-right">
+<button class="notification-btn">
+<i class="fa-regular fa-bell"></i>
+<span>3</span>
+</button>
+
+<div class="nav-profile">
+<div class="profile-avatar">
+<i class="fa-solid fa-user-doctor"></i>
+</div>
+<div class="profile-details">
+<strong id="doctorName">Doctor</strong>
+<span>Doctor Portal</span>
+</div>
+</div>
+
+<button class="logout-btn" onclick="logout()">
+<i class="fa-solid fa-right-from-bracket"></i>
+</button>
+</div>
 </header>
 
-<!-- =====================================================
-     HERO SECTION
-===================================================== -->
-
 <section class="about-hero">
+<div class="hero-overlay"></div>
 
-    <div class="hero-overlay"></div>
+<div class="hero-content">
+<span class="hero-label">ABOUT MEDISYNC</span>
 
-    <div class="hero-content">
+<h1>
+Smart Healthcare.
+<br>
+<span>Better Care.</span>
+</h1>
 
-        <span class="hero-label">
-            ABOUT MEDISYNC
-        </span>
+<p>
+MediSync brings healthcare services, patient information,
+appointments and medical care together through one
+intelligent digital platform.
+</p>
 
-        <h1>
+<div class="hero-buttons">
+<a href="#about" class="primary-btn">
+Discover MediSync
+<i class="fa-solid fa-arrow-down"></i>
+</a>
 
-            Smart Healthcare.
+<a href="doctor-dashboard.html" class="secondary-btn">
+Go to Dashboard
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+</div>
 
-            <br>
-
-            <span>
-                Better Care.
-            </span>
-
-        </h1>
-
-        <p>
-
-            MediSync brings healthcare services, patient information,
-            appointments and medical care together through one
-            intelligent digital platform.
-
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#about"
-               class="primary-btn">
-
-                Discover MediSync
-
-                <i class="fa-solid fa-arrow-down"></i>
-
-            </a>
-
-            <a href="doctor-dashboard.html"
-               class="secondary-btn">
-
-                Go to Dashboard
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-    <!-- FLOATING CARD -->
-
-    <div class="hero-floating-card">
-
-        <div class="floating-icon">
-
-            <i class="fa-solid fa-shield-heart"></i>
-
-        </div>
-
-        <div>
-
-            <strong>
-                24/7 Connected
-            </strong>
-
-            <span>
-                Healthcare Experience
-            </span>
-
-        </div>
-
-    </div>
-
+<div class="hero-floating-card">
+<div class="floating-icon">
+<i class="fa-solid fa-shield-heart"></i>
+</div>
+<div>
+<strong>24/7 Connected</strong>
+<span>Healthcare Experience</span>
+</div>
+</div>
 </section>
 
-<!-- =====================================================
-     INTRO SECTION
-===================================================== -->
+<section class="intro-section" id="about">
+<div class="intro-visual">
+<div class="visual-main">
+<div class="visual-circle">
+<i class="fa-solid fa-heart-pulse"></i>
+</div>
 
-<section class="intro-section"
-         id="about">
+<div class="visual-title">
+<strong>MediSync</strong>
+<span>Digital Healthcare Platform</span>
+</div>
+</div>
 
-    <!-- VISUAL -->
+<div class="visual-badge badge-one">
+<i class="fa-solid fa-user-doctor"></i>
+<span>Connected Doctors</span>
+</div>
 
-    <div class="intro-visual">
+<div class="visual-badge badge-two">
+<i class="fa-solid fa-file-medical"></i>
+<span>Digital Records</span>
+</div>
+</div>
 
-        <div class="visual-main">
+<div class="intro-content">
+<span class="section-label">WHO WE ARE</span>
 
-            <div class="visual-circle">
+<h2>
+Healthcare designed
+<span>around you.</span>
+</h2>
 
-                <i class="fa-solid fa-heart-pulse"></i>
+<p>
+MediSync is a Smart Hospital Management and Patient Care
+System designed to make healthcare more connected,
+organized and accessible.
+</p>
 
-            </div>
+<p>
+The platform brings important healthcare services into
+one digital environment, helping patients manage their
+appointments, doctors, prescriptions, laboratory reports,
+medical records and other healthcare information.
+</p>
 
-            <div class="visual-title">
+<p>
+By connecting patients and healthcare professionals,
+MediSync aims to create a smoother healthcare experience
+while reducing unnecessary complexity.
+</p>
 
-                <strong>
-                    MediSync
-                </strong>
+<div class="intro-points">
+<div>
+<i class="fa-solid fa-circle-check"></i>
+<span>Patient-centered healthcare</span>
+</div>
 
-                <span>
-                    Digital Healthcare Platform
-                </span>
+<div>
+<i class="fa-solid fa-circle-check"></i>
+<span>Connected healthcare information</span>
+</div>
 
-            </div>
-
-        </div>
-
-        <div class="visual-badge badge-one">
-
-            <i class="fa-solid fa-user-doctor"></i>
-
-            <span>
-                Connected Doctors
-            </span>
-
-        </div>
-
-        <div class="visual-badge badge-two">
-
-            <i class="fa-solid fa-file-medical"></i>
-
-            <span>
-                Digital Records
-            </span>
-
-        </div>
-
-    </div>
-
-    <!-- CONTENT -->
-
-    <div class="intro-content">
-
-        <span class="section-label">
-            WHO WE ARE
-        </span>
-
-        <h2>
-
-            Healthcare designed
-
-            <span>
-                around you.
-            </span>
-
-        </h2>
-
-        <p>
-
-            MediSync is a Smart Hospital Management and Patient Care
-            System designed to make healthcare more connected,
-            organized and accessible.
-
-        </p>
-
-        <p>
-
-            The platform brings important healthcare services into
-            one digital environment, helping patients manage their
-            appointments, doctors, prescriptions, laboratory reports,
-            medical records and other healthcare information.
-
-        </p>
-
-        <p>
-
-            By connecting patients and healthcare professionals,
-            MediSync aims to create a smoother healthcare experience
-            while reducing unnecessary complexity.
-
-        </p>
-
-        <div class="intro-points">
-
-            <div>
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                <span>
-                    Patient-centered healthcare
-                </span>
-
-            </div>
-
-            <div>
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                <span>
-                    Connected healthcare information
-                </span>
-
-            </div>
-
-            <div>
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                <span>
-                    Smart digital management
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<div>
+<i class="fa-solid fa-circle-check"></i>
+<span>Smart digital management</span>
+</div>
+</div>
+</div>
 </section>
-
-<!-- =====================================================
-     STATS
-===================================================== -->
 
 <section class="stats-section">
+<div class="section-heading centered">
+<span class="section-label">MEDISYNC AT A GLANCE</span>
 
-    <div class="section-heading centered">
+<h2>
+One platform.
+<span>Connected care.</span>
+</h2>
+</div>
 
-        <span class="section-label">
-            MEDISYNC AT A GLANCE
-        </span>
+<div class="stats-container">
+<div class="about-stat">
+<div class="stat-number">24<span>/7</span></div>
+<strong>Healthcare Access</strong>
+<p>Stay connected with your healthcare information.</p>
+</div>
 
-        <h2>
+<div class="stat-divider"></div>
 
-            One platform.
+<div class="about-stat">
+<div class="stat-number">01</div>
+<strong>Connected Platform</strong>
+<p>Multiple patient services in one place.</p>
+</div>
 
-            <span>
-                Connected care.
-            </span>
+<div class="stat-divider"></div>
 
-        </h2>
+<div class="about-stat">
+<div class="stat-number">100<span>%</span></div>
+<strong>Patient Focused</strong>
+<p>Designed around a better patient experience.</p>
+</div>
 
-    </div>
+<div class="stat-divider"></div>
 
-    <div class="stats-container">
-
-        <div class="about-stat">
-
-            <div class="stat-number">
-
-                24<span>/7</span>
-
-            </div>
-
-            <strong>
-                Healthcare Access
-            </strong>
-
-            <p>
-                Stay connected with your healthcare information.
-            </p>
-
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="about-stat">
-
-            <div class="stat-number">
-                01
-            </div>
-
-            <strong>
-                Connected Platform
-            </strong>
-
-            <p>
-                Multiple patient services in one place.
-            </p>
-
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="about-stat">
-
-            <div class="stat-number">
-
-                100<span>%</span>
-
-            </div>
-
-            <strong>
-                Patient Focused
-            </strong>
-
-            <p>
-                Designed around a better patient experience.
-            </p>
-
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="about-stat">
-
-            <div class="stat-number">
-                ∞
-            </div>
-
-            <strong>
-                Smarter Possibilities
-            </strong>
-
-            <p>
-                Technology supporting modern healthcare.
-            </p>
-
-        </div>
-
-    </div>
-
+<div class="about-stat">
+<div class="stat-number">∞</div>
+<strong>Smarter Possibilities</strong>
+<p>Technology supporting modern healthcare.</p>
+</div>
+</div>
 </section>
-
-<!-- =====================================================
-     MISSION & VISION
-===================================================== -->
 
 <section class="mission-section">
+<div class="mission-heading">
+<span class="section-label">OUR PURPOSE</span>
 
-    <div class="mission-heading">
+<h2>
+Building a more
+<span>connected healthcare future.</span>
+</h2>
+</div>
 
-        <span class="section-label">
-            OUR PURPOSE
-        </span>
+<div class="mission-grid">
+<div class="mission-card mission-main">
+<div class="mission-number">01</div>
 
-        <h2>
+<div class="mission-icon">
+<i class="fa-solid fa-bullseye"></i>
+</div>
 
-            Building a more
+<span>OUR MISSION</span>
 
-            <span>
-                connected healthcare future.
-            </span>
+<h3>Simplify the healthcare journey.</h3>
 
-        </h2>
+<p>
+Our mission is to provide a connected digital
+healthcare environment where patients can easily
+access important services and healthcare information
+while healthcare teams can manage information more
+efficiently.
+</p>
+</div>
 
-    </div>
+<div class="mission-card">
+<div class="mission-number">02</div>
 
-    <div class="mission-grid">
+<div class="mission-icon">
+<i class="fa-solid fa-eye"></i>
+</div>
 
-        <div class="mission-card mission-main">
+<span>OUR VISION</span>
 
-            <div class="mission-number">
-                01
-            </div>
+<h3>A smarter healthcare experience.</h3>
 
-            <div class="mission-icon">
-
-                <i class="fa-solid fa-bullseye"></i>
-
-            </div>
-
-            <span>
-                OUR MISSION
-            </span>
-
-            <h3>
-                Simplify the healthcare journey.
-            </h3>
-
-            <p>
-
-                Our mission is to provide a connected digital
-                healthcare environment where patients can easily
-                access important services and healthcare information
-                while healthcare teams can manage information more
-                efficiently.
-
-            </p>
-
-        </div>
-
-        <div class="mission-card">
-
-            <div class="mission-number">
-                02
-            </div>
-
-            <div class="mission-icon">
-
-                <i class="fa-solid fa-eye"></i>
-
-            </div>
-
-            <span>
-                OUR VISION
-            </span>
-
-            <h3>
-                A smarter healthcare experience.
-            </h3>
-
-            <p>
-
-                We envision a healthcare ecosystem where technology
-                connects patients, doctors and hospital services,
-                making healthcare more organized, accessible and
-                patient-focused.
-
-            </p>
-
-        </div>
-
-    </div>
-
+<p>
+We envision a healthcare ecosystem where technology
+connects patients, doctors and hospital services,
+making healthcare more organized, accessible and
+patient-focused.
+</p>
+</div>
+</div>
 </section>
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
 
 <section class="services-section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <span class="section-label">
-                HEALTHCARE SERVICES
-            </span>
-
-            <h2>
-
-                Everything connected
-
-                <span>
-                    in one place.
-                </span>
-
-            </h2>
-
-        </div>
-
-        <p>
-
-            MediSync brings essential healthcare services together
-            through one simple digital experience.
-
-        </p>
-
-    </div>
-
-    <div class="about-services">
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    01
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-hospital-user"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                OPD Management
-            </h3>
-
-            <p>
-
-                Manage daily OPD activities, patient queues and
-                consultations through one connected platform.
-
-            </p>
-
-            <a href="doctor-dashboard.html#opd">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    02
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-regular fa-calendar-check"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                Appointments
-            </h3>
-
-            <p>
-
-                Manage scheduled patient appointments and organize
-                your daily consultation schedule.
-
-            </p>
-
-            <a href="doctor-dashboard.html#appointments">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    03
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-users"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                My Patients
-            </h3>
-
-            <p>
-
-                View and manage your connected patients and keep
-                track of their healthcare information.
-
-            </p>
-
-            <a href="doctor-dashboard.html#patients">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    04
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-file-medical"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                Patient Records
-            </h3>
-
-            <p>
-
-                Access and organize patient medical records and
-                important healthcare information.
-
-            </p>
-
-            <a href="doctor-dashboard.html#records">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    05
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-prescription-bottle-medical"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                Prescriptions
-            </h3>
-
-            <p>
-
-                Create and manage patient prescriptions while keeping
-                treatment information organized.
-
-            </p>
-
-            <a href="doctor-dashboard.html#prescriptions">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-        <div class="about-service">
-
-            <div class="service-top">
-
-                <span>
-                    06
-                </span>
-
-                <div class="service-icon">
-
-                    <i class="fa-solid fa-flask"></i>
-
-                </div>
-
-            </div>
-
-            <h3>
-                Lab Reports
-            </h3>
-
-            <p>
-
-                Review and manage patient laboratory reports through
-                your connected doctor portal.
-
-            </p>
-
-            <a href="doctor-dashboard.html#reports">
-
-                Explore service
-
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
+<div class="section-heading">
+<div>
+<span class="section-label">HEALTHCARE SERVICES</span>
+
+<h2>
+Everything connected
+<span>in one place.</span>
+</h2>
+</div>
+
+<p>
+MediSync brings essential healthcare services together
+through one simple digital experience.
+</p>
+</div>
+
+<div class="about-services">
+
+<div class="about-service">
+<div class="service-top">
+<span>01</span>
+
+<div class="service-icon">
+<i class="fa-regular fa-calendar-check"></i>
+</div>
+</div>
+
+<h3>Appointments</h3>
+
+<p>
+Manage scheduled patient appointments and organize
+your daily consultation schedule.
+</p>
+
+<a href="doctor-dashboard.html#appointments">
+Explore service
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+
+<div class="about-service">
+<div class="service-top">
+<span>02</span>
+
+<div class="service-icon">
+<i class="fa-solid fa-users"></i>
+</div>
+</div>
+
+<h3>My Patients</h3>
+
+<p>
+View and manage your connected patients and keep
+track of their healthcare information.
+</p>
+
+<a href="doctor-dashboard.html#patients">
+Explore service
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+
+<div class="about-service">
+<div class="service-top">
+<span>03</span>
+
+<div class="service-icon">
+<i class="fa-solid fa-file-medical"></i>
+</div>
+</div>
+
+<h3>Patient Records</h3>
+
+<p>
+Access and organize patient medical records and
+important healthcare information.
+</p>
+
+<a href="doctor-dashboard.html#records">
+Explore service
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<div class="about-service">
+<div class="service-top">
+<span>04</span>
+
+<div class="service-icon">
+<i class="fa-solid fa-prescription-bottle-medical"></i>
+</div>
+</div>
+
+<h3>Add Prescriptions</h3>
+
+<p>
+Create and manage patient prescriptions while keeping
+treatment information organized.
+</p>
+
+<a href="doctor-dashboard.html#prescriptions">
+Explore service
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+
+<div class="about-service">
+<div class="service-top">
+<span>05</span>
+
+<div class="service-icon">
+<i class="fa-solid fa-flask"></i>
+</div>
+</div>
+
+<h3>Lab Reports</h3>
+
+<p>
+Review and manage patient laboratory reports through
+your connected doctor portal.
+</p>
+
+<a href="doctor-dashboard.html#reports">
+Explore service
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+
+</div>
 </section>
-
-<!-- =====================================================
-     WHY MEDISYNC
-===================================================== -->
 
 <section class="why-section">
-
-    <div class="why-visual">
-
-        <div class="orbit orbit-one"></div>
-
-        <div class="orbit orbit-two"></div>
-
-        <div class="orbit orbit-three"></div>
-
-        <div class="why-center">
-
-            <i class="fa-solid fa-heart-pulse"></i>
-
-            <strong>
-                MediSync
-            </strong>
-
-            <span>
-                Connected Care
-            </span>
-
-        </div>
-
-        <div class="orbit-dot dot-one">
-
-            <i class="fa-solid fa-user"></i>
-
-        </div>
-
-        <div class="orbit-dot dot-two">
-
-            <i class="fa-solid fa-user-doctor"></i>
-
-        </div>
-
-        <div class="orbit-dot dot-three">
-
-            <i class="fa-solid fa-file-medical"></i>
-
-        </div>
-
-    </div>
-
-    <div class="why-content">
-
-        <span class="section-label">
-            WHY MEDISYNC
-        </span>
-
-        <h2>
-
-            Healthcare information,
-
-            <span>
-                beautifully organized.
-            </span>
-
-        </h2>
-
-        <p>
-
-            MediSync is built around the idea that technology should
-            make healthcare easier to navigate — not more complicated.
-
-        </p>
-
-        <div class="why-list">
-
-            <div class="why-item">
-
-                <div class="why-icon">
-
-                    <i class="fa-solid fa-layer-group"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        Centralized Information
-                    </strong>
-
-                    <span>
-                        Important healthcare information organized
-                        inside one platform.
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="why-item">
-
-                <div class="why-icon">
-
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        Easy Patient Access
-                    </strong>
-
-                    <span>
-                        A simple digital experience for managing
-                        everyday healthcare needs.
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="why-item">
-
-                <div class="why-icon">
-
-                    <i class="fa-solid fa-link"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        Connected Healthcare
-                    </strong>
-
-                    <span>
-                        Patients, doctors and hospital services
-                        connected through one ecosystem.
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="why-item">
-
-                <div class="why-icon">
-
-                    <i class="fa-solid fa-chart-line"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>
-                        Better Organization
-                    </strong>
-
-                    <span>
-                        Digital organization designed to reduce
-                        unnecessary complexity.
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+<div class="why-visual">
+<div class="orbit orbit-one"></div>
+<div class="orbit orbit-two"></div>
+<div class="orbit orbit-three"></div>
+
+<div class="why-center">
+<i class="fa-solid fa-heart-pulse"></i>
+<strong>MediSync</strong>
+<span>Connected Care</span>
+</div>
+
+<div class="orbit-dot dot-one">
+<i class="fa-solid fa-user"></i>
+</div>
+
+<div class="orbit-dot dot-two">
+<i class="fa-solid fa-user-doctor"></i>
+</div>
+
+<div class="orbit-dot dot-three">
+<i class="fa-solid fa-file-medical"></i>
+</div>
+</div>
+
+<div class="why-content">
+<span class="section-label">WHY MEDISYNC</span>
+
+<h2>
+Healthcare information,
+<span>beautifully organized.</span>
+</h2>
+
+<p>
+MediSync is built around the idea that technology should
+make healthcare easier to navigate — not more complicated.
+</p>
+
+<div class="why-list">
+
+<div class="why-item">
+<div class="why-icon">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+
+<div>
+<strong>Centralized Information</strong>
+<span>
+Important healthcare information organized
+inside one platform.
+</span>
+</div>
+</div>
+
+<div class="why-item">
+<div class="why-icon">
+<i class="fa-solid fa-mobile-screen-button"></i>
+</div>
+
+<div>
+<strong>Easy Patient Access</strong>
+<span>
+A simple digital experience for managing
+everyday healthcare needs.
+</span>
+</div>
+</div>
+
+<div class="why-item">
+<div class="why-icon">
+<i class="fa-solid fa-link"></i>
+</div>
+
+<div>
+<strong>Connected Healthcare</strong>
+<span>
+Patients, doctors and hospital services
+connected through one ecosystem.
+</span>
+</div>
+</div>
+
+<div class="why-item">
+<div class="why-icon">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+
+<div>
+<strong>Better Organization</strong>
+<span>
+Digital organization designed to reduce
+unnecessary complexity.
+</span>
+</div>
+</div>
+
+</div>
+</div>
 </section>
-
-<!-- =====================================================
-     CTA
-===================================================== -->
 
 <section class="cta-section">
+<div class="cta-content">
+<span>YOUR HEALTHCARE, CONNECTED</span>
 
-    <div class="cta-content">
+<h2>
+Better technology.
+<br>
+Better healthcare experience.
+</h2>
 
-        <span>
-            YOUR HEALTHCARE, CONNECTED
-        </span>
+<p>
+Explore your MediSync doctor portal and keep your
+healthcare journey organized.
+</p>
 
-        <h2>
+<a href="doctor-dashboard.html">
+Open Doctor Dashboard
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
 
-            Better technology.
-
-            <br>
-
-            Better healthcare experience.
-
-        </h2>
-
-        <p>
-
-            Explore your MediSync doctor portal and keep your
-            healthcare journey organized.
-
-        </p>
-
-        <a href="doctor-dashboard.html">
-
-            Open Doctor Dashboard
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </a>
-
-    </div>
-
-    <div class="cta-decoration">
-
-        <div class="cta-circle circle-one"></div>
-
-        <div class="cta-circle circle-two"></div>
-
-        <div class="cta-circle circle-three"></div>
-
-        <i class="fa-solid fa-heart-pulse"></i>
-
-    </div>
-
+<div class="cta-decoration">
+<div class="cta-circle circle-one"></div>
+<div class="cta-circle circle-two"></div>
+<div class="cta-circle circle-three"></div>
+<i class="fa-solid fa-heart-pulse"></i>
+</div>
 </section>
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
 
 <section class="contact-section">
+<div class="contact-heading">
+<span class="section-label">GET IN TOUCH</span>
 
-    <div class="contact-heading">
+<h2>
+We're here to support
+<span>your healthcare journey.</span>
+</h2>
+</div>
 
-        <span class="section-label">
-            GET IN TOUCH
-        </span>
+<div class="contact-grid">
 
-        <h2>
+<div class="contact-card">
+<div class="contact-icon">
+<i class="fa-solid fa-hospital"></i>
+</div>
 
-            We're here to support
+<span>VISIT US</span>
+<strong>MediSync Hospital</strong>
+<p>Smart Healthcare & Patient Care Center</p>
+</div>
 
-            <span>
-                your healthcare journey.
-            </span>
+<div class="contact-card">
+<div class="contact-icon">
+<i class="fa-solid fa-phone"></i>
+</div>
 
-        </h2>
+<span>CALL US</span>
+<strong>+91 1800-MEDISYNC</strong>
+<p>Our support team is available to assist you.</p>
+</div>
 
-    </div>
+<div class="contact-card">
+<div class="contact-icon">
+<i class="fa-solid fa-envelope"></i>
+</div>
 
-    <div class="contact-grid">
+<span>EMAIL US</span>
+<strong>support@medisync.com</strong>
+<p>Send us your questions and feedback.</p>
+</div>
 
-        <div class="contact-card">
-
-            <div class="contact-icon">
-
-                <i class="fa-solid fa-hospital"></i>
-
-            </div>
-
-            <span>
-                VISIT US
-            </span>
-
-            <strong>
-                MediSync Hospital
-            </strong>
-
-            <p>
-                Smart Healthcare & Patient Care Center
-            </p>
-
-        </div>
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-
-                <i class="fa-solid fa-phone"></i>
-
-            </div>
-
-            <span>
-                CALL US
-            </span>
-
-            <strong>
-                +91 1800-MEDISYNC
-            </strong>
-
-            <p>
-                Our support team is available to assist you.
-            </p>
-
-        </div>
-
-        <div class="contact-card">
-
-            <div class="contact-icon">
-
-                <i class="fa-solid fa-envelope"></i>
-
-            </div>
-
-            <span>
-                EMAIL US
-            </span>
-
-            <strong>
-                support@medisync.com
-            </strong>
-
-            <p>
-                Send us your questions and feedback.
-            </p>
-
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer class="about-footer">
+<div class="footer-brand">
+<div class="footer-logo">
+<img src="logo.jpeg" alt="MediSync">
+</div>
 
-    <div class="footer-brand">
+<div>
+<strong>MediSync</strong>
+<span>Smart Hospital Management & Patient Care System</span>
+</div>
+</div>
 
-        <div class="footer-logo">
+<div class="footer-links">
+<a href="doctor-dashboard.html">Dashboard</a>
+<a href="doctor-about.html">About Us</a>
+<a href="doctor-dashboard.html#appointments">Appointments</a>
+<a href="doctor-dashboard.html#records">Patient Records</a>
+</div>
 
-            <img src="logo.jpeg"
-                 alt="MediSync">
-
-        </div>
-
-        <div>
-
-            <strong>
-                MediSync
-            </strong>
-
-            <span>
-                Smart Hospital Management & Patient Care System
-            </span>
-
-        </div>
-
-    </div>
-
-    <div class="footer-links">
-
-        <a href="doctor-dashboard.html">
-            Dashboard
-        </a>
-
-        <a href="doctor-about.html">
-            About Us
-        </a>
-
-        <a href="doctor-dashboard.html#appointments">
-            Appointments
-        </a>
-
-        <a href="doctor-dashboard.html#records">
-            Patient Records
-        </a>
-
-    </div>
-
-    <p>
-        © 2026 MediSync. All rights reserved.
-    </p>
-
+<p>© 2026 MediSync. All rights reserved.</p>
 </footer>
-
-<!-- =====================================================
-     SESSION SCRIPT
-===================================================== -->
 
 <script>
 
-const email =
-    sessionStorage.getItem("medisyncEmail");
+const email = sessionStorage.getItem("medisyncEmail");
 
-const role =
-    sessionStorage.getItem("medisyncRole");
+const role = sessionStorage.getItem("medisyncRole");
 
 /* Protect doctor page */
 
 if (!email || role !== "doctor") {
-
-    window.location.href =
-        "login index.html";
-
+    window.location.href = "login index.html";
 }
 
 /* Show doctor name */
@@ -1332,29 +661,19 @@ document.getElementById("doctorName")
 
 function logout() {
 
-    sessionStorage.removeItem(
-        "medisyncUserId"
-    );
+    sessionStorage.removeItem("medisyncUserId");
 
-    sessionStorage.removeItem(
-        "medisyncUserName"
-    );
+    sessionStorage.removeItem("medisyncUserName");
 
-    sessionStorage.removeItem(
-        "medisyncEmail"
-    );
+    sessionStorage.removeItem("medisyncEmail");
 
-    sessionStorage.removeItem(
-        "medisyncRole"
-    );
+    sessionStorage.removeItem("medisyncRole");
 
-    window.location.href =
-        "login index.html";
+    window.location.href = "login index.html";
 
 }
 
 </script>
 
 </body>
-
 </html>

@@ -1,0 +1,1437 @@
+/* =========================================================
+   MEDISYNC PATIENT PRESCRIPTIONS
+   Complete Dashboard Styling
+========================================================= */
+
+/* ---------- RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #102a43;
+    --navy-dark: #071c2f;
+    --teal: #159a9c;
+    --teal-dark: #087f81;
+    --teal-light: #e8f7f7;
+    --background: #f4f8fb;
+    --white: #ffffff;
+    --text: #243b53;
+    --muted: #8293a3;
+    --border: #e1eaf0;
+    --green: #16865d;
+    --green-light: #e8f7ef;
+    --orange: #c77b16;
+    --orange-light: #fff5e5;
+    --red: #c0392b;
+    --shadow: 0 8px 24px rgba(16, 42, 67, 0.06);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.hospital-nav {
+    width: 100%;
+    min-height: 82px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 14px 5%;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 3px 14px rgba(16, 42, 67, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Brand */
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.brand-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--teal-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.brand-text strong {
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.brand-text span {
+    font-size: 10px;
+    color: var(--muted);
+}
+
+/* Main navigation */
+
+.main-navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link,
+.dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: #526777;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover,
+.dropdown-btn:hover {
+    color: var(--teal-dark);
+    background: var(--teal-light);
+}
+
+.nav-link.active,
+.dropdown-btn.active {
+    color: var(--teal-dark);
+    background: var(--teal-light);
+}
+
+.nav-link i,
+.dropdown-btn i {
+    font-size: 14px;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-btn .arrow {
+    font-size: 10px;
+    margin-left: 3px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 230px;
+    padding: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: none;
+    z-index: 200;
+}
+
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 12px;
+    border-radius: 8px;
+    color: #526777;
+    font-size: 13px;
+    transition: 0.2s ease;
+}
+
+.dropdown-menu a i {
+    width: 16px;
+    color: var(--teal);
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+}
+
+/* Right navigation */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification-btn {
+    position: relative;
+    border: none;
+    background: #f2f7fa;
+    color: var(--navy);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.notification-btn span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: #e05252;
+    color: white;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.profile-details strong {
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.profile-details span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.logout-btn {
+    border: none;
+    background: transparent;
+    color: #7b8b99;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.logout-btn:hover {
+    color: var(--red);
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.prescription-container {
+    width: min(1400px, 92%);
+    margin: 30px auto;
+}
+
+/* =========================================================
+   PAGE HEADER - NAVY / TEAL HERO CARD
+========================================================= */
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    min-height: 190px;
+    margin-bottom: 28px;
+    padding: 35px;
+
+    background: linear-gradient(
+        120deg,
+        var(--navy-dark),
+        var(--navy),
+        #116e73
+    );
+
+    color: var(--white);
+    border: none;
+    border-radius: 26px;
+
+    box-shadow: 0 20px 45px rgba(16, 42, 67, 0.15);
+}
+
+.page-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #a9e4e2;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+}
+
+.page-header h1 {
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 9px;
+}
+
+.page-header p {
+    max-width: 650px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.header-date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+
+    box-shadow: none;
+    flex-shrink: 0;
+    color: var(--white);
+}
+
+.header-date > i {
+    color: #a9e4e2;
+    font-size: 20px;
+}
+
+.header-date div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.header-date span {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.header-date strong {
+    color: var(--white);
+    font-size: 13px;
+}
+
+/* =========================================================
+   SUMMARY CARDS
+========================================================= */
+
+.prescription-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.summary-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(16, 42, 67, 0.09);
+}
+
+.summary-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 13px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+.summary-card > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-card span {
+    color: #748697;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.summary-card strong {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.summary-card small {
+    color: #9aa8b4;
+    font-size: 11px;
+}
+
+/* =========================================================
+   MAIN GRID
+========================================================= */
+
+.prescription-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr);
+    gap: 22px;
+    align-items: start;
+    margin-bottom: 28px;
+}
+
+.prescription-card,
+.side-card,
+.history-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.prescription-card {
+    padding: 25px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.side-card {
+    padding: 23px;
+}
+
+/* Card headers */
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.card-label {
+    display: block;
+    color: var(--teal-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    margin-bottom: 7px;
+}
+
+.card-header h2 {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.card-header > i {
+    color: var(--teal);
+    font-size: 20px;
+}
+
+.active-count {
+    background: var(--green-light);
+    color: var(--green);
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 15px;
+    background: #f7fafc;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    margin-bottom: 20px;
+}
+
+.search-box i {
+    color: #93a3b1;
+    font-size: 14px;
+}
+
+.search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #9aa8b4;
+}
+
+/* =========================================================
+   MEDICINE CARDS
+========================================================= */
+
+#activeMedicineList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.medicine-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 19px;
+    background: #fcfefe;
+    border: 1px solid #e3edf1;
+    border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.medicine-card:hover {
+    border-color: #b8dddd;
+    box-shadow: 0 5px 15px rgba(21, 154, 156, 0.06);
+}
+
+.medicine-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    flex-shrink: 0;
+}
+
+.medicine-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.medicine-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.medicine-title > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.medicine-title strong {
+    color: var(--navy);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.medicine-title span {
+    color: #8293a3;
+    font-size: 12px;
+}
+
+.medicine-title span i {
+    color: var(--teal);
+    margin-right: 4px;
+}
+
+.status-active {
+    display: inline-flex;
+    align-items: center;
+    background: var(--green-light);
+    color: var(--green) !important;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px !important;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.medicine-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.medicine-info-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.medicine-info-grid span {
+    color: #93a1ad;
+    font-size: 11px;
+}
+
+.medicine-info-grid strong {
+    color: #344e63;
+    font-size: 12px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.medicine-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 11px 12px;
+    background: #f0f8fc;
+    border-radius: 8px;
+    color: #637e91;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.medicine-note i {
+    color: #4d9db4;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.medicine-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.view-prescription-btn,
+.renewal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.view-prescription-btn {
+    border: 1px solid var(--teal);
+    background: var(--teal);
+    color: white;
+}
+
+.view-prescription-btn:hover {
+    background: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+.renewal-btn {
+    border: 1px solid #d9e5ec;
+    background: white;
+    color: #526d80;
+}
+
+.renewal-btn:hover {
+    background: #f1f7fa;
+    border-color: #b7cbd8;
+}
+
+/* =========================================================
+   TODAY'S SCHEDULE
+========================================================= */
+
+#todaySchedule {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.schedule-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 12px;
+    border: 1px solid #e7eef2;
+    border-radius: 10px;
+    background: #fcfefe;
+}
+
+.schedule-time {
+    min-width: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.schedule-time strong {
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.schedule-time span {
+    color: #9aa8b4;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.schedule-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.schedule-info strong {
+    color: #344e63;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.schedule-info span {
+    color: #8b9aa7;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.schedule-pending {
+    color: #d39a36;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+/* =========================================================
+   IMPORTANT NOTES
+========================================================= */
+
+.notes-card .card-header {
+    margin-bottom: 20px;
+}
+
+.note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid #edf2f5;
+}
+
+.note-item:last-of-type {
+    border-bottom: none;
+}
+
+.note-item > i {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+    background: var(--orange-light);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.note-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.note-item strong {
+    color: #344e63;
+    font-size: 12px;
+}
+
+.note-item span {
+    color: #8a9aa7;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.message-doctor-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 17px;
+    padding: 12px;
+    background: var(--teal-light);
+    border: 1px solid #c7e9e9;
+    border-radius: 9px;
+    color: var(--teal-dark);
+    font-size: 12px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.message-doctor-btn:hover {
+    background: #d9f1f1;
+}
+
+/* =========================================================
+   PRESCRIPTION HISTORY
+========================================================= */
+
+.history-card {
+    padding: 25px;
+    margin-bottom: 28px;
+}
+
+.history-card .card-header {
+    margin-bottom: 20px;
+}
+
+.history-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 13px;
+    background: #f7fafc;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: #62798b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.history-filter:hover {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.history-card table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.history-card thead {
+    background: #f5f9fb;
+}
+
+.history-card th {
+    padding: 14px 16px;
+    text-align: left;
+    color: #7a8d9c;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.history-card td {
+    padding: 16px;
+    border-bottom: 1px solid #edf2f5;
+    color: #62798b;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.history-card tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.history-card tbody tr:hover {
+    background: #fbfdfd;
+}
+
+.history-card td strong {
+    color: var(--navy);
+    font-size: 12px;
+}
+
+.status-completed {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #f0f3f6;
+    color: #718292;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.view-btn {
+    padding: 7px 12px;
+    border: 1px solid #cce7e7;
+    border-radius: 7px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.view-btn:hover {
+    background: #d6eeee;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.prescription-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 5px;
+    border-top: 1px solid var(--border);
+}
+
+.prescription-footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.prescription-footer strong {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.prescription-footer span,
+.prescription-footer p {
+    color: #93a1ad;
+    font-size: 11px;
+}
+
+/* =========================================================
+   PRESCRIPTION VIEW MODAL
+========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 28, 47, 0.62);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.prescription-modal {
+    position: relative;
+    width: min(600px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: modalAppear 0.25s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 9px;
+    background: #f2f6f8;
+    color: #6f8291;
+    font-size: 17px;
+}
+
+.modal-close:hover {
+    background: #e8eff3;
+    color: var(--navy);
+}
+
+.modal-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.modal-label {
+    display: block;
+    color: var(--teal-dark);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+}
+
+.prescription-modal h2 {
+    color: var(--navy);
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.modal-doctor {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    color: #8293a3;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.modal-doctor i {
+    color: var(--teal);
+}
+
+.modal-doctor strong {
+    color: #344e63;
+}
+
+.modal-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.modal-details > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 15px;
+    background: #f7fafc;
+    border: 1px solid #e5edf2;
+    border-radius: 10px;
+}
+
+.modal-details span {
+    color: #8a9aa7;
+    font-size: 11px;
+}
+
+.modal-details strong {
+    color: var(--navy);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.modal-details .modal-active {
+    color: var(--green);
+}
+
+.modal-instruction {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px;
+    background: #eef8fb;
+    border: 1px solid #d9edf3;
+    border-radius: 10px;
+    color: #607e91;
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.modal-instruction i {
+    color: #4d9db4;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.modal-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.modal-actions button:first-child {
+    background: var(--teal);
+    border: 1px solid var(--teal);
+    color: white;
+}
+
+.modal-actions button:first-child:hover {
+    background: var(--teal-dark);
+}
+
+.modal-actions button:last-child {
+    background: white;
+    border: 1px solid #dce6ec;
+    color: #607588;
+}
+
+.modal-actions button:last-child:hover {
+    background: #f5f8fa;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1200px) {
+    .hospital-nav {
+        padding: 14px 3%;
+        gap: 14px;
+    }
+
+    .main-navigation {
+        gap: 3px;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .prescription-container {
+        width: 94%;
+    }
+
+    .prescription-stats {
+        gap: 13px;
+    }
+
+    .summary-card {
+        padding: 17px;
+        gap: 12px;
+    }
+
+    .summary-icon {
+        width: 43px;
+        height: 43px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hospital-nav {
+        flex-wrap: wrap;
+    }
+
+    .main-navigation {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+
+    .prescription-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .prescription-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .right-column {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+    }
+}
+
+@media (max-width: 700px) {
+    .hospital-nav {
+        position: relative;
+        padding: 13px 4%;
+    }
+
+    .brand-text strong {
+        font-size: 19px;
+    }
+
+    .brand-text span {
+        max-width: 190px;
+        line-height: 1.4;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .profile-details {
+        display: none;
+    }
+
+    .main-navigation {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 3px;
+    }
+
+    .nav-link,
+    .dropdown-btn {
+        font-size: 11px;
+        padding: 10px;
+    }
+
+    .prescription-container {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .header-date {
+        align-self: flex-start;
+    }
+
+    .prescription-stats {
+        gap: 12px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .summary-card strong {
+        font-size: 22px;
+    }
+
+    .summary-card span {
+        font-size: 11px;
+    }
+
+    .prescription-card,
+    .side-card,
+    .history-card {
+        padding: 19px;
+    }
+
+    .right-column {
+        grid-template-columns: 1fr;
+    }
+
+    .medicine-info-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .prescription-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .prescription-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-card {
+        padding: 17px;
+    }
+
+    .medicine-card {
+        padding: 14px;
+        gap: 11px;
+    }
+
+    .medicine-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .medicine-title {
+        flex-direction: column;
+    }
+
+    .medicine-actions {
+        flex-direction: column;
+    }
+
+    .view-prescription-btn,
+    .renewal-btn {
+        width: 100%;
+    }
+
+    .card-header h2 {
+        font-size: 17px;
+    }
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .prescription-modal {
+        padding: 25px 20px;
+        max-height: 95vh;
+    }
+
+    .modal-details {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   PRINT STYLES
+   The prescription is printed through the separate print
+   window in the JavaScript function.
+========================================================= */
+
+@media print {
+    body {
+        background: white;
+    }
+
+    .hospital-nav,
+    .prescription-container,
+    .modal-overlay {
+        display: none !important;
+    }
+}

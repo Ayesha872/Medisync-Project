@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +41,7 @@
 
     <nav class="main-navigation">
 
-        <a href="patient-dashboard.html"
+        <a href="patient dashboard index.html"
            class="nav-link active">
 
             <i class="fa-solid fa-house"></i>
@@ -79,16 +80,16 @@
                 </a>
 
                 <a href="patient doctors.html">
-                <i class="fa-solid fa-user-doctor"></i>
-                    My Doctors
+                    <i class="fa-solid fa-user-doctor"></i>
+                    Find a Doctor
                 </a>
 
-                <a href="#prescriptions">
-                    <i class="fa-solid fa-prescription-bottle-medical"></i>
+                <a href="patient prescriptions.html">
+                 <i class="fa-solid fa-prescription-bottle-medical"></i>
                     Prescriptions
                 </a>
 
-                <a href="#reports">
+                <a href="patient lab reports.html">
                     <i class="fa-solid fa-flask"></i>
                     Lab Reports
                 </a>
@@ -103,29 +104,14 @@
                     Consultations
                 </a>
 
-                <a href="#ipd">
-                    <i class="fa-solid fa-hospital"></i>
-                    Admission / IPD
-                </a>
-
                 <a href="#billing">
                     <i class="fa-solid fa-receipt"></i>
                     Billing
                 </a>
 
-                <a href="#notifications">
-                    <i class="fa-regular fa-bell"></i>
-                    Notifications
-                </a>
-
                 <a href="#settings">
                     <i class="fa-solid fa-gear"></i>
                     Settings
-                </a>
-
-                <a href="#help">
-                    <i class="fa-regular fa-circle-question"></i>
-                    Help
                 </a>
 
             </div>
@@ -177,7 +163,6 @@
     </div>
 
 </header>
-
 
 
 <!-- ================= MAIN ================= -->
@@ -285,7 +270,6 @@
 </section>
 
 
-
 <!-- ================= QUICK STATS ================= -->
 
 <section class="stats-grid">
@@ -319,7 +303,9 @@
     </div>
 
 
-    <div class="stat-card doctors">
+    <div class="stat-card doctors"
+         onclick="window.location.href='patient doctors.html'"
+         style="cursor: pointer;">
 
         <div class="stat-icon">
             <i class="fa-solid fa-user-doctor"></i>
@@ -327,9 +313,11 @@
 
         <div class="stat-info">
 
-            <span>My Doctors</span>
+            <span>Find a Doctor</span>
 
-            <strong>03</strong>
+            <strong id="doctorCount">
+                0
+            </strong>
 
             <small>Care team</small>
 
@@ -342,7 +330,10 @@
     </div>
 
 
-    <div class="stat-card prescriptions">
+    <div class="stat-card prescriptions"
+    onclick="window.location.href='patient prescriptions.html'"
+         style="cursor: pointer;">
+
 
         <div class="stat-icon">
             <i class="fa-solid fa-prescription-bottle-medical"></i>
@@ -365,7 +356,9 @@
     </div>
 
 
-    <div class="stat-card reports">
+    <div class="stat-card reports"
+    onclick="window.location.href='patient lab reports.html'"
+         style="cursor: pointer;">
 
         <div class="stat-icon">
             <i class="fa-solid fa-file-waveform"></i>
@@ -388,7 +381,6 @@
     </div>
 
 </section>
-
 
 
 <!-- ================= MAIN GRID ================= -->
@@ -515,7 +507,6 @@
 </section>
 
 
-
 <!-- ================= UPCOMING ================= -->
 
 <section class="dashboard-card upcoming-card">
@@ -633,7 +624,6 @@
     </div>
 
 </section>
-
 
 
 <!-- ================= VITALS ================= -->
@@ -766,7 +756,6 @@
 </section>
 
 
-
 <!-- ================= DOCTOR ================= -->
 
 <section class="dashboard-card doctor-card" id="doctors">
@@ -783,7 +772,7 @@
 
         </div>
 
-        <a href="#doctors">View all</a>
+        <a href="patient doctors.html">View all</a>
 
     </div>
 
@@ -796,9 +785,13 @@
 
         <div class="doctor-info">
 
-            <strong>Dr. Sharma</strong>
+            <strong id="dashboardDoctorName">
+                Loading...
+            </strong>
 
-            <span>Senior Cardiologist</span>
+            <span id="dashboardDoctorSpecialization">
+                Loading...
+            </span>
 
             <small>
                 <i class="fa-solid fa-location-dot"></i>
@@ -819,20 +812,27 @@
 
     <div class="doctor-actions">
 
-        <button>
+        <button
+            type="button"
+            onclick="goToAppointment()">
+
             <i class="fa-regular fa-calendar"></i>
             Appointment
+
         </button>
 
-        <button>
+        <button
+            type="button"
+            onclick="goToDoctorMessage()">
+
             <i class="fa-regular fa-comment"></i>
             Message
+
         </button>
 
     </div>
 
 </section>
-
 
 
 <!-- ================= PRESCRIPTION ================= -->
@@ -851,7 +851,7 @@
 
         </div>
 
-        <a href="#prescriptions">View all</a>
+        <a href="patient prescriptions.html">View all</a>
 
     </div>
 
@@ -901,7 +901,6 @@
     </div>
 
 </section>
-
 
 
 <!-- ================= RECENT ACTIVITY ================= -->
@@ -1031,7 +1030,6 @@
 </section>
 
 
-
 <!-- ================= QUICK SERVICES ================= -->
 
 <section class="services-section">
@@ -1081,7 +1079,7 @@
                 <i class="fa-solid fa-user-doctor"></i>
             </div>
 
-            <strong>My Doctors</strong>
+            <strong>Find a Doctor</strong>
 
             <span>View care team</span>
 
@@ -1090,7 +1088,7 @@
         </a>
 
 
-        <a href="#reports"
+        <a href="patient lab reports.html"
            class="service-card">
 
             <div class="service-icon">
@@ -1122,22 +1120,6 @@
         </a>
 
 
-        <a href="#consultations"
-           class="service-card">
-
-            <div class="service-icon">
-                <i class="fa-solid fa-comments"></i>
-            </div>
-
-            <strong>Consultations</strong>
-
-            <span>Doctor consultations</span>
-
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </a>
-
-
         <a href="#billing"
            class="service-card">
 
@@ -1156,7 +1138,6 @@
     </div>
 
 </section>
-
 
 
 <!-- ================= PROFILE ================= -->
@@ -1214,6 +1195,176 @@
 </section>
 
 
+<!-- ================= MESSAGE DOCTOR POPUP ================= -->
+
+<div id="dashboardMessageModal"
+     style="
+        display:none;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.45);
+        z-index:9999;
+        align-items:center;
+        justify-content:center;
+     ">
+
+    <div style="
+        width:90%;
+        max-width:500px;
+        background:white;
+        border-radius:18px;
+        padding:28px;
+        position:relative;
+        box-shadow:0 20px 60px rgba(0,0,0,0.2);
+     ">
+
+        <button
+            type="button"
+            onclick="closeDashboardMessage()"
+            style="
+                position:absolute;
+                right:18px;
+                top:15px;
+                border:none;
+                background:none;
+                font-size:22px;
+                cursor:pointer;
+            ">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+
+        <div style="
+            display:flex;
+            align-items:center;
+            gap:14px;
+            margin-bottom:24px;
+        ">
+
+            <div style="
+                width:48px;
+                height:48px;
+                border-radius:50%;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:#e8f7f5;
+                color:#159a8a;
+            ">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+            </div>
+
+            <div>
+
+                <p style="
+                    margin:0 0 4px;
+                    font-size:12px;
+                    font-weight:700;
+                    color:#159a8a;
+                ">
+                    CONTACT DOCTOR
+                </p>
+
+                <h2 id="dashboardMessageDoctorName"
+                    style="margin:0;">
+                    Doctor
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <label
+            for="dashboardMessageSubject"
+            style="
+                display:block;
+                margin-bottom:7px;
+                font-weight:600;
+            ">
+
+            Subject
+
+        </label>
+
+
+        <input
+            type="text"
+            id="dashboardMessageSubject"
+            placeholder="Enter message subject"
+            style="
+                width:100%;
+                box-sizing:border-box;
+                padding:12px;
+                border:1px solid #ddd;
+                border-radius:8px;
+                margin-bottom:18px;
+                font-family:inherit;
+            ">
+
+
+        <label
+            for="dashboardDoctorMessage"
+            style="
+                display:block;
+                margin-bottom:7px;
+                font-weight:600;
+            ">
+
+            Message
+
+        </label>
+
+
+        <textarea
+            id="dashboardDoctorMessage"
+            rows="5"
+            placeholder="Write your message here..."
+            style="
+                width:100%;
+                box-sizing:border-box;
+                padding:12px;
+                border:1px solid #ddd;
+                border-radius:8px;
+                resize:vertical;
+                margin-bottom:18px;
+                font-family:inherit;
+            "></textarea>
+
+
+        <button
+            type="button"
+            id="dashboardSendMessageButton"
+            onclick="sendDashboardDoctorMessage()"
+            style="
+                width:100%;
+                padding:13px;
+                border:none;
+                border-radius:9px;
+                background:#159a8a;
+                color:white;
+                font-size:15px;
+                font-weight:700;
+                cursor:pointer;
+            ">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+            Send Message
+
+        </button>
+
+    </div>
+
+</div>
+
 
 <!-- ================= FOOTER ================= -->
 
@@ -1236,7 +1387,6 @@
 </footer>
 
 </main>
-
 
 
 <script>
@@ -1270,7 +1420,6 @@ document.getElementById("welcomeName")
     .textContent = patientName;
 
 
-
 /* ================= TODAY'S DATE ================= */
 
 const todayForDisplay = new Date();
@@ -1285,7 +1434,6 @@ document.getElementById("todayDate")
             year: "numeric"
         }
     );
-
 
 
 /* ================= LOGOUT ================= */
@@ -1303,7 +1451,6 @@ function logout() {
 }
 
 
-
 /* ================= APPOINTMENT VARIABLES ================= */
 
 let allUpcomingAppointments = [];
@@ -1313,7 +1460,6 @@ let calendarYear =
 
 let calendarMonth =
     new Date().getMonth();
-
 
 
 /* ================= LOAD APPOINTMENTS ================= */
@@ -1365,12 +1511,31 @@ async function loadDashboardAppointments() {
             appointments.length;
 
 
+        /* ================= MY DOCTORS COUNT ================= */
+
+        const uniqueDoctors = [
+            ...new Set(
+                appointments
+                    .map(function(appointment) {
+                        return appointment.doctor_name;
+                    })
+                    .filter(function(name) {
+                        return name;
+                    })
+            )
+        ];
+
+
+        document.getElementById(
+            "doctorCount"
+        ).textContent =
+            uniqueDoctors.length;
+
 
         const today =
             new Date();
 
         today.setHours(0, 0, 0, 0);
-
 
 
         allUpcomingAppointments =
@@ -1392,7 +1557,6 @@ async function loadDashboardAppointments() {
         ).textContent =
             allUpcomingAppointments.length +
             " upcoming";
-
 
 
         if (allUpcomingAppointments.length === 0) {
@@ -1452,7 +1616,6 @@ async function loadDashboardAppointments() {
         }
 
 
-
         /* ================= SORT ================= */
 
         allUpcomingAppointments.sort(
@@ -1478,7 +1641,6 @@ async function loadDashboardAppointments() {
         );
 
 
-
         /* ================= NEXT APPOINTMENT ================= */
 
         const next =
@@ -1499,7 +1661,6 @@ async function loadDashboardAppointments() {
             appointmentDate.getMonth();
 
 
-
         const day =
             String(
                 appointmentDate.getDate()
@@ -1513,7 +1674,6 @@ async function loadDashboardAppointments() {
                     month: "short"
                 }
             ).toUpperCase();
-
 
 
         /* ================= TIME ================= */
@@ -1550,7 +1710,6 @@ async function loadDashboardAppointments() {
             ampm;
 
 
-
         /* ================= HERO ================= */
 
         document.getElementById(
@@ -1573,7 +1732,6 @@ async function loadDashboardAppointments() {
             next.doctor_name +
             " · " +
             next.specialization;
-
 
 
         /* ================= NEXT VISIT ================= */
@@ -1614,7 +1772,6 @@ async function loadDashboardAppointments() {
             next.status;
 
 
-
         createCalendar();
 
     }
@@ -1629,7 +1786,6 @@ async function loadDashboardAppointments() {
     }
 
 }
-
 
 
 /* ================= LAST VISIT ================= */
@@ -1690,7 +1846,6 @@ async function loadLastVisit() {
         }
 
 
-
         const visitDate =
             new Date(
                 result.visit_date +
@@ -1737,7 +1892,6 @@ async function loadLastVisit() {
 }
 
 
-
 /* ================= CREATE CALENDAR ================= */
 
 function createCalendar() {
@@ -1755,7 +1909,6 @@ function createCalendar() {
 
 
     calendar.innerHTML = "";
-
 
 
     const monthName =
@@ -1776,7 +1929,6 @@ function createCalendar() {
         monthName;
 
 
-
     let firstDay =
         new Date(
             calendarYear,
@@ -1791,14 +1943,12 @@ function createCalendar() {
             : firstDay - 1;
 
 
-
     const daysInMonth =
         new Date(
             calendarYear,
             calendarMonth + 1,
             0
         ).getDate();
-
 
 
     const previousMonthDays =
@@ -1829,7 +1979,6 @@ function createCalendar() {
     }
 
 
-
     const appointmentDates =
         allUpcomingAppointments.map(
             function(appointment) {
@@ -1838,7 +1987,6 @@ function createCalendar() {
 
             }
         );
-
 
 
     for (
@@ -1873,7 +2021,6 @@ function createCalendar() {
             dayString;
 
 
-
         if (
             appointmentDates.includes(
                 dateKey
@@ -1885,7 +2032,6 @@ function createCalendar() {
             );
 
         }
-
 
 
         const currentDate =
@@ -1908,7 +2054,6 @@ function createCalendar() {
         calendar.appendChild(span);
 
     }
-
 
 
     const totalDays =
@@ -1942,7 +2087,6 @@ function createCalendar() {
 }
 
 
-
 /* ================= CALENDAR PREVIOUS ================= */
 
 document.getElementById(
@@ -1964,7 +2108,6 @@ document.getElementById(
 
     }
 );
-
 
 
 /* ================= CALENDAR NEXT ================= */
@@ -1990,12 +2133,390 @@ document.getElementById(
 );
 
 
+/* ================= YOUR DOCTOR ================= */
+
+async function loadDashboardDoctor() {
+
+    const patientId =
+        sessionStorage.getItem("medisyncUserId");
+
+
+    if (!patientId) {
+
+        console.log("Patient ID not found.");
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "get_my_doctors.php?patient_id=" +
+                encodeURIComponent(patientId)
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            !result.success ||
+            !result.doctors ||
+            result.doctors.length === 0
+        ) {
+
+            document.getElementById(
+                "dashboardDoctorName"
+            ).textContent =
+                "No doctor assigned";
+
+
+            document.getElementById(
+                "dashboardDoctorSpecialization"
+            ).textContent =
+                "No doctor information";
+
+
+            return;
+
+        }
+
+
+        const doctor =
+            result.doctors[0];
+
+
+        document.getElementById(
+            "dashboardDoctorName"
+        ).textContent =
+            doctor.doctor_name;
+
+
+        document.getElementById(
+            "dashboardDoctorSpecialization"
+        ).textContent =
+            doctor.specialization ||
+            "Medical Specialist";
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Doctor loading error:",
+            error
+        );
+
+
+        document.getElementById(
+            "dashboardDoctorName"
+        ).textContent =
+            "Unable to load";
+
+
+        document.getElementById(
+            "dashboardDoctorSpecialization"
+        ).textContent =
+            "Please try again";
+
+    }
+
+}
+
+
+/* ================= APPOINTMENT BUTTON ================= */
+
+function goToAppointment() {
+
+    window.location.href =
+        "patient appointment.html";
+
+}
+
+
+/* ================= MESSAGE BUTTON ================= */
+
+function goToDoctorMessage() {
+
+    const doctorName =
+        document.getElementById(
+            "dashboardDoctorName"
+        ).textContent;
+
+
+    if (
+        !doctorName ||
+        doctorName === "Loading..." ||
+        doctorName === "No doctor assigned" ||
+        doctorName === "Unable to load"
+    ) {
+
+        alert(
+            "Doctor information is not available."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "dashboardMessageDoctorName"
+    ).textContent =
+        doctorName;
+
+
+    document.getElementById(
+        "dashboardMessageSubject"
+    ).value = "";
+
+
+    document.getElementById(
+        "dashboardDoctorMessage"
+    ).value = "";
+
+
+    document.getElementById(
+        "dashboardMessageModal"
+    ).style.display =
+        "flex";
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* ================= CLOSE DASHBOARD MESSAGE ================= */
+
+function closeDashboardMessage() {
+
+    document.getElementById(
+        "dashboardMessageModal"
+    ).style.display =
+        "none";
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* ================= SEND DASHBOARD MESSAGE ================= */
+
+async function sendDashboardDoctorMessage() {
+
+    const doctorName =
+        document.getElementById(
+            "dashboardMessageDoctorName"
+        ).textContent;
+
+
+    const subject =
+        document.getElementById(
+            "dashboardMessageSubject"
+        ).value.trim();
+
+
+    const message =
+        document.getElementById(
+            "dashboardDoctorMessage"
+        ).value.trim();
+
+
+    const patientId =
+        sessionStorage.getItem(
+            "medisyncUserId"
+        );
+
+
+    if (!subject) {
+
+        alert(
+            "Please enter a subject."
+        );
+
+        return;
+
+    }
+
+
+    if (!message) {
+
+        alert(
+            "Please write your message."
+        );
+
+        return;
+
+    }
+
+
+    if (!patientId) {
+
+        alert(
+            "Patient information not found. Please login again."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const button =
+            document.getElementById(
+                "dashboardSendMessageButton"
+            );
+
+
+        button.disabled =
+            true;
+
+
+        button.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+
+        const formData =
+            new FormData();
+
+
+        formData.append(
+            "sender_id",
+            patientId
+        );
+
+
+        formData.append(
+            "receiver_id",
+            "0"
+        );
+
+
+        formData.append(
+            "doctor_name",
+            doctorName
+        );
+
+
+        formData.append(
+            "sender_role",
+            "patient"
+        );
+
+
+        formData.append(
+            "subject",
+            subject
+        );
+
+
+        formData.append(
+            "message",
+            message
+        );
+
+
+        const response =
+            await fetch(
+                "send_message.php",
+                {
+                    method: "POST",
+                    body: formData
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (data.success) {
+
+            alert(
+                "Your message to " +
+                doctorName +
+                " has been sent successfully."
+            );
+
+
+            document.getElementById(
+                "dashboardMessageSubject"
+            ).value = "";
+
+
+            document.getElementById(
+                "dashboardDoctorMessage"
+            ).value = "";
+
+
+            closeDashboardMessage();
+
+        }
+
+        else {
+
+            alert(
+                "Unable to send message: " +
+                data.message
+            );
+
+        }
+
+
+        button.disabled =
+            false;
+
+
+        button.innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> Send Message';
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Dashboard message error:",
+            error
+        );
+
+
+        alert(
+            "Unable to connect to the server. Please make sure XAMPP is running."
+        );
+
+
+        document.getElementById(
+            "dashboardSendMessageButton"
+        ).disabled =
+            false;
+
+
+        document.getElementById(
+            "dashboardSendMessageButton"
+        ).innerHTML =
+            '<i class="fa-solid fa-paper-plane"></i> Send Message';
+
+    }
+
+}
+
 
 /* ================= START ================= */
 
 loadDashboardAppointments();
 
 loadLastVisit();
+
+loadDashboardDoctor();
 
 </script>
 

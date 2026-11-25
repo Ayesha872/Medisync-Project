@@ -5,9 +5,9 @@ header("Content-Type: application/json");
 $conn = new mysqli(
     "localhost",
     "root",
-    "",
+    "123456789",
     "medisync",
-    3306
+    3307
 );
 
 if ($conn->connect_error) {
